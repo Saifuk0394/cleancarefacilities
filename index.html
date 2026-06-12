@@ -2,996 +2,1709 @@
 <html lang="en">
 
 <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Clean Care | Premium Facility Management Mumbai</title>
+    <meta name="description" content="Clean Care is Mumbai's trusted facility management partner providing housekeeping, maintenance, technical support, manpower and integrated facility solutions." />
+    <meta name="keywords" content="Facility Management Mumbai, Housekeeping Services Mumbai, Property Maintenance Mumbai, Commercial Cleaning Mumbai" />
+    <meta name="theme-color" content="#c8102e" />
+    <meta property="og:title" content="Clean Care Facility Management" />
+    <meta property="og:description" content="14+ Years of Facility Management Excellence Across Mumbai" />
+    <meta property="og:type" content="website" />
+    <link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><text y='.9em' font-size='90'>🧹</text></svg>" />
 
-<meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800;900&display=swap" rel="stylesheet" />
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css" />
 
-<title>Clean Care | Facility Management Services Mumbai</title>
+    <style>
+        /* ============================================
+               ROOT & RESET
+            ============================================ */
+        :root {
+            --primary: #c8102e;
+            --primary-dark: #a00d24;
+            --primary-light: #e82a4a;
+            --primary-glow: rgba(200, 16, 46, 0.35);
+            --dark: #07111f;
+            --dark-2: #0f1c2f;
+            --dark-3: #1a2a40;
+            --light: #ffffff;
+            --gray: #94a3b8;
+            --gray-light: #e2e8f0;
+            --border: rgba(255, 255, 255, 0.08);
+            --shadow-sm: 0 4px 20px rgba(0, 0, 0, 0.06);
+            --shadow-md: 0 12px 40px rgba(0, 0, 0, 0.10);
+            --shadow-lg: 0 25px 60px rgba(0, 0, 0, 0.15);
+            --shadow-glow: 0 0 40px rgba(200, 16, 46, 0.25);
+            --radius: 16px;
+            --radius-lg: 28px;
+            --transition: 0.35s cubic-bezier(0.25, 0.46, 0.45, 0.94);
+        }
 
-<meta name="description" content="Clean Care is Mumbai's trusted facility management partner providing housekeeping, maintenance, technical support, manpower and integrated facility solutions for residential, commercial and hospitality properties.">
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
 
-<meta name="keywords" content="Facility Management Mumbai, Housekeeping Services Mumbai, Property Maintenance Mumbai, Commercial Cleaning Mumbai, Facility Management Company">
+        html {
+            scroll-behavior: smooth;
+            scroll-padding-top: 90px;
+        }
 
-<meta name="theme-color" content="#c8102e">
+        body {
+            font-family: 'Inter', sans-serif;
+            background: #ffffff;
+            color: #0f172a;
+            overflow-x: hidden;
+            line-height: 1.6;
+            -webkit-font-smoothing: antialiased;
+        }
 
-<meta property="og:title" content="Clean Care Facility Management">
-<meta property="og:description" content="14+ Years of Facility Management Excellence Across Mumbai">
-<meta property="og:type" content="website">
+        .container {
+            width: min(1200px, 92%);
+            margin: auto;
+        }
 
-<link rel="icon" href="favicon-32.png">
+        a {
+            text-decoration: none;
+            color: inherit;
+        }
 
-<link rel="preconnect" href="https://fonts.googleapis.com">
-<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+        ul {
+            list-style: none;
+        }
 
-<link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+        img {
+            max-width: 100%;
+            display: block;
+        }
 
-<link rel="stylesheet" href="style.css">
+        /* ============================================
+               LOADER
+            ============================================ */
+        #loader {
+            position: fixed;
+            inset: 0;
+            background: var(--dark);
+            z-index: 9999;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            transition: opacity 0.6s ease, visibility 0.6s ease;
+        }
+        #loader.hidden {
+            opacity: 0;
+            visibility: hidden;
+        }
 
-<link rel="stylesheet"
-href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css">
+        .loader-circle {
+            width: 70px;
+            height: 70px;
+            border: 4px solid rgba(255, 255, 255, 0.08);
+            border-top-color: var(--primary);
+            border-radius: 50%;
+            animation: spin 0.9s cubic-bezier(0.6, 0, 0.4, 1) infinite;
+        }
+        @keyframes spin {
+            to {
+                transform: rotate(360deg);
+            }
+        }
 
+        .loader-text {
+            margin-top: 24px;
+            color: rgba(255, 255, 255, 0.5);
+            font-size: 14px;
+            letter-spacing: 2px;
+            text-transform: uppercase;
+            font-weight: 600;
+        }
+
+        /* ============================================
+               HEADER
+            ============================================ */
+        .header {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            z-index: 1000;
+            transition: background 0.4s ease, backdrop-filter 0.4s ease, box-shadow 0.4s ease;
+            padding: 0 0;
+        }
+        .header.scrolled {
+            background: rgba(7, 17, 31, 0.92);
+            backdrop-filter: blur(16px);
+            box-shadow: 0 8px 40px rgba(0, 0, 0, 0.25);
+            border-bottom: 1px solid rgba(255, 255, 255, 0.04);
+        }
+
+        .navbar {
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            padding: 14px 0;
+        }
+
+        .navbar-logo {
+            height: 60px;
+            width: auto;
+            display: block;
+            transition: var(--transition);
+        }
+        .header.scrolled .navbar-logo {
+            height: 50px;
+        }
+
+        .nav-links {
+            display: flex;
+            gap: 36px;
+        }
+        .nav-links a {
+            color: rgba(255, 255, 255, 0.8);
+            font-weight: 600;
+            font-size: 15px;
+            position: relative;
+            transition: var(--transition);
+            letter-spacing: 0.3px;
+        }
+        .nav-links a::after {
+            content: '';
+            position: absolute;
+            left: 0;
+            bottom: -6px;
+            width: 0;
+            height: 2.5px;
+            background: var(--primary);
+            transition: var(--transition);
+            border-radius: 4px;
+        }
+        .nav-links a:hover {
+            color: #fff;
+        }
+        .nav-links a:hover::after {
+            width: 100%;
+        }
+
+        .nav-actions {
+            display: flex;
+            align-items: center;
+            gap: 16px;
+        }
+
+        .call-btn {
+            padding: 12px 22px;
+            background: var(--primary);
+            color: #fff;
+            border-radius: 50px;
+            font-weight: 700;
+            font-size: 14px;
+            transition: var(--transition);
+            display: flex;
+            align-items: center;
+            gap: 10px;
+            box-shadow: 0 6px 24px rgba(200, 16, 46, 0.30);
+            border: none;
+            cursor: pointer;
+        }
+        .call-btn:hover {
+            transform: translateY(-3px);
+            box-shadow: 0 10px 35px rgba(200, 16, 46, 0.45);
+            background: var(--primary-light);
+        }
+        .call-btn i {
+            font-size: 15px;
+        }
+
+        .mobile-menu {
+            display: none;
+            background: none;
+            border: none;
+            color: white;
+            font-size: 26px;
+            cursor: pointer;
+            padding: 6px;
+            transition: var(--transition);
+        }
+        .mobile-menu:hover {
+            color: var(--primary);
+        }
+
+        /* ============================================
+               HERO
+            ============================================ */
+        .hero {
+            position: relative;
+            min-height: 100vh;
+            display: flex;
+            align-items: center;
+            background: linear-gradient(145deg, #06101e, #0f1f35, #081829);
+            overflow: hidden;
+        }
+
+        .hero::before {
+            content: '';
+            position: absolute;
+            width: 750px;
+            height: 750px;
+            border-radius: 50%;
+            background: radial-gradient(circle, rgba(200, 16, 46, 0.35), transparent 70%);
+            right: -200px;
+            top: -250px;
+            pointer-events: none;
+        }
+        .hero::after {
+            content: '';
+            position: absolute;
+            width: 550px;
+            height: 550px;
+            border-radius: 50%;
+            background: radial-gradient(circle, rgba(255, 255, 255, 0.04), transparent 70%);
+            left: -180px;
+            bottom: -200px;
+            pointer-events: none;
+        }
+
+        .hero-overlay {
+            position: absolute;
+            inset: 0;
+            background: url('https://images.unsplash.com/photo-1497366754035-f200968a6e72?q=80&w=2000&auto=format&fit=crop') center/cover;
+            opacity: 0.05;
+            pointer-events: none;
+        }
+
+        .hero-content {
+            position: relative;
+            display: grid;
+            grid-template-columns: 1.2fr 0.8fr;
+            gap: 70px;
+            align-items: center;
+            padding-top: 100px;
+            padding-bottom: 60px;
+        }
+
+        .hero-tag {
+            display: inline-flex;
+            align-items: center;
+            gap: 10px;
+            padding: 10px 20px;
+            background: rgba(255, 255, 255, 0.06);
+            border: 1px solid rgba(255, 255, 255, 0.08);
+            backdrop-filter: blur(12px);
+            border-radius: 50px;
+            color: rgba(255, 255, 255, 0.9);
+            font-size: 13px;
+            font-weight: 600;
+            letter-spacing: 0.5px;
+            margin-bottom: 28px;
+            transition: var(--transition);
+        }
+        .hero-tag i {
+            color: var(--primary);
+            font-size: 14px;
+        }
+
+        .hero-left h1 {
+            font-size: 64px;
+            line-height: 1.08;
+            color: #fff;
+            font-weight: 900;
+            margin-bottom: 24px;
+            letter-spacing: -1.5px;
+        }
+        .hero-left h1 .highlight {
+            background: linear-gradient(135deg, var(--primary), #ff6b4a);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+        }
+
+        .hero-left p {
+            color: rgba(255, 255, 255, 0.7);
+            font-size: 19px;
+            line-height: 1.8;
+            margin-bottom: 36px;
+            max-width: 680px;
+            font-weight: 400;
+        }
+
+        .hero-buttons {
+            display: flex;
+            gap: 16px;
+            flex-wrap: wrap;
+            margin-bottom: 44px;
+        }
+
+        .btn {
+            display: inline-flex;
+            align-items: center;
+            justify-content: center;
+            padding: 16px 34px;
+            border-radius: 50px;
+            font-weight: 700;
+            font-size: 15px;
+            transition: var(--transition);
+            gap: 10px;
+            border: none;
+            cursor: pointer;
+        }
+        .btn-primary {
+            background: var(--primary);
+            color: #fff;
+            box-shadow: 0 8px 30px rgba(200, 16, 46, 0.30);
+        }
+        .btn-primary:hover {
+            transform: translateY(-4px);
+            box-shadow: 0 14px 45px rgba(200, 16, 46, 0.45);
+            background: var(--primary-light);
+        }
+
+        .btn-secondary {
+            border: 1px solid rgba(255, 255, 255, 0.15);
+            background: rgba(255, 255, 255, 0.04);
+            backdrop-filter: blur(12px);
+            color: #fff;
+        }
+        .btn-secondary:hover {
+            background: rgba(255, 255, 255, 0.10);
+            transform: translateY(-4px);
+            border-color: rgba(255, 255, 255, 0.25);
+        }
+
+        .hero-trust {
+            display: flex;
+            gap: 48px;
+            flex-wrap: wrap;
+        }
+        .hero-trust div {
+            display: flex;
+            flex-direction: column;
+        }
+        .hero-trust strong {
+            font-size: 30px;
+            color: #fff;
+            font-weight: 800;
+            line-height: 1.2;
+        }
+        .hero-trust strong .accent {
+            color: var(--primary);
+        }
+        .hero-trust span {
+            color: rgba(255, 255, 255, 0.5);
+            font-size: 14px;
+            font-weight: 500;
+            letter-spacing: 0.3px;
+        }
+
+        .glass-card {
+            background: rgba(255, 255, 255, 0.05);
+            backdrop-filter: blur(24px);
+            border: 1px solid rgba(255, 255, 255, 0.08);
+            padding: 40px 38px;
+            border-radius: var(--radius-lg);
+            box-shadow: 0 30px 80px rgba(0, 0, 0, 0.25);
+            transition: var(--transition);
+        }
+        .glass-card:hover {
+            border-color: rgba(200, 16, 46, 0.20);
+            box-shadow: 0 30px 80px rgba(0, 0, 0, 0.35), 0 0 60px rgba(200, 16, 46, 0.05);
+        }
+        .glass-card h3 {
+            color: #fff;
+            margin-bottom: 22px;
+            font-size: 22px;
+            font-weight: 700;
+            letter-spacing: -0.5px;
+        }
+        .glass-card ul {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 12px 24px;
+        }
+        .glass-card li {
+            color: rgba(255, 255, 255, 0.75);
+            font-size: 15px;
+            display: flex;
+            align-items: center;
+            gap: 10px;
+        }
+        .glass-card li::before {
+            content: '✦';
+            color: var(--primary);
+            font-size: 12px;
+        }
+
+        /* ============================================
+               TRUST STRIP
+            ============================================ */
+        .trust-strip {
+            padding: 70px 0;
+            background: #081321;
+            border-bottom: 1px solid rgba(255, 255, 255, 0.04);
+        }
+        .trust-grid {
+            display: grid;
+            grid-template-columns: repeat(4, 1fr);
+            gap: 30px;
+            text-align: center;
+        }
+        .trust-grid>div {
+            padding: 20px 10px;
+            transition: var(--transition);
+            border-radius: var(--radius);
+            background: rgba(255, 255, 255, 0.02);
+            border: 1px solid transparent;
+        }
+        .trust-grid>div:hover {
+            background: rgba(255, 255, 255, 0.04);
+            border-color: rgba(255, 255, 255, 0.06);
+            transform: translateY(-4px);
+        }
+        .trust-grid i {
+            font-size: 38px;
+            color: var(--primary);
+            margin-bottom: 16px;
+            display: block;
+        }
+        .trust-grid h3 {
+            color: #fff;
+            font-size: 28px;
+            font-weight: 800;
+            margin-bottom: 4px;
+        }
+        .trust-grid p {
+            color: rgba(255, 255, 255, 0.5);
+            font-size: 14px;
+            font-weight: 500;
+        }
+
+        /* ============================================
+               SECTIONS — COMMON
+            ============================================ */
+        .section {
+            padding: 110px 0;
+        }
+        .section-dark {
+            background: #f8fafc;
+        }
+        .section-header {
+            margin-bottom: 64px;
+        }
+        .section-header.center {
+            text-align: center;
+        }
+        .section-header span {
+            color: var(--primary);
+            font-weight: 700;
+            letter-spacing: 1.5px;
+            font-size: 13px;
+            text-transform: uppercase;
+            display: inline-block;
+            background: rgba(200, 16, 46, 0.08);
+            padding: 6px 18px;
+            border-radius: 50px;
+        }
+        .section-header h2 {
+            font-size: 44px;
+            margin-top: 14px;
+            line-height: 1.2;
+            font-weight: 800;
+            letter-spacing: -1px;
+            color: #0f172a;
+        }
+        .section-header h2 .highlight {
+            color: var(--primary);
+        }
+
+        /* ============================================
+               ABOUT
+            ============================================ */
+        .about-grid {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 70px;
+            align-items: center;
+        }
+
+        .image-card {
+            height: 440px;
+            border-radius: var(--radius-lg);
+            background: linear-gradient(145deg, var(--dark), var(--dark-2));
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            font-size: 160px;
+            color: var(--primary);
+            box-shadow: var(--shadow-lg);
+            position: relative;
+            overflow: hidden;
+            transition: var(--transition);
+        }
+        .image-card::after {
+            content: '';
+            position: absolute;
+            inset: 0;
+            background: linear-gradient(135deg, rgba(200, 16, 46, 0.10), transparent 60%);
+            pointer-events: none;
+        }
+        .image-card:hover {
+            transform: scale(1.01);
+            box-shadow: var(--shadow-lg), 0 0 60px rgba(200, 16, 46, 0.08);
+        }
+
+        .about-content p {
+            font-size: 17px;
+            line-height: 1.9;
+            margin-bottom: 20px;
+            color: #475569;
+        }
+
+        .about-features {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 14px 24px;
+            margin-top: 28px;
+        }
+        .about-features div {
+            font-weight: 600;
+            font-size: 15px;
+            color: #1e293b;
+            display: flex;
+            align-items: center;
+            gap: 10px;
+        }
+        .about-features i {
+            color: var(--primary);
+            font-size: 18px;
+        }
+
+        /* ============================================
+               SERVICES
+            ============================================ */
+        .services-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
+            gap: 28px;
+        }
+
+        .service-card {
+            background: #fff;
+            padding: 38px 32px;
+            border-radius: var(--radius);
+            box-shadow: var(--shadow-sm);
+            transition: var(--transition);
+            border: 1px solid rgba(0, 0, 0, 0.03);
+            position: relative;
+            overflow: hidden;
+        }
+        .service-card::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            height: 3px;
+            background: linear-gradient(90deg, var(--primary), var(--primary-light));
+            opacity: 0;
+            transition: var(--transition);
+        }
+        .service-card:hover {
+            transform: translateY(-10px);
+            box-shadow: var(--shadow-md);
+            border-color: rgba(200, 16, 46, 0.08);
+        }
+        .service-card:hover::before {
+            opacity: 1;
+        }
+        .service-card i {
+            font-size: 40px;
+            color: var(--primary);
+            margin-bottom: 20px;
+            display: block;
+            transition: var(--transition);
+        }
+        .service-card:hover i {
+            transform: scale(1.05);
+        }
+        .service-card h3 {
+            font-size: 19px;
+            margin-bottom: 10px;
+            font-weight: 700;
+        }
+        .service-card p {
+            color: #64748b;
+            font-size: 15px;
+            line-height: 1.7;
+        }
+
+        /* ============================================
+               STATS
+            ============================================ */
+        .stats-section {
+            background: linear-gradient(145deg, var(--dark), var(--dark-2));
+            padding: 90px 0;
+        }
+        .stats-grid {
+            display: grid;
+            grid-template-columns: repeat(4, 1fr);
+            gap: 28px;
+        }
+        .stat-box {
+            background: rgba(255, 255, 255, 0.04);
+            padding: 38px 20px;
+            text-align: center;
+            border-radius: var(--radius);
+            border: 1px solid rgba(255, 255, 255, 0.06);
+            transition: var(--transition);
+        }
+        .stat-box:hover {
+            background: rgba(255, 255, 255, 0.07);
+            transform: translateY(-4px);
+            border-color: rgba(200, 16, 46, 0.15);
+        }
+        .stat-box h3 {
+            font-size: 48px;
+            color: #fff;
+            font-weight: 900;
+            letter-spacing: -1px;
+        }
+        .stat-box h3 .accent {
+            color: var(--primary);
+        }
+        .stat-box p {
+            color: rgba(255, 255, 255, 0.5);
+            font-size: 15px;
+            font-weight: 500;
+            margin-top: 4px;
+        }
+
+        /* ============================================
+               CLIENTS / COMPLIANCE
+            ============================================ */
+        .client-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+            gap: 20px;
+        }
+        .client-grid div {
+            background: #fff;
+            padding: 28px 20px;
+            border-radius: var(--radius);
+            text-align: center;
+            font-weight: 600;
+            font-size: 15px;
+            box-shadow: var(--shadow-sm);
+            transition: var(--transition);
+            border: 1px solid rgba(0, 0, 0, 0.03);
+            color: #1e293b;
+        }
+        .client-grid div:hover {
+            transform: translateY(-5px);
+            box-shadow: var(--shadow-md);
+            border-color: rgba(200, 16, 46, 0.10);
+            color: var(--primary);
+        }
+
+        /* ============================================
+               CTA
+            ============================================ */
+        .cta {
+            padding: 100px 0;
+            background: #f8fafc;
+        }
+        .cta-box {
+            padding: 80px 60px;
+            border-radius: var(--radius-lg);
+            background: linear-gradient(145deg, var(--primary), var(--primary-dark));
+            text-align: center;
+            color: #fff;
+            box-shadow: var(--shadow-lg);
+            position: relative;
+            overflow: hidden;
+        }
+        .cta-box::before {
+            content: '';
+            position: absolute;
+            top: -50%;
+            right: -20%;
+            width: 600px;
+            height: 600px;
+            border-radius: 50%;
+            background: rgba(255, 255, 255, 0.04);
+            pointer-events: none;
+        }
+        .cta-box h2 {
+            font-size: 42px;
+            margin-bottom: 16px;
+            font-weight: 800;
+            letter-spacing: -1px;
+            position: relative;
+        }
+        .cta-box p {
+            max-width: 680px;
+            margin: 0 auto 32px;
+            font-size: 18px;
+            opacity: 0.9;
+            line-height: 1.7;
+            position: relative;
+        }
+        .cta-box .btn {
+            background: #fff;
+            color: var(--primary);
+            padding: 18px 44px;
+            font-size: 16px;
+            position: relative;
+        }
+        .cta-box .btn:hover {
+            transform: translateY(-4px);
+            box-shadow: 0 12px 40px rgba(0, 0, 0, 0.15);
+            background: #f5f5f5;
+        }
+
+        /* ============================================
+               CONTACT
+            ============================================ */
+        .contact-section {
+            background: var(--dark);
+            color: #fff;
+            padding: 120px 0;
+        }
+        .contact-section .section-header h2 {
+            color: #fff;
+        }
+        .contact-section .section-header span {
+            background: rgba(200, 16, 46, 0.15);
+        }
+
+        .contact-grid {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 70px;
+        }
+
+        .contact-info h3 {
+            font-size: 34px;
+            margin-bottom: 18px;
+            font-weight: 800;
+            letter-spacing: -1px;
+        }
+        .contact-info .desc {
+            color: rgba(255, 255, 255, 0.6);
+            line-height: 1.9;
+            margin-bottom: 36px;
+            font-size: 17px;
+        }
+        .contact-info .details {
+            display: flex;
+            flex-direction: column;
+            gap: 20px;
+        }
+        .contact-info .details>div {
+            display: flex;
+            align-items: flex-start;
+            gap: 16px;
+            color: rgba(255, 255, 255, 0.8);
+            font-size: 15px;
+            line-height: 1.6;
+        }
+        .contact-info .details i {
+            color: var(--primary);
+            font-size: 20px;
+            width: 24px;
+            text-align: center;
+            margin-top: 2px;
+        }
+        .contact-info .details a {
+            color: rgba(255, 255, 255, 0.8);
+            transition: var(--transition);
+        }
+        .contact-info .details a:hover {
+            color: #fff;
+        }
+
+        .contact-card {
+            background: rgba(255, 255, 255, 0.05);
+            padding: 40px;
+            border-radius: var(--radius-lg);
+            backdrop-filter: blur(12px);
+            border: 1px solid rgba(255, 255, 255, 0.06);
+        }
+        .contact-card h3 {
+            font-size: 22px;
+            margin-bottom: 28px;
+            font-weight: 700;
+        }
+        .contact-card form {
+            display: flex;
+            flex-direction: column;
+            gap: 16px;
+        }
+        .contact-card input,
+        .contact-card textarea {
+            padding: 16px 20px;
+            border: 1px solid rgba(255, 255, 255, 0.08);
+            border-radius: 12px;
+            outline: none;
+            font-size: 15px;
+            font-family: 'Inter', sans-serif;
+            background: rgba(255, 255, 255, 0.04);
+            color: #fff;
+            transition: var(--transition);
+        }
+        .contact-card input::placeholder,
+        .contact-card textarea::placeholder {
+            color: rgba(255, 255, 255, 0.3);
+        }
+        .contact-card input:focus,
+        .contact-card textarea:focus {
+            border-color: var(--primary);
+            background: rgba(255, 255, 255, 0.06);
+            box-shadow: 0 0 0 3px rgba(200, 16, 46, 0.10);
+        }
+        .contact-card textarea {
+            resize: vertical;
+            min-height: 120px;
+        }
+        .contact-card .btn {
+            width: 100%;
+            border: none;
+            cursor: pointer;
+            padding: 18px;
+            font-size: 16px;
+        }
+        .contact-card .btn-primary {
+            box-shadow: 0 8px 30px rgba(200, 16, 46, 0.25);
+        }
+        .contact-card .btn-primary:hover {
+            box-shadow: 0 12px 45px rgba(200, 16, 46, 0.40);
+        }
+
+        /* ============================================
+               FOOTER
+            ============================================ */
+        footer {
+            background: #030712;
+            padding: 48px 0;
+            color: #fff;
+            border-top: 1px solid rgba(255, 255, 255, 0.04);
+        }
+        .footer-content {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            gap: 30px;
+            flex-wrap: wrap;
+        }
+        .footer-logo {
+            display: flex;
+            align-items: center;
+            gap: 16px;
+        }
+        .footer-logo img {
+            height: 70px;
+            width: auto;
+        }
+        .footer-brand strong {
+            font-size: 18px;
+            font-weight: 700;
+        }
+        .footer-brand p {
+            color: rgba(255, 255, 255, 0.4);
+            font-size: 14px;
+            margin-top: 2px;
+        }
+        .footer-copy {
+            color: rgba(255, 255, 255, 0.3);
+            font-size: 14px;
+        }
+
+        /* ============================================
+               WHATSAPP FLOAT
+            ============================================ */
+        .whatsapp-float {
+            position: fixed;
+            right: 28px;
+            bottom: 28px;
+            width: 64px;
+            height: 64px;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 32px;
+            background: #25D366;
+            color: #fff;
+            box-shadow: 0 8px 30px rgba(37, 211, 102, 0.35);
+            z-index: 999;
+            transition: var(--transition);
+            animation: pulse-wa 2.5s ease-in-out infinite;
+        }
+        .whatsapp-float:hover {
+            transform: scale(1.08);
+            box-shadow: 0 12px 45px rgba(37, 211, 102, 0.50);
+        }
+        @keyframes pulse-wa {
+            0%,
+            100% {
+                box-shadow: 0 8px 30px rgba(37, 211, 102, 0.35);
+            }
+            50% {
+                box-shadow: 0 8px 50px rgba(37, 211, 102, 0.55);
+            }
+        }
+
+        /* ============================================
+               SCROLL REVEAL (base)
+            ============================================ */
+        .reveal {
+            opacity: 0;
+            transform: translateY(40px);
+            transition: opacity 0.8s ease, transform 0.8s ease;
+        }
+        .reveal.visible {
+            opacity: 1;
+            transform: translateY(0);
+        }
+        .reveal-delay-1 {
+            transition-delay: 0.1s;
+        }
+        .reveal-delay-2 {
+            transition-delay: 0.2s;
+        }
+        .reveal-delay-3 {
+            transition-delay: 0.3s;
+        }
+        .reveal-delay-4 {
+            transition-delay: 0.4s;
+        }
+
+        /* ============================================
+               RESPONSIVE
+            ============================================ */
+        @media (max-width: 1024px) {
+            .hero-content {
+                grid-template-columns: 1fr;
+                gap: 50px;
+            }
+            .hero-left h1 {
+                font-size: 50px;
+            }
+            .hero-right .glass-card {
+                max-width: 560px;
+                margin: 0 auto;
+            }
+            .about-grid {
+                grid-template-columns: 1fr;
+                gap: 40px;
+            }
+            .contact-grid {
+                grid-template-columns: 1fr;
+                gap: 50px;
+            }
+            .stats-grid {
+                grid-template-columns: repeat(2, 1fr);
+            }
+            .trust-grid {
+                grid-template-columns: repeat(2, 1fr);
+            }
+        }
+
+        @media (max-width: 768px) {
+            .nav-links {
+                display: none;
+                position: fixed;
+                top: 0;
+                left: 0;
+                width: 100%;
+                height: 100vh;
+                background: var(--dark);
+                flex-direction: column;
+                justify-content: center;
+                align-items: center;
+                gap: 32px;
+                z-index: 999;
+                padding: 40px;
+            }
+            .nav-links.open {
+                display: flex;
+            }
+            .nav-links a {
+                font-size: 22px;
+                color: #fff;
+            }
+            .mobile-menu {
+                display: block;
+            }
+
+            .hero-left h1 {
+                font-size: 38px;
+            }
+            .hero-left p {
+                font-size: 17px;
+            }
+            .hero-trust {
+                gap: 24px;
+            }
+            .hero-trust strong {
+                font-size: 24px;
+            }
+
+            .section-header h2 {
+                font-size: 30px;
+            }
+            .section {
+                padding: 70px 0;
+            }
+
+            .stats-grid {
+                grid-template-columns: 1fr;
+            }
+            .trust-grid {
+                grid-template-columns: 1fr;
+            }
+
+            .cta-box {
+                padding: 40px 28px;
+            }
+            .cta-box h2 {
+                font-size: 28px;
+            }
+            .cta-box p {
+                font-size: 16px;
+            }
+
+            .contact-card {
+                padding: 28px;
+            }
+            .contact-info h3 {
+                font-size: 28px;
+            }
+
+            .footer-content {
+                flex-direction: column;
+                text-align: center;
+            }
+
+            .glass-card ul {
+                grid-template-columns: 1fr;
+            }
+        }
+
+        @media (max-width: 480px) {
+            .hero-left h1 {
+                font-size: 30px;
+            }
+            .btn {
+                padding: 14px 24px;
+                font-size: 14px;
+            }
+            .hero-buttons {
+                flex-direction: column;
+            }
+            .hero-buttons .btn {
+                width: 100%;
+                justify-content: center;
+            }
+            .section-header h2 {
+                font-size: 26px;
+            }
+            .about-features {
+                grid-template-columns: 1fr;
+            }
+            .service-card {
+                padding: 28px 22px;
+            }
+            .call-btn span {
+                display: none;
+            }
+            .navbar-logo {
+                height: 48px;
+            }
+            .header.scrolled .navbar-logo {
+                height: 40px;
+            }
+            .whatsapp-float {
+                width: 56px;
+                height: 56px;
+                font-size: 28px;
+                right: 18px;
+                bottom: 18px;
+            }
+        }
+    </style>
 </head>
 
 <body>
 
-<!-- Loader -->
-
-<div id="loader">
-    <div class="loader-circle"></div>
-</div>
-
-<!-- Header -->
-
-<header class="header">
-
-<div class="container">
-
-<nav class="navbar">
-
-<a href="#" class="logo">
-
-<img
-src="logo-white-navbar.png"
-alt="Clean Care"
-class="navbar-logo">
-
-</a>
-
-<ul class="nav-links">
-
-<li><a href="#about">About</a></li>
-<li><a href="#services">Services</a></li>
-<li><a href="#clients">Clients</a></li>
-<li><a href="#contact">Contact</a></li>
-
-</ul>
-
-<div class="nav-actions">
-
-<a href="tel:+919892000577" class="call-btn">
-
-<i class="fas fa-phone"></i>
-Call Now
-
-</a>
-
-<button class="mobile-menu">
-
-<i class="fas fa-bars"></i>
-
-</button>
-
-</div>
-
-</nav>
-
-</div>
-
-</header>
-
-<!-- Hero -->
-
-<section class="hero">
-
-<div class="hero-overlay"></div>
-
-<div class="container">
-
-<div class="hero-content">
-
-<div class="hero-left">
-
-<span class="hero-tag">
-
-Mumbai's Trusted Facility Management Partner Since 2011
-
-</span>
-
-<h1>
-
-Facility Management
-Built On Trust,
-Performance &
-Compliance
-
-</h1>
-
-<p>
-
-For over 14 years, Clean Care has delivered
-professional housekeeping, maintenance,
-technical support and integrated facility
-management solutions for residential societies,
-commercial properties and hospitality facilities
-across Mumbai.
-
-</p>
-
-<div class="hero-buttons">
-
-<a href="#contact" class="btn btn-primary">
-
-Request Proposal
-
-</a>
-
-<a href="https://wa.me/919892000577"
-class="btn btn-secondary"
-target="_blank">
-
-WhatsApp Now
-
-</a>
-
-</div>
-
-<div class="hero-trust">
-
-<div>
-
-<strong>14+</strong>
-
-<span>Years Experience</span>
-
-</div>
-
-<div>
-
-<strong>120+</strong>
-
-<span>Professional Staff</span>
-
-</div>
-
-<div>
-
-<strong>50+</strong>
-
-<span>Properties Managed</span>
-
-</div>
-
-<div>
-
-<strong>24/7</strong>
-
-<span>Support Available</span>
-
-</div>
-
-</div>
-
-</div>
-
-<div class="hero-right">
-
-<div class="glass-card">
-
-<h3>
-
-Complete Facility Management Solutions
-
-</h3>
-
-<ul>
-
-<li>Housekeeping Services</li>
-
-<li>Electrical Maintenance</li>
-
-<li>Plumbing Services</li>
-
-<li>Gardening & Landscaping</li>
-
-<li>Reception Management</li>
-
-<li>Support Staff Solutions</li>
-
-<li>Pool Maintenance</li>
-
-<li>Gym Maintenance</li>
-
-<li>Facility Operations Management</li>
-
-</ul>
-
-</div>
-
-</div>
-
-</div>
-
-</div>
-
-</section>
-
-<!-- Trust Strip -->
-
-<section class="trust-strip">
-
-<div class="container">
-
-<div class="trust-grid">
-
-<div>
-
-<i class="fas fa-award"></i>
-
-<h3>14+ Years</h3>
-
-<p>Industry Experience</p>
-
-</div>
-
-<div>
-
-<i class="fas fa-users"></i>
-
-<h3>120+</h3>
-
-<p>Professional Workforce</p>
-
-</div>
-
-<div>
-
-<i class="fas fa-building"></i>
-
-<h3>50+</h3>
-
-<p>Properties Managed</p>
-
-</div>
-
-<div>
-
-<i class="fas fa-headset"></i>
-
-<h3>24/7</h3>
-
-<p>Operational Support</p>
-
-</div>
-
-</div>
-
-</div>
-
-</section>
-
-<!-- About -->
-
-<section id="about" class="section">
-
-<div class="container">
-
-<div class="section-header">
-
-<span>ABOUT CLEAN CARE</span>
-
-<h2>
-
-Delivering Excellence Through
-Professional Facility Management
-
-</h2>
-
-</div>
-
-<div class="about-grid">
-
-<div class="about-image">
-
-<div class="image-card">
-
-<i class="fas fa-city"></i>
-
-</div>
-
-</div>
-
-<div class="about-content">
-
-<p>
-
-Established in 2011, Clean Care is one of Mumbai's
-trusted facility management service providers,
-delivering comprehensive solutions for residential,
-commercial and hospitality properties.
-
-</p>
-
-<p>
-
-With over 120 trained professionals and a strong
-track record spanning more than 14 years, we help
-clients maintain safe, clean, compliant and efficient
-environments through structured facility management
-programs and dedicated site supervision.
-
-</p>
-
-<div class="about-features">
-
-<div>
-<i class="fas fa-check-circle"></i>
-14+ Years Experience
-</div>
-
-<div>
-<i class="fas fa-check-circle"></i>
-120+ Trained Staff
-</div>
-
-<div>
-<i class="fas fa-check-circle"></i>
-Professional Supervision
-</div>
-
-<div>
-<i class="fas fa-check-circle"></i>
-Compliance Focused
-</div>
-
-<div>
-<i class="fas fa-check-circle"></i>
-Cost Effective Solutions
-</div>
-
-<div>
-<i class="fas fa-check-circle"></i>
-24/7 Support
-</div>
-
-</div>
-
-</div>
-
-</div>
-
-</div>
-
-</section>
-<!-- Services -->
-
-<section id="services" class="section section-dark">
-
-<div class="container">
-
-<div class="section-header center">
-
-<span>OUR SERVICES</span>
-
-<h2>
-Comprehensive Facility
-Management Solutions
-</h2>
-
-</div>
-
-<div class="services-grid">
-
-<div class="service-card">
-
-<i class="fas fa-broom"></i>
-
-<h3>Housekeeping Services</h3>
-
-<p>
-Professional cleaning, hygiene management and
-daily upkeep for residential and commercial
-properties.
-</p>
-
-</div>
-
-<div class="service-card">
-
-<i class="fas fa-bolt"></i>
-
-<h3>Electrical Maintenance</h3>
-
-<p>
-Preventive maintenance, breakdown support
-and electrical system management.
-</p>
-
-</div>
-
-<div class="service-card">
-
-<i class="fas fa-faucet"></i>
-
-<h3>Plumbing Services</h3>
-
-<p>
-Routine plumbing maintenance and emergency
-repair support.
-</p>
-
-</div>
-
-<div class="service-card">
-
-<i class="fas fa-seedling"></i>
-
-<h3>Gardening & Landscaping</h3>
-
-<p>
-Professional garden upkeep, landscape
-maintenance and beautification.
-</p>
-
-</div>
-
-<div class="service-card">
-
-<i class="fas fa-user-tie"></i>
-
-<h3>Reception Management</h3>
-
-<p>
-Front desk operations, visitor management
-and reception support services.
-</p>
-
-</div>
-
-<div class="service-card">
-
-<i class="fas fa-users"></i>
-
-<h3>Support Staff Solutions</h3>
-
-<p>
-Skilled manpower deployment for operational
-and administrative support.
-</p>
-
-</div>
-
-<div class="service-card">
-
-<i class="fas fa-water"></i>
-
-<h3>Pool Maintenance</h3>
-
-<p>
-Water quality monitoring and complete
-pool maintenance services.
-</p>
-
-</div>
-
-<div class="service-card">
-
-<i class="fas fa-dumbbell"></i>
-
-<h3>Gym Maintenance</h3>
-
-<p>
-Equipment upkeep and facility maintenance
-for fitness centers.
-</p>
-
-</div>
-
-</div>
-
-</div>
-
-</section>
-
-<!-- Why Choose Us -->
-
-<section class="section why-us">
-
-<div class="container">
-
-<div class="section-header center">
-
-<span>WHY CLEAN CARE</span>
-
-<h2>
-Trusted By Leading Properties
-Across Mumbai
-</h2>
-
-</div>
-
-<div class="services-grid">
-
-<div class="service-card">
-
-<i class="fas fa-award"></i>
-
-<h3>14+ Years Experience</h3>
-
-<p>
-More than a decade of successful facility
-management operations across Mumbai.
-</p>
-
-</div>
-
-<div class="service-card">
-
-<i class="fas fa-users-cog"></i>
-
-<h3>120+ Trained Staff</h3>
-
-<p>
-Professional workforce trained to deliver
-consistent service excellence.
-</p>
-
-</div>
-
-<div class="service-card">
-
-<i class="fas fa-shield-alt"></i>
-
-<h3>Compliance Focused</h3>
-
-<p>
-Structured supervision, documentation
-and operational accountability.
-</p>
-
-</div>
-
-<div class="service-card">
-
-<i class="fas fa-headset"></i>
-
-<h3>24/7 Support</h3>
-
-<p>
-Quick response and reliable support for
-client requirements.
-</p>
-
-</div>
-
-</div>
-
-</div>
-
-</section>
-
-<!-- Compliance -->
-
-<section class="section">
-
-<div class="container">
-
-<div class="section-header center">
-
-<span>COMPLIANCE & STANDARDS</span>
-
-<h2>
-Professional Standards &
-Operational Accountability
-</h2>
-
-</div>
-
-<div class="client-grid">
-
-<div>GST Registered</div>
-
-<div>ESIC Compliance</div>
-
-<div>PF Compliance</div>
-
-<div>Uniformed Workforce</div>
-
-<div>Background Verification</div>
-
-<div>Site Supervision</div>
-
-<div>Safety Procedures</div>
-
-<div>Attendance Monitoring</div>
-
-</div>
-
-</div>
-
-</section>
-
-<!-- Statistics -->
-
-<section class="stats-section">
-
-<div class="container">
-
-<div class="stats-grid">
-
-<div class="stat-box">
-
-<h3 class="counter">14+</h3>
-
-<p>Years Experience</p>
-
-</div>
-
-<div class="stat-box">
-
-<h3 class="counter">120+</h3>
-
-<p>Professional Staff</p>
-
-</div>
-
-<div class="stat-box">
-
-<h3 class="counter">50+</h3>
-
-<p>Properties Managed</p>
-
-</div>
-
-<div class="stat-box">
-
-<h3 class="counter">24/7</h3>
-
-<p>Operational Support</p>
-
-</div>
-
-</div>
-
-</div>
-
-</section>
-
-<!-- Clients -->
-
-<section id="clients" class="section">
-
-<div class="container">
-
-<div class="section-header center">
-
-<span>FEATURED CLIENTS</span>
-
-<h2>
-Serving Residential,
-Commercial &
-Hospitality Properties
-</h2>
-
-</div>
-
-<div class="client-grid">
-
-<div>Maple Leaf Towers</div>
-
-<div>City of Joy Towers</div>
-
-<div>Sagar Palazzo</div>
-
-<div>Blue Bell Hotel</div>
-
-<div>Lok Everest CHS</div>
-
-<div>Harmony CHS</div>
-
-<div>Sunrise CHS</div>
-
-<div>Celebration CHS</div>
-
-<div>Hillside CHS</div>
-
-<div>Silver Crest CHS</div>
-
-<div>Golden Rays CHS</div>
-
-<div>Raheja Vihar Communities</div>
-
-</div>
-
-</div>
-
-</section>
-
-<!-- CTA -->
-
-<section class="cta">
-
-<div class="container">
-
-<div class="cta-box">
-
-<h2>
-
-Need A Reliable Facility
-Management Partner?
-
-</h2>
-
-<p>
-
-Get a customized facility management
-solution tailored to your property's
-requirements.
-
-</p>
-
-<a
-href="https://wa.me/919892000577"
-target="_blank"
-class="btn btn-primary">
-
-Request Proposal
-
-</a>
-
-</div>
-
-</div>
-
-</section>
-<!-- Contact -->
-
-<section id="contact" class="contact-section">
-
-<div class="container">
-
-<div class="section-header center">
-
-<span>CONTACT US</span>
-
-<h2>
-Let's Discuss Your
-Facility Requirements
-</h2>
-
-</div>
-
-<div class="contact-grid">
-
-<div>
-
-<h3
-style="
-font-size:32px;
-margin-bottom:20px;
-">
-
-Clean Care
-
-</h3>
-
-<p
-style="
-color:#cbd5e1;
-line-height:1.9;
-margin-bottom:30px;
-">
-
-Whether you require housekeeping,
-technical maintenance, support staffing
-or complete facility management services,
-our team is ready to help.
-
-</p>
-
-<div
-style="
-display:flex;
-flex-direction:column;
-gap:18px;
-">
-
-<div>
-
-<i class="fas fa-location-dot"></i>
-
-1090, Heera Panna Mall<br>
-Hiranandani Gardens<br>
-Powai, Mumbai - 400076
-
-</div>
-
-<div>
-
-<i class="fas fa-phone"></i>
-
-<a
-href="tel:+919892000577"
-style="color:white;">
-
-+91 9892000577
-
-</a>
-
-</div>
-
-<div>
-
-<i class="fas fa-envelope"></i>
-
-<a
-href="mailto:cleancare1067@gmail.com"
-style="color:white;">
-
-cleancare1067@gmail.com
-
-</a>
-
-</div>
-
-<div>
-
-<i class="fas fa-clock"></i>
-
-Monday - Saturday<br>
-9:00 AM - 6:00 PM
-
-</div>
-
-</div>
-
-</div>
-
-<div class="contact-card">
-
-<h3
-style="
-margin-bottom:25px;
-">
-
-Request A Proposal
-
-</h3>
-
-<form>
-
-<input
-type="text"
-placeholder="Your Name"
-required>
-
-<input
-type="text"
-placeholder="Company / Society Name"
-required>
-
-<input
-type="tel"
-placeholder="Phone Number"
-required>
-
-<input
-type="email"
-placeholder="Email Address">
-
-<textarea
-placeholder="Tell us about your requirements"
-rows="5"></textarea>
-
-<button
-type="submit"
-class="btn btn-primary"
-style="
-width:100%;
-border:none;
-cursor:pointer;
-">
-
-Submit Enquiry
-
-</button>
-
-</form>
-
-</div>
-
-</div>
-
-</div>
-
-</section>
-
-<!-- Footer -->
-
-<footer>
-
-<div class="container">
-
-<div class="footer-content">
-
-<div class="footer-logo">
-
-<img
-src="logo-primary-transparent.png"
-alt="Clean Care"
-style="
-height:80px;
-width:auto;
-">
-
-</div>
-
-<div>
-
-<strong
-style="
-font-size:18px;
-">
-
-Clean Care
-
-</strong>
-
-<p
-style="
-margin-top:10px;
-color:#cbd5e1;
-">
-
-Facility Management Services
-
-</p>
-
-</div>
-
-<div>
-
-<p
-style="
-color:#cbd5e1;
-">
-
-© 2026 Clean Care.
-All Rights Reserved.
-
-</p>
-
-</div>
-
-</div>
-
-</div>
-
-</footer>
-
-<!-- WhatsApp Floating Button -->
-
-<a
-href="https://wa.me/919892000577"
-class="whatsapp-float"
-target="_blank">
-
-<i class="fab fa-whatsapp"></i>
-
-</a>
-
-<!-- Scripts -->
-
-<script src="script.js"></script>
+    <!-- ===== LOADER ===== -->
+    <div id="loader">
+        <div class="loader-circle"></div>
+        <div class="loader-text">Clean Care</div>
+    </div>
+
+    <!-- ===== HEADER ===== -->
+    <header class="header" id="header">
+        <div class="container">
+            <nav class="navbar">
+                <a href="#" class="logo">
+                    <img src="logo-white-navbar.png" alt="Clean Care" class="navbar-logo" />
+                </a>
+
+                <ul class="nav-links" id="navLinks">
+                    <li><a href="#about">About</a></li>
+                    <li><a href="#services">Services</a></li>
+                    <li><a href="#clients">Clients</a></li>
+                    <li><a href="#contact">Contact</a></li>
+                </ul>
+
+                <div class="nav-actions">
+                    <a href="tel:+919892000577" class="call-btn">
+                        <i class="fas fa-phone"></i>
+                        <span>Call Now</span>
+                    </a>
+                    <button class="mobile-menu" id="mobileMenu" aria-label="Toggle menu">
+                        <i class="fas fa-bars"></i>
+                    </button>
+                </div>
+            </nav>
+        </div>
+    </header>
+
+    <!-- ===== HERO ===== -->
+    <section class="hero" id="home">
+        <div class="hero-overlay"></div>
+        <div class="container">
+            <div class="hero-content">
+                <div class="hero-left">
+                    <span class="hero-tag">
+                        <i class="fas fa-medal"></i> Mumbai's Trusted Partner Since 2011
+                    </span>
+                    <h1>
+                        Facility Management<br />
+                        Built On <span class="highlight">Trust</span>,
+                        Performance &amp; Compliance
+                    </h1>
+                    <p>
+                        For over 14 years, Clean Care has delivered professional housekeeping,
+                        maintenance, technical support and integrated facility management solutions
+                        for residential societies, commercial properties and hospitality facilities
+                        across Mumbai.
+                    </p>
+                    <div class="hero-buttons">
+                        <a href="#contact" class="btn btn-primary">
+                            <i class="fas fa-paper-plane"></i> Request Proposal
+                        </a>
+                        <a href="https://wa.me/919892000577" class="btn btn-secondary" target="_blank">
+                            <i class="fab fa-whatsapp"></i> WhatsApp Now
+                        </a>
+                    </div>
+                    <div class="hero-trust">
+                        <div>
+                            <strong>14<span class="accent">+</span></strong>
+                            <span>Years Experience</span>
+                        </div>
+                        <div>
+                            <strong>120<span class="accent">+</span></strong>
+                            <span>Professional Staff</span>
+                        </div>
+                        <div>
+                            <strong>50<span class="accent">+</span></strong>
+                            <span>Properties Managed</span>
+                        </div>
+                        <div>
+                            <strong>24/7</strong>
+                            <span>Support Available</span>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="hero-right">
+                    <div class="glass-card">
+                        <h3><i class="fas fa-crown" style="color:var(--primary);margin-right:10px;"></i> Complete FM Solutions</h3>
+                        <ul>
+                            <li>Housekeeping Services</li>
+                            <li>Electrical Maintenance</li>
+                            <li>Plumbing Services</li>
+                            <li>Gardening &amp; Landscaping</li>
+                            <li>Reception Management</li>
+                            <li>Support Staff Solutions</li>
+                            <li>Pool Maintenance</li>
+                            <li>Gym Maintenance</li>
+                            <li>Facility Operations Management</li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- ===== TRUST STRIP ===== -->
+    <section class="trust-strip">
+        <div class="container">
+            <div class="trust-grid">
+                <div>
+                    <i class="fas fa-award"></i>
+                    <h3>14+ Years</h3>
+                    <p>Industry Experience</p>
+                </div>
+                <div>
+                    <i class="fas fa-users"></i>
+                    <h3>120+</h3>
+                    <p>Professional Workforce</p>
+                </div>
+                <div>
+                    <i class="fas fa-building"></i>
+                    <h3>50+</h3>
+                    <p>Properties Managed</p>
+                </div>
+                <div>
+                    <i class="fas fa-headset"></i>
+                    <h3>24/7</h3>
+                    <p>Operational Support</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- ===== ABOUT ===== -->
+    <section id="about" class="section">
+        <div class="container">
+            <div class="section-header reveal">
+                <span>About Clean Care</span>
+                <h2>Delivering Excellence Through<br />Professional <span class="highlight">Facility Management</span></h2>
+            </div>
+            <div class="about-grid">
+                <div class="about-image reveal reveal-delay-1">
+                    <div class="image-card">
+                        <i class="fas fa-city"></i>
+                    </div>
+                </div>
+                <div class="about-content reveal reveal-delay-2">
+                    <p>
+                        Established in 2011, Clean Care is one of Mumbai's trusted facility management
+                        service providers, delivering comprehensive solutions for residential, commercial
+                        and hospitality properties.
+                    </p>
+                    <p>
+                        With over 120 trained professionals and a strong track record spanning more than
+                        14 years, we help clients maintain safe, clean, compliant and efficient environments
+                        through structured facility management programs and dedicated site supervision.
+                    </p>
+                    <div class="about-features">
+                        <div><i class="fas fa-check-circle"></i> 14+ Years Experience</div>
+                        <div><i class="fas fa-check-circle"></i> 120+ Trained Staff</div>
+                        <div><i class="fas fa-check-circle"></i> Professional Supervision</div>
+                        <div><i class="fas fa-check-circle"></i> Compliance Focused</div>
+                        <div><i class="fas fa-check-circle"></i> Cost Effective Solutions</div>
+                        <div><i class="fas fa-check-circle"></i> 24/7 Support</div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- ===== SERVICES ===== -->
+    <section id="services" class="section section-dark">
+        <div class="container">
+            <div class="section-header center reveal">
+                <span>Our Services</span>
+                <h2>Comprehensive <span class="highlight">Facility Management</span> Solutions</h2>
+            </div>
+            <div class="services-grid">
+                <div class="service-card reveal reveal-delay-1">
+                    <i class="fas fa-broom"></i>
+                    <h3>Housekeeping Services</h3>
+                    <p>Professional cleaning, hygiene management and daily upkeep for residential and commercial properties.</p>
+                </div>
+                <div class="service-card reveal reveal-delay-2">
+                    <i class="fas fa-bolt"></i>
+                    <h3>Electrical Maintenance</h3>
+                    <p>Preventive maintenance, breakdown support and electrical system management.</p>
+                </div>
+                <div class="service-card reveal reveal-delay-3">
+                    <i class="fas fa-faucet"></i>
+                    <h3>Plumbing Services</h3>
+                    <p>Routine plumbing maintenance and emergency repair support.</p>
+                </div>
+                <div class="service-card reveal reveal-delay-1">
+                    <i class="fas fa-seedling"></i>
+                    <h3>Gardening &amp; Landscaping</h3>
+                    <p>Professional garden upkeep, landscape maintenance and beautification.</p>
+                </div>
+                <div class="service-card reveal reveal-delay-2">
+                    <i class="fas fa-user-tie"></i>
+                    <h3>Reception Management</h3>
+                    <p>Front desk operations, visitor management and reception support services.</p>
+                </div>
+                <div class="service-card reveal reveal-delay-3">
+                    <i class="fas fa-users"></i>
+                    <h3>Support Staff Solutions</h3>
+                    <p>Skilled manpower deployment for operational and administrative support.</p>
+                </div>
+                <div class="service-card reveal reveal-delay-1">
+                    <i class="fas fa-water"></i>
+                    <h3>Pool Maintenance</h3>
+                    <p>Water quality monitoring and complete pool maintenance services.</p>
+                </div>
+                <div class="service-card reveal reveal-delay-2">
+                    <i class="fas fa-dumbbell"></i>
+                    <h3>Gym Maintenance</h3>
+                    <p>Equipment upkeep and facility maintenance for fitness centers.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- ===== WHY US ===== -->
+    <section class="section why-us">
+        <div class="container">
+            <div class="section-header center reveal">
+                <span>Why Clean Care</span>
+                <h2>Trusted By Leading Properties<br />Across <span class="highlight">Mumbai</span></h2>
+            </div>
+            <div class="services-grid">
+                <div class="service-card reveal reveal-delay-1">
+                    <i class="fas fa-award"></i>
+                    <h3>14+ Years Experience</h3>
+                    <p>More than a decade of successful facility management operations across Mumbai.</p>
+                </div>
+                <div class="service-card reveal reveal-delay-2">
+                    <i class="fas fa-users-cog"></i>
+                    <h3>120+ Trained Staff</h3>
+                    <p>Professional workforce trained to deliver consistent service excellence.</p>
+                </div>
+                <div class="service-card reveal reveal-delay-3">
+                    <i class="fas fa-shield-alt"></i>
+                    <h3>Compliance Focused</h3>
+                    <p>Structured supervision, documentation and operational accountability.</p>
+                </div>
+                <div class="service-card reveal reveal-delay-4">
+                    <i class="fas fa-headset"></i>
+                    <h3>24/7 Support</h3>
+                    <p>Quick response and reliable support for client requirements.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- ===== COMPLIANCE ===== -->
+    <section class="section">
+        <div class="container">
+            <div class="section-header center reveal">
+                <span>Compliance &amp; Standards</span>
+                <h2>Professional Standards &amp;<br /><span class="highlight">Operational Accountability</span></h2>
+            </div>
+            <div class="client-grid reveal">
+                <div>GST Registered</div>
+                <div>ESIC Compliance</div>
+                <div>PF Compliance</div>
+                <div>Uniformed Workforce</div>
+                <div>Background Verification</div>
+                <div>Site Supervision</div>
+                <div>Safety Procedures</div>
+                <div>Attendance Monitoring</div>
+            </div>
+        </div>
+    </section>
+
+    <!-- ===== STATS ===== -->
+    <section class="stats-section">
+        <div class="container">
+            <div class="stats-grid">
+                <div class="stat-box reveal reveal-delay-1">
+                    <h3><span class="counter" data-target="14">0</span><span class="accent">+</span></h3>
+                    <p>Years Experience</p>
+                </div>
+                <div class="stat-box reveal reveal-delay-2">
+                    <h3><span class="counter" data-target="120">0</span><span class="accent">+</span></h3>
+                    <p>Professional Staff</p>
+                </div>
+                <div class="stat-box reveal reveal-delay-3">
+                    <h3><span class="counter" data-target="50">0</span><span class="accent">+</span></h3>
+                    <p>Properties Managed</p>
+                </div>
+                <div class="stat-box reveal reveal-delay-4">
+                    <h3><span class="counter" data-target="24">0</span>/7</h3>
+                    <p>Operational Support</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- ===== CLIENTS ===== -->
+    <section id="clients" class="section">
+        <div class="container">
+            <div class="section-header center reveal">
+                <span>Featured Clients</span>
+                <h2>Serving Residential, Commercial &amp;<br /><span class="highlight">Hospitality Properties</span></h2>
+            </div>
+            <div class="client-grid reveal">
+                <div>Maple Leaf Towers</div>
+                <div>City of Joy Towers</div>
+                <div>Sagar Palazzo</div>
+                <div>Blue Bell Hotel</div>
+                <div>Lok Everest CHS</div>
+                <div>Harmony CHS</div>
+                <div>Sunrise CHS</div>
+                <div>Celebration CHS</div>
+                <div>Hillside CHS</div>
+                <div>Silver Crest CHS</div>
+                <div>Golden Rays CHS</div>
+                <div>Raheja Vihar Communities</div>
+            </div>
+        </div>
+    </section>
+
+    <!-- ===== CTA ===== -->
+    <section class="cta">
+        <div class="container">
+            <div class="cta-box reveal">
+                <h2>Need A Reliable Facility Management Partner?</h2>
+                <p>Get a customized facility management solution tailored to your property's requirements.</p>
+                <a href="https://wa.me/919892000577" target="_blank" class="btn">
+                    <i class="fab fa-whatsapp"></i> Request Proposal
+                </a>
+            </div>
+        </div>
+    </section>
+
+    <!-- ===== CONTACT ===== -->
+    <section id="contact" class="contact-section">
+        <div class="container">
+            <div class="section-header center reveal">
+                <span>Contact Us</span>
+                <h2>Let's Discuss Your<br /><span class="highlight">Facility Requirements</span></h2>
+            </div>
+            <div class="contact-grid">
+                <div class="contact-info reveal reveal-delay-1">
+                    <h3>Clean Care</h3>
+                    <p class="desc">
+                        Whether you require housekeeping, technical maintenance, support staffing
+                        or complete facility management services, our team is ready to help.
+                    </p>
+                    <div class="details">
+                        <div>
+                            <i class="fas fa-location-dot"></i>
+                            <span>1090, Heera Panna Mall<br />Hiranandani Gardens, Powai<br />Mumbai - 400076</span>
+                        </div>
+                        <div>
+                            <i class="fas fa-phone"></i>
+                            <a href="tel:+919892000577">+91 98920 00577</a>
+                        </div>
+                        <div>
+                            <i class="fas fa-envelope"></i>
+                            <a href="mailto:cleancare1067@gmail.com">cleancare1067@gmail.com</a>
+                        </div>
+                        <div>
+                            <i class="fas fa-clock"></i>
+                            <span>Monday – Saturday<br />9:00 AM – 6:00 PM</span>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="contact-card reveal reveal-delay-2">
+                    <h3><i class="fas fa-pen-alt" style="color:var(--primary);margin-right:10px;"></i> Request A Proposal</h3>
+                    <form id="contactForm">
+                        <input type="text" placeholder="Your Name" required />
+                        <input type="text" placeholder="Company / Society Name" required />
+                        <input type="tel" placeholder="Phone Number" required />
+                        <input type="email" placeholder="Email Address" />
+                        <textarea placeholder="Tell us about your requirements" rows="5"></textarea>
+                        <button type="submit" class="btn btn-primary">
+                            <i class="fas fa-paper-plane"></i> Submit Enquiry
+                        </button>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- ===== FOOTER ===== -->
+    <footer>
+        <div class="container">
+            <div class="footer-content">
+                <div class="footer-logo">
+                    <img src="logo-primary-transparent.png" alt="Clean Care" />
+                </div>
+                <div class="footer-brand">
+                    <strong>Clean Care</strong>
+                    <p>Facility Management Services</p>
+                </div>
+                <div class="footer-copy">
+                    &copy; 2026 Clean Care. All Rights Reserved.
+                </div>
+            </div>
+        </div>
+    </footer>
+
+    <!-- ===== WHATSAPP FLOAT ===== -->
+    <a href="https://wa.me/919892000577" class="whatsapp-float" target="_blank" aria-label="Chat on WhatsApp">
+        <i class="fab fa-whatsapp"></i>
+    </a>
+
+    <!-- ===== SCRIPTS ===== -->
+    <script>
+        // =====================================================
+        // LOADER
+        // =====================================================
+        window.addEventListener('load', function() {
+            const loader = document.getElementById('loader');
+            if (loader) {
+                setTimeout(function() {
+                    loader.classList.add('hidden');
+                }, 600);
+            }
+        });
+
+        // =====================================================
+        // HEADER SCROLL
+        // =====================================================
+        const header = document.querySelector('.header');
+        window.addEventListener('scroll', function() {
+            if (!header) return;
+            if (window.scrollY > 40) {
+                header.classList.add('scrolled');
+            } else {
+                header.classList.remove('scrolled');
+            }
+        });
+
+        // =====================================================
+        // MOBILE MENU
+        // =====================================================
+        const mobileMenuBtn = document.getElementById('mobileMenu');
+        const navLinks = document.getElementById('navLinks');
+
+        mobileMenuBtn.addEventListener('click', function() {
+            navLinks.classList.toggle('open');
+            const icon = this.querySelector('i');
+            if (navLinks.classList.contains('open')) {
+                icon.className = 'fas fa-times';
+            } else {
+                icon.className = 'fas fa-bars';
+            }
+        });
+
+        // Close menu on link click
+        navLinks.querySelectorAll('a').forEach(function(link) {
+            link.addEventListener('click', function() {
+                navLinks.classList.remove('open');
+                mobileMenuBtn.querySelector('i').className = 'fas fa-bars';
+            });
+        });
+
+        // =====================================================
+        // SCROLL REVEAL (Intersection Observer)
+        // =====================================================
+        const revealElements = document.querySelectorAll('.reveal');
+
+        const observer = new IntersectionObserver(function(entries) {
+            entries.forEach(function(entry) {
+                if (entry.isIntersecting) {
+                    entry.target.classList.add('visible');
+                }
+            });
+        }, {
+            threshold: 0.15,
+            rootMargin: '0px 0px -40px 0px'
+        });
+
+        revealElements.forEach(function(el) {
+            observer.observe(el);
+        });
+
+        // =====================================================
+        // COUNTER ANIMATION
+        // =====================================================
+        const counters = document.querySelectorAll('.counter');
+
+        const counterObserver = new IntersectionObserver(function(entries) {
+            entries.forEach(function(entry) {
+                if (entry.isIntersecting) {
+                    const el = entry.target;
+                    const target = parseInt(el.getAttribute('data-target'));
+                    const duration = 1800;
+                    const start = performance.now();
+
+                    function updateCounter(currentTime) {
+                        const elapsed = currentTime - start;
+                        const progress = Math.min(elapsed / duration, 1);
+                        // Ease out cubic
+                        const ease = 1 - Math.pow(1 - progress, 3);
+                        const current = Math.round(ease * target);
+                        el.textContent = current;
+
+                        if (progress < 1) {
+                            requestAnimationFrame(updateCounter);
+                        } else {
+                            el.textContent = target;
+                        }
+                    }
+
+                    requestAnimationFrame(updateCounter);
+                    counterObserver.unobserve(el);
+                }
+            });
+        }, {
+            threshold: 0.5
+        });
+
+        counters.forEach(function(counter) {
+            counterObserver.observe(counter);
+        });
+
+        // =====================================================
+        // CONTACT FORM
+        // =====================================================
+        const contactForm = document.getElementById('contactForm');
+        if (contactForm) {
+            contactForm.addEventListener('submit', function(e) {
+                e.preventDefault();
+                const btn = this.querySelector('.btn');
+                const originalText = btn.innerHTML;
+                btn.innerHTML = '<i class="fas fa-spinner fa-spin"></i> Sending...';
+                btn.disabled = true;
+
+                setTimeout(function() {
+                    btn.innerHTML = '<i class="fas fa-check"></i> Thank You!';
+                    btn.style.background = '#25D366';
+                    setTimeout(function() {
+                        btn.innerHTML = originalText;
+                        btn.style.background = '';
+                        btn.disabled = false;
+                        contactForm.reset();
+                    }, 2500);
+                }, 1200);
+            });
+        }
+
+        // =====================================================
+        // SMOOTH SCROLL FOR ANCHOR LINKS (enhancement)
+        // =====================================================
+        document.querySelectorAll('a[href^="#"]').forEach(function(anchor) {
+            anchor.addEventListener('click', function(e) {
+                const targetId = this.getAttribute('href');
+                if (targetId === '#') return;
+                const target = document.querySelector(targetId);
+                if (target) {
+                    e.preventDefault();
+                    const headerOffset = 80;
+                    const elementPosition = target.getBoundingClientRect().top;
+                    const offsetPosition = elementPosition + window.pageYOffset - headerOffset;
+                    window.scrollTo({
+                        top: offsetPosition,
+                        behavior: 'smooth'
+                    });
+                }
+            });
+        });
+
+        console.log('✨ Clean Care — Premium Facility Management');
+    </script>
 
 </body>
 </html>
