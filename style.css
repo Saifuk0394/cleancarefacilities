@@ -1050,3 +1050,74 @@ padding:40px 25px;
 
 }
 ```
+.navbar-logo{
+height:70px;
+width:auto;
+display:block;
+}
+
+.trust-strip{
+padding:70px 0;
+background:#081321;
+}
+
+.trust-grid{
+display:grid;
+grid-template-columns:repeat(4,1fr);
+gap:25px;
+text-align:center;
+}
+
+.trust-grid i{
+font-size:40px;
+color:#c8102e;
+margin-bottom:15px;
+}
+
+.trust-grid h3{
+color:white;
+font-size:28px;
+}
+
+.trust-grid p{
+color:#cbd5e1;
+}
+
+.contact-card form{
+display:flex;
+flex-direction:column;
+gap:15px;
+}
+
+.contact-card input,
+.contact-card textarea{
+padding:16px;
+border:none;
+border-radius:12px;
+outline:none;
+font-size:15px;
+}
+
+.why-us{
+background:#ffffff;
+}
+
+@media(max-width:991px){
+
+.trust-grid{
+grid-template-columns:repeat(2,1fr);
+}
+
+}
+
+@media(max-width:600px){
+
+.trust-grid{
+grid-template-columns:1fr;
+}
+
+.navbar-logo{
+height:55px;
+}
+
+}
