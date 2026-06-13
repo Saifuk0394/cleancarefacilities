@@ -6,15 +6,14 @@
     <title>Clean Care | Premium Facility Management Mumbai</title>
     <meta name="description" content="Premium facility management services across Mumbai. Housekeeping, maintenance, amenities & staffing." />
     <meta name="theme-color" content="#c8102e" />
-    <!-- SEO Essentials -->
     <meta property="og:title" content="Clean Care | Premium Facility Management" />
     <meta property="og:description" content="14+ Years of Excellence in Facility Management across Mumbai." />
     <meta property="og:image" content="https://images.unsplash.com/photo-1497366754035-f200968a6e72?q=80&w=2000" />
     <meta property="og:url" content="https://cleancarefacilities.com" />
     <link rel="canonical" href="https://cleancarefacilities.com" />
-    
-    <!-- Placeholder Favicon (Replace with your favicon-512.png) -->
-    <link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'%3E%3Ctext y='.9em' font-size='90'%3E🧹%3C/text%3E%3C/svg%3E" type="image/svg+xml" />
+
+    <!-- Favicon (fixed) -->
+    <link rel="icon" href="favicon-512.png" type="image/png" />
 
     <link rel="preconnect" href="https://fonts.googleapis.com" />
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
@@ -22,13 +21,6 @@
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css" />
 
     <style>
-        /* ... [CSS from previous response is perfectly fine, I am adding the styling for the 'Show More' button and fixing the form button] ... */
-        :root {
-            --primary: #c8102e;
-            --primary-dark: #a00d24;
-            --gold: #f5a623;
-            --dark: #0f172a;
-        }
         * { margin: 0; padding: 0; box-sizing: border-box; }
         html { scroll-behavior: smooth; }
         body { font-family: 'Plus Jakarta Sans', sans-serif; background: #f9fafb; color: #1e293b; line-height: 1.7; }
@@ -37,129 +29,120 @@
         ul { list-style: none; }
 
         /* Header */
-        .header {
-            position: fixed; top: 0; left: 0; width: 100%; z-index: 1000;
-            transition: all 0.3s ease; background: transparent; padding: 10px 0;
-        }
+        .header { position: fixed; top: 0; left: 0; width: 100%; z-index: 1000; transition: all 0.3s ease; background: transparent; padding: 10px 0; }
         .header.scrolled { background: rgba(255, 255, 255, 0.98); box-shadow: 0 4px 20px rgba(0, 0, 0, 0.06); }
         .nav { display: flex; align-items: center; justify-content: space-between; padding: 12px 0; }
+        
+        /* ✅ Fixed Logo (using your uploaded PNG file) */
         .logo-img { height: 80px; width: auto; display: block; }
-        /* Fallback text logo if image fails */
-        .logo-fallback { display: none; font-weight: 800; font-size: 24px; color: var(--primary); }
+
         .nav-links { display: flex; gap: 32px; }
         .nav-links a { color: #475569; font-weight: 600; font-size: 14px; position: relative; transition: all 0.3s ease; }
-        .nav-links a:hover { color: var(--primary); }
-        .nav-links a::after { content: ''; position: absolute; left: 0; bottom: -4px; width: 0; height: 2px; background: var(--primary); transition: all 0.3s ease; }
+        .nav-links a:hover { color: #c8102e; }
+        .nav-links a::after { content: ''; position: absolute; left: 0; bottom: -4px; width: 0; height: 2px; background: #c8102e; transition: all 0.3s ease; }
         .nav-links a:hover::after { width: 100%; }
         .nav-actions { display: flex; align-items: center; gap: 20px; }
-        .btn-call {
-            padding: 10px 22px; background: var(--primary); color: #fff; border-radius: 50px; font-weight: 700; font-size: 14px;
-            transition: all 0.3s ease; display: flex; align-items: center; gap: 8px; box-shadow: 0 6px 20px rgba(200, 16, 46, 0.2);
-        }
+        .btn-call { padding: 10px 22px; background: #c8102e; color: #fff; border-radius: 50px; font-weight: 700; font-size: 14px; transition: all 0.3s ease; display: flex; align-items: center; gap: 8px; box-shadow: 0 6px 20px rgba(200, 16, 46, 0.2); }
         .btn-call:hover { transform: translateY(-2px); box-shadow: 0 8px 28px rgba(200, 16, 46, 0.3); }
         .hamburger { display: none; background: none; border: none; color: #1e293b; font-size: 24px; cursor: pointer; }
 
         /* Hero */
-        .hero {
-            min-height: 100vh; display: flex; align-items: center;
-            background: linear-gradient(145deg, rgba(255,255,255,0.92) 0%, rgba(241,245,249,0.92) 100%), url('https://images.unsplash.com/photo-1486406146926-c627a92ad1ab?q=80&w=2000&auto=format&fit=crop') center/cover;
-            padding-top: 100px; position: relative;
-        }
+        .hero { min-height: 100vh; display: flex; align-items: center; background: linear-gradient(145deg, rgba(255,255,255,0.92) 0%, rgba(241,245,249,0.92) 100%), url('https://images.unsplash.com/photo-1486406146926-c627a92ad1ab?q=80&w=2000&auto=format&fit=crop') center/cover; padding-top: 100px; position: relative; }
         .hero-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 60px; align-items: center; }
-        .hero-badge { display: inline-block; padding: 6px 18px; background: rgba(200, 16, 46, 0.08); color: var(--primary); border-radius: 50px; font-weight: 700; font-size: 13px; margin-bottom: 20px; letter-spacing: 0.5px; }
+        .hero-badge { display: inline-block; padding: 6px 18px; background: rgba(200, 16, 46, 0.08); color: #c8102e; border-radius: 50px; font-weight: 700; font-size: 13px; margin-bottom: 20px; letter-spacing: 0.5px; }
         .hero-left h1 { font-size: 52px; line-height: 1.1; color: #0f172a; font-weight: 800; margin-bottom: 20px; }
-        .hero-left h1 .highlight { color: var(--primary); }
+        .hero-left h1 .highlight { color: #c8102e; }
         .hero-left p { color: #64748b; font-size: 18px; line-height: 1.8; margin-bottom: 30px; max-width: 500px; }
         .hero-buttons { display: flex; gap: 15px; flex-wrap: wrap; margin-bottom: 40px; }
-        .btn-primary { padding: 16px 36px; background: var(--primary); color: #fff; border: none; border-radius: 50px; font-weight: 700; font-size: 15px; transition: all 0.3s ease; cursor: pointer; box-shadow: 0 8px 28px rgba(200, 16, 46, 0.25); }
+        .btn-primary { padding: 16px 36px; background: #c8102e; color: #fff; border: none; border-radius: 50px; font-weight: 700; font-size: 15px; transition: all 0.3s ease; cursor: pointer; box-shadow: 0 8px 28px rgba(200, 16, 46, 0.25); }
         .btn-primary:hover { transform: translateY(-3px); box-shadow: 0 12px 36px rgba(200, 16, 46, 0.35); }
         .btn-outline { padding: 16px 36px; background: transparent; color: #1e293b; border: 1px solid #e2e8f0; border-radius: 50px; font-weight: 700; font-size: 15px; transition: all 0.3s ease; display: flex; align-items: center; gap: 10px; cursor: pointer; }
-        .btn-outline:hover { background: #f1f5f9; border-color: var(--primary); }
+        .btn-outline:hover { background: #f1f5f9; border-color: #c8102e; }
         .hero-stats { display: flex; gap: 48px; }
         .hero-stats strong { display: block; font-size: 30px; color: #0f172a; font-weight: 800; }
-        .hero-stats strong .accent { color: var(--primary); }
+        .hero-stats strong .accent { color: #c8102e; }
         .hero-stats span { color: #64748b; font-size: 14px; font-weight: 500; }
         .hero-card { background: #ffffff; padding: 36px 32px; border-radius: 20px; box-shadow: 0 20px 60px rgba(0, 0, 0, 0.06); border: 1px solid rgba(0, 0, 0, 0.02); }
         .hero-card h3 { color: #0f172a; margin-bottom: 18px; font-size: 20px; font-weight: 700; display: flex; align-items: center; gap: 10px; }
         .hero-card ul { display: grid; grid-template-columns: 1fr 1fr; gap: 12px 24px; }
         .hero-card li { color: #475569; font-size: 15px; display: flex; align-items: center; gap: 10px; }
-        .hero-card li i { color: var(--primary); font-size: 14px; width: 18px; }
+        .hero-card li i { color: #c8102e; font-size: 14px; width: 18px; }
 
         /* Sections */
         .section { padding: 80px 0; }
         .section-header { margin-bottom: 48px; }
         .section-header.center { text-align: center; }
-        .section-header .label { display: inline-block; padding: 6px 18px; background: rgba(200, 16, 46, 0.08); color: var(--primary); border-radius: 50px; font-weight: 700; font-size: 13px; letter-spacing: 0.5px; margin-bottom: 14px; }
+        .section-header .label { display: inline-block; padding: 6px 18px; background: rgba(200, 16, 46, 0.08); color: #c8102e; border-radius: 50px; font-weight: 700; font-size: 13px; letter-spacing: 0.5px; margin-bottom: 14px; }
         .section-header h2 { font-size: 36px; font-weight: 800; color: #0f172a; line-height: 1.2; }
-        .section-header h2 .highlight { color: var(--primary); background: transparent; padding: 0; border-radius: 0; }
+        .section-header h2 .highlight { color: #c8102e; background: transparent; padding: 0; border-radius: 0; }
 
         /* About */
         .about-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 50px; align-items: center; }
-        .about-image { height: 420px; border-radius: 20px; background: linear-gradient(145deg, #f1f5f9, #e2e8f0); display: flex; justify-content: center; align-items: center; font-size: 80px; color: var(--primary); position: relative; }
+        .about-image { height: 420px; border-radius: 20px; background: linear-gradient(145deg, #f1f5f9, #e2e8f0); display: flex; justify-content: center; align-items: center; font-size: 80px; color: #c8102e; position: relative; }
         .about-text p { color: #475569; line-height: 1.9; margin-bottom: 20px; font-size: 16px; }
         .about-features { display: grid; grid-template-columns: 1fr 1fr; gap: 14px; margin-top: 10px; }
         .about-features div { display: flex; align-items: center; gap: 10px; font-weight: 600; color: #1e293b; }
-        .about-features i { color: var(--primary); }
+        .about-features i { color: #c8102e; }
 
         /* Services */
         .service-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(220px, 1fr)); gap: 24px; }
         .service-card { background: #ffffff; padding: 30px 24px; border-radius: 16px; box-shadow: 0 4px 16px rgba(0, 0, 0, 0.04); transition: all 0.3s ease; border: 1px solid #f1f5f9; text-align: center; }
-        .service-card:hover { transform: translateY(-6px); box-shadow: 0 12px 40px rgba(0, 0, 0, 0.08); border-color: var(--primary); }
-        .service-card i { font-size: 32px; color: var(--primary); margin-bottom: 14px; display: block; }
+        .service-card:hover { transform: translateY(-6px); box-shadow: 0 12px 40px rgba(0, 0, 0, 0.08); border-color: #c8102e; }
+        .service-card i { font-size: 32px; color: #c8102e; margin-bottom: 14px; display: block; }
         .service-card h3 { font-size: 18px; margin-bottom: 6px; font-weight: 700; }
         .service-card p { color: #64748b; font-size: 14px; line-height: 1.7; }
-        .service-card .service-tag { display: inline-block; margin-top: 12px; padding: 4px 14px; background: rgba(200, 16, 46, 0.06); color: var(--primary); border-radius: 20px; font-size: 12px; font-weight: 600; }
+        .service-card .service-tag { display: inline-block; margin-top: 12px; padding: 4px 14px; background: rgba(200, 16, 46, 0.06); color: #c8102e; border-radius: 20px; font-size: 12px; font-weight: 600; }
 
         /* Stats */
         .stats-bar { padding: 60px 0; background: #0f172a; color: #fff; }
         .stats-grid { display: grid; grid-template-columns: repeat(4, 1fr); gap: 30px; text-align: center; }
         .stat-item .number { display: block; font-size: 40px; font-weight: 800; color: #fff; line-height: 1.2; }
-        .stat-item .number .accent { color: var(--primary); }
+        .stat-item .number .accent { color: #c8102e; }
         .stat-item p { color: rgba(255, 255, 255, 0.5); margin-top: 4px; font-size: 14px; }
 
         /* Portfolio */
         .portfolio-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(220px, 1fr)); gap: 16px; }
         .portfolio-item { background: #ffffff; padding: 24px 16px; border-radius: 12px; text-align: center; box-shadow: 0 4px 12px rgba(0, 0, 0, 0.04); transition: all 0.3s ease; border: 1px solid #f1f5f9; }
         .portfolio-item:hover { transform: translateY(-4px); box-shadow: 0 8px 24px rgba(0, 0, 0, 0.06); }
-        .portfolio-item i { display: block; font-size: 26px; color: var(--primary); margin-bottom: 8px; }
+        .portfolio-item i { display: block; font-size: 26px; color: #c8102e; margin-bottom: 8px; }
         .portfolio-item strong { display: block; font-size: 15px; font-weight: 700; }
         .portfolio-item .location { display: block; font-size: 13px; color: #94a3b8; margin-top: 2px; }
         .portfolio-item .service-badge { display: inline-block; margin-top: 8px; padding: 2px 12px; background: #f1f5f9; border-radius: 20px; font-size: 11px; font-weight: 600; color: #475569; }
-        
-        /* Portfolio Show More Button */
+
+        /* ✅ Fixed Show More / Show Less */
         .portfolio-extra { display: none; grid-template-columns: repeat(auto-fit, minmax(220px, 1fr)); gap: 16px; margin-top: 16px; }
         .portfolio-extra.visible { display: grid; }
         .btn-show-more { display: block; margin: 20px auto 0; padding: 12px 30px; background: #0f172a; color: #fff; border: none; border-radius: 50px; font-weight: 700; font-size: 14px; cursor: pointer; transition: all 0.3s ease; }
-        .btn-show-more:hover { background: var(--primary); }
+        .btn-show-more:hover { background: #c8102e; }
 
         /* Scope of Work */
         .scope-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 40px; }
         .scope-col h3 { font-size: 20px; font-weight: 700; margin-bottom: 16px; display: flex; align-items: center; gap: 10px; }
-        .scope-col h3 i { color: var(--primary); }
+        .scope-col h3 i { color: #c8102e; }
         .scope-col ul { display: grid; grid-template-columns: 1fr; gap: 10px; }
         .scope-col ul li { padding: 8px 12px; background: #ffffff; border-radius: 8px; box-shadow: 0 2px 8px rgba(0, 0, 0, 0.03); display: flex; align-items: center; gap: 10px; border: 1px solid #f1f5f9; font-size: 14px; }
-        .scope-col ul li i { color: var(--primary); font-size: 14px; width: 20px; }
+        .scope-col ul li i { color: #c8102e; font-size: 14px; width: 20px; }
 
         /* Process */
         .process-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(160px, 1fr)); gap: 24px; text-align: center; }
         .process-step { background: #ffffff; padding: 24px 16px; border-radius: 16px; box-shadow: 0 4px 16px rgba(0, 0, 0, 0.04); border: 1px solid #f1f5f9; transition: all 0.3s ease; }
-        .process-step:hover { transform: translateY(-4px); box-shadow: 0 8px 28px rgba(0, 0, 0, 0.06); border-color: var(--primary); }
-        .process-step .step-num { display: inline-block; width: 44px; height: 44px; line-height: 44px; background: rgba(200, 16, 46, 0.08); color: var(--primary); border-radius: 50%; font-weight: 800; font-size: 16px; margin-bottom: 12px; }
+        .process-step:hover { transform: translateY(-4px); box-shadow: 0 8px 28px rgba(0, 0, 0, 0.06); border-color: #c8102e; }
+        .process-step .step-num { display: inline-block; width: 44px; height: 44px; line-height: 44px; background: rgba(200, 16, 46, 0.08); color: #c8102e; border-radius: 50%; font-weight: 800; font-size: 16px; margin-bottom: 12px; }
         .process-step h4 { font-size: 16px; font-weight: 700; margin-bottom: 4px; }
         .process-step p { color: #64748b; font-size: 13px; line-height: 1.6; }
 
         /* Training & Compliance */
         .training-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 40px; }
         .training-col h3 { font-size: 20px; font-weight: 700; margin-bottom: 16px; display: flex; align-items: center; gap: 10px; }
-        .training-col h3 i { color: var(--primary); }
+        .training-col h3 i { color: #c8102e; }
         .training-col ul { display: grid; grid-template-columns: 1fr; gap: 10px; }
         .training-col ul li { padding: 8px 12px; background: #ffffff; border-radius: 8px; border: 1px solid #f1f5f9; display: flex; align-items: center; gap: 10px; font-size: 14px; }
-        .training-col ul li i { color: var(--primary); font-size: 14px; width: 20px; }
+        .training-col ul li i { color: #c8102e; font-size: 14px; width: 20px; }
 
         /* Closing Statement */
         .closing-section { background: #0f172a; padding: 60px 0; color: #fff; text-align: center; }
         .closing-section h2 { font-size: 32px; font-weight: 800; margin-bottom: 16px; }
-        .closing-section h2 .highlight { color: var(--primary); }
+        .closing-section h2 .highlight { color: #c8102e; }
         .closing-section p { max-width: 800px; margin: 0 auto; color: rgba(255, 255, 255, 0.7); line-height: 1.8; font-size: 17px; }
 
         /* Contact */
@@ -168,14 +151,14 @@
         .contact-info p { color: #64748b; margin-bottom: 24px; max-width: 380px; font-size: 16px; }
         .contact-details { display: flex; flex-direction: column; gap: 12px; }
         .contact-details div { display: flex; align-items: center; gap: 12px; color: #1e293b; }
-        .contact-details i { color: var(--primary); width: 20px; }
+        .contact-details i { color: #c8102e; width: 20px; }
         .contact-form { background: #ffffff; padding: 32px; border-radius: 20px; box-shadow: 0 4px 20px rgba(0, 0, 0, 0.04); border: 1px solid #f1f5f9; }
         .contact-form h3 { font-size: 18px; margin-bottom: 18px; font-weight: 700; }
         .contact-form .form-row { display: grid; grid-template-columns: 1fr 1fr; gap: 14px; }
         .contact-form input, .contact-form select, .contact-form textarea {
             width: 100%; padding: 14px 16px; border: 1px solid #e2e8f0; border-radius: 10px; background: #fafbfc; color: #1e293b; margin-bottom: 14px; font-family: inherit; transition: all 0.3s ease; outline: none; font-size: 14px;
         }
-        .contact-form input:focus, .contact-form select:focus, .contact-form textarea:focus { border-color: var(--primary); background: #ffffff; box-shadow: 0 0 0 3px rgba(200, 16, 46, 0.06); }
+        .contact-form input:focus, .contact-form select:focus, .contact-form textarea:focus { border-color: #c8102e; background: #ffffff; box-shadow: 0 0 0 3px rgba(200, 16, 46, 0.06); }
         .contact-form textarea { min-height: 80px; resize: vertical; }
         .btn-primary.full { width: 100%; display: block; text-align: center; border: none; cursor: pointer; }
 
@@ -187,7 +170,6 @@
 
         /* WhatsApp */
         .whatsapp-float { position: fixed; right: 20px; bottom: 20px; width: 58px; height: 58px; border-radius: 50%; background: #25D366; color: #fff; font-size: 28px; display: flex; justify-content: center; align-items: center; box-shadow: 0 6px 24px rgba(37, 211, 102, 0.3); z-index: 999; transition: all 0.3s ease; }
-        .whatsapp-float:hover { transform: scale(1.06); }
 
         @media (max-width: 991px) {
             .hero-grid, .about-grid, .contact-grid, .scope-grid, .training-grid { grid-template-columns: 1fr; }
@@ -219,8 +201,8 @@
         <div class="container">
             <nav class="nav">
                 <a href="#" class="logo">
-                    <!-- Placeholder Image. Replace 'src' with your actual 'logo-header-transparent.png' -->
-                    <img src="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 200 100'%3E%3Cg fill='%23c8102e'%3E%3Ccircle cx='50' cy='50' r='40'/%3E%3Ctext x='100' y='65' font-family='Arial' font-weight='bold' font-size='32' fill='%23c8102e'%3EClean Care%3C/text%3E%3C/g%3E%3C/svg%3E" alt="Clean Care" class="logo-img" />
+                    <!-- ✅ Fixed: Using your actual uploaded PNG file -->
+                    <img src="logo-header-transparent.png" alt="Clean Care" class="logo-img" />
                 </a>
                 <ul class="nav-links" id="navLinks">
                     <li><a href="#home">Home</a></li>
@@ -394,7 +376,7 @@
                 <div class="portfolio-item"><i class="fas fa-building"></i> <strong>Hillcrest I CHS</strong> <span class="location">Powai</span> <span class="service-badge">Full Facility Mgmt</span></div>
             </div>
 
-            <!-- Hidden items -->
+            <!-- ✅ Fixed: All remaining clients in the hidden div -->
             <div class="portfolio-extra" id="portfolioExtra">
                 <div class="portfolio-item"><i class="fas fa-building"></i> <strong>Hillcrest II CHS</strong> <span class="location">Powai</span> <span class="service-badge">Housekeeping + Maint</span></div>
                 <div class="portfolio-item"><i class="fas fa-building"></i> <strong>Paradise CHS</strong> <span class="location">Powai</span> <span class="service-badge">Housekeeping</span></div>
@@ -539,30 +521,28 @@
                 </div>
                 <div class="contact-form">
                     <h3><i class="fas fa-pen-alt" style="color:#c8102e;margin-right:8px;"></i> Request Proposal</h3>
-                    <!-- IMPORTANT: Replace 'YOUR_WEB3FORMS_ACCESS_KEY' with your actual Web3Forms key -->
-                    <form action="https://api.web3forms.com/submit" method="POST">
-                        <input type="hidden" name="access_key" value="YOUR_WEB3FORMS_ACCESS_KEY">
-                        
+                    <!-- ✅ Using your Google Form link -->
+                    <form action="https://docs.google.com/forms/d/e/YOUR_GOOGLE_FORM_ID/formResponse" method="POST" target="_blank">
                         <div class="form-row">
-                            <input type="text" name="name" placeholder="Your Name" required />
-                            <input type="text" name="society" placeholder="Society Name" required />
+                            <input type="text" name="entry.123456789" placeholder="Your Name" required />
+                            <input type="text" name="entry.987654321" placeholder="Society Name" required />
                         </div>
                         <div class="form-row">
-                            <input type="text" name="location" placeholder="Location (e.g. Powai, Chandivali)" required />
-                            <input type="tel" name="phone" placeholder="Contact Number" required />
+                            <input type="text" name="entry.456789123" placeholder="Location (e.g. Powai, Chandivali)" required />
+                            <input type="tel" name="entry.789123456" placeholder="Contact Number" required />
                         </div>
-                        <select name="service" required>
+                        <select name="entry.321654987" required>
                             <option value="">Select Services Required</option>
-                            <option value="housekeeping">Housekeeping</option>
-                            <option value="facility_management">Facility Management</option>
-                            <option value="technical_maintenance">Technical Maintenance</option>
-                            <option value="pool_management">Pool Management</option>
-                            <option value="gym_management">Gym Management</option>
-                            <option value="garden_maintenance">Garden Maintenance</option>
-                            <option value="multiple">Multiple Services</option>
+                            <option value="Housekeeping">Housekeeping</option>
+                            <option value="Facility Management">Facility Management</option>
+                            <option value="Technical Maintenance">Technical Maintenance</option>
+                            <option value="Pool Management">Pool Management</option>
+                            <option value="Gym Management">Gym Management</option>
+                            <option value="Garden Maintenance">Garden Maintenance</option>
+                            <option value="Multiple Services">Multiple Services</option>
                         </select>
-                        <input type="number" name="units" placeholder="Number of Units / Flats" required />
-                        <textarea name="message" placeholder="Any additional requirements..."></textarea>
+                        <input type="number" name="entry.654987321" placeholder="Number of Units / Flats" required />
+                        <textarea name="entry.147258369" placeholder="Any additional requirements..."></textarea>
                         <button type="submit" class="btn-primary full">
                             <i class="fas fa-paper-plane"></i> Submit Proposal
                         </button>
@@ -577,7 +557,7 @@
         <div class="container">
             <div class="footer-inner">
                 <div class="footer-brand">
-                    <img src="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 200 100'%3E%3Cg fill='%23ffffff'%3E%3Ccircle cx='50' cy='50' r='40'/%3E%3Ctext x='100' y='65' font-family='Arial' font-weight='bold' font-size='32' fill='%23ffffff'%3EClean Care%3C/text%3E%3C/g%3E%3C/svg%3E" alt="Clean Care" style="height:60px;width:auto;display:block;margin-bottom:4px;" />
+                    <img src="logo-header-transparent.png" alt="Clean Care" style="height:60px;width:auto;display:block;margin-bottom:4px;" />
                     <p>Facility Management Services</p>
                 </div>
                 <div class="footer-copy">
@@ -683,7 +663,7 @@
             });
         });
 
-        // Portfolio Show More/Less
+        // ✅ Fixed: Show More / Show Less for Portfolio
         const showMoreBtn = document.getElementById('showMoreBtn');
         const portfolioExtra = document.getElementById('portfolioExtra');
 
