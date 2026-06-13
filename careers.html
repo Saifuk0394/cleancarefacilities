@@ -1,0 +1,744 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Careers | Clean Care Facility Management</title>
+    <meta name="description" content="Join Clean Care — we're hiring for facility management roles across Mumbai. Explore current openings and apply today." />
+    <meta name="theme-color" content="#c8102e" />
+    <link rel="icon" href="favicon-512.png" type="image/png" />
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;600;700;800&display=swap" rel="stylesheet" />
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css" />
+
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+        html {
+            scroll-behavior: smooth;
+        }
+        body {
+            font-family: 'Plus Jakarta Sans', sans-serif;
+            background: #f9fafb;
+            color: #1e293b;
+            line-height: 1.6;
+        }
+        .container {
+            width: min(1200px, 92%);
+            margin: auto;
+            padding: 0 15px;
+        }
+        a {
+            text-decoration: none;
+            color: inherit;
+        }
+        ul {
+            list-style: none;
+        }
+
+        /* Header */
+        .header {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            z-index: 1000;
+            transition: all 0.3s ease;
+            background: transparent;
+            padding: 10px 0;
+        }
+        .header.scrolled {
+            background: rgba(255, 255, 255, 0.98);
+            box-shadow: 0 4px 20px rgba(0, 0, 0, 0.06);
+        }
+        .nav {
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            padding: 8px 0;
+        }
+        .logo-img {
+            height: 50px;
+            width: auto;
+            display: block;
+        }
+        .nav-links {
+            display: flex;
+            gap: 32px;
+        }
+        .nav-links a {
+            color: #475569;
+            font-weight: 600;
+            font-size: 14px;
+            position: relative;
+            transition: all 0.3s ease;
+        }
+        .nav-links a:hover {
+            color: #c8102e;
+        }
+        .nav-links a::after {
+            content: '';
+            position: absolute;
+            left: 0;
+            bottom: -4px;
+            width: 0;
+            height: 2px;
+            background: #c8102e;
+            transition: all 0.3s ease;
+        }
+        .nav-links a:hover::after {
+            width: 100%;
+        }
+        .nav-links a.active {
+            color: #c8102e;
+        }
+        .nav-links a.active::after {
+            width: 100%;
+        }
+        .nav-actions {
+            display: flex;
+            align-items: center;
+            gap: 20px;
+        }
+        .btn-call {
+            padding: 10px 22px;
+            background: #c8102e;
+            color: #fff;
+            border-radius: 50px;
+            font-weight: 700;
+            font-size: 14px;
+            transition: all 0.3s ease;
+            display: flex;
+            align-items: center;
+            gap: 8px;
+            box-shadow: 0 6px 20px rgba(200, 16, 46, 0.2);
+        }
+        .btn-call:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 8px 28px rgba(200, 16, 46, 0.3);
+        }
+        .hamburger {
+            display: none;
+            background: none;
+            border: none;
+            color: #1e293b;
+            font-size: 24px;
+            cursor: pointer;
+        }
+
+        /* Hero */
+        .hero {
+            padding: 140px 0 60px;
+            background: linear-gradient(145deg, #ffffff 0%, #f1f5f9 100%);
+            position: relative;
+        }
+        .hero .container {
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            gap: 40px;
+            flex-wrap: wrap;
+        }
+        .hero-content {
+            flex: 1;
+            min-width: 280px;
+        }
+        .hero-content .badge {
+            display: inline-block;
+            padding: 6px 18px;
+            background: rgba(200, 16, 46, 0.08);
+            color: #c8102e;
+            border-radius: 50px;
+            font-weight: 700;
+            font-size: 13px;
+            letter-spacing: 0.5px;
+            margin-bottom: 16px;
+        }
+        .hero-content h1 {
+            font-size: 44px;
+            line-height: 1.1;
+            color: #0f172a;
+            font-weight: 800;
+            margin-bottom: 16px;
+        }
+        .hero-content h1 .highlight {
+            color: #c8102e;
+        }
+        .hero-content p {
+            color: #64748b;
+            font-size: 18px;
+            line-height: 1.8;
+            max-width: 500px;
+        }
+        .hero-image {
+            flex: 0 0 280px;
+            text-align: center;
+        }
+        .hero-image i {
+            font-size: 120px;
+            color: #c8102e;
+            opacity: 0.15;
+        }
+
+        /* Section */
+        .section {
+            padding: 80px 0;
+        }
+        .section-header {
+            margin-bottom: 48px;
+        }
+        .section-header.center {
+            text-align: center;
+        }
+        .section-header span {
+            display: inline-block;
+            padding: 6px 18px;
+            background: rgba(200, 16, 46, 0.08);
+            color: #c8102e;
+            border-radius: 50px;
+            font-weight: 700;
+            font-size: 13px;
+            letter-spacing: 0.5px;
+            margin-bottom: 14px;
+        }
+        .section-header h2 {
+            font-size: 36px;
+            font-weight: 800;
+            color: #0f172a;
+            line-height: 1.2;
+        }
+        .section-header h2 .highlight {
+            color: #c8102e;
+        }
+
+        /* Job Cards */
+        .job-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 24px;
+        }
+        .job-card {
+            background: #ffffff;
+            padding: 28px 24px;
+            border-radius: 16px;
+            box-shadow: 0 4px 16px rgba(0, 0, 0, 0.04);
+            transition: all 0.3s ease;
+            border: 1px solid #f1f5f9;
+        }
+        .job-card:hover {
+            transform: translateY(-4px);
+            box-shadow: 0 12px 36px rgba(0, 0, 0, 0.06);
+            border-color: #c8102e;
+        }
+        .job-card .job-icon {
+            font-size: 28px;
+            color: #c8102e;
+            margin-bottom: 12px;
+            display: block;
+        }
+        .job-card h3 {
+            font-size: 18px;
+            font-weight: 700;
+            margin-bottom: 4px;
+        }
+        .job-card .location {
+            color: #64748b;
+            font-size: 14px;
+            display: flex;
+            align-items: center;
+            gap: 6px;
+            margin-bottom: 10px;
+        }
+        .job-card .location i {
+            font-size: 14px;
+        }
+        .job-card p {
+            color: #475569;
+            font-size: 14px;
+            line-height: 1.7;
+            margin-bottom: 14px;
+        }
+        .job-card .tags {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 8px;
+            margin-bottom: 14px;
+        }
+        .job-card .tags span {
+            padding: 4px 12px;
+            background: #f1f5f9;
+            border-radius: 20px;
+            font-size: 12px;
+            font-weight: 600;
+            color: #475569;
+        }
+        .job-card .btn-apply {
+            display: inline-block;
+            padding: 8px 24px;
+            background: #c8102e;
+            color: #fff;
+            border: none;
+            border-radius: 50px;
+            font-weight: 700;
+            font-size: 14px;
+            transition: all 0.3s ease;
+            cursor: pointer;
+        }
+        .job-card .btn-apply:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 6px 20px rgba(200, 16, 46, 0.25);
+        }
+
+        /* Application Form */
+        .apply-section {
+            background: #ffffff;
+            border-radius: 20px;
+            padding: 48px 40px;
+            box-shadow: 0 4px 20px rgba(0, 0, 0, 0.04);
+            border: 1px solid #f1f5f9;
+            max-width: 720px;
+            margin: 0 auto;
+        }
+        .apply-section h3 {
+            font-size: 22px;
+            font-weight: 700;
+            margin-bottom: 8px;
+        }
+        .apply-section p {
+            color: #64748b;
+            margin-bottom: 24px;
+        }
+        .apply-section .form-row {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 16px;
+        }
+        .apply-section input,
+        .apply-section select,
+        .apply-section textarea {
+            width: 100%;
+            padding: 14px 16px;
+            border: 1px solid #e2e8f0;
+            border-radius: 10px;
+            background: #fafbfc;
+            color: #1e293b;
+            margin-bottom: 16px;
+            font-family: inherit;
+            transition: all 0.3s ease;
+            outline: none;
+            font-size: 14px;
+        }
+        .apply-section input:focus,
+        .apply-section select:focus,
+        .apply-section textarea:focus {
+            border-color: #c8102e;
+            background: #ffffff;
+            box-shadow: 0 0 0 3px rgba(200, 16, 46, 0.06);
+        }
+        .apply-section textarea {
+            min-height: 100px;
+            resize: vertical;
+        }
+        .apply-section .btn-submit {
+            padding: 16px 36px;
+            background: #c8102e;
+            color: #fff;
+            border: none;
+            border-radius: 50px;
+            font-weight: 700;
+            font-size: 15px;
+            transition: all 0.3s ease;
+            cursor: pointer;
+            display: inline-flex;
+            align-items: center;
+            gap: 10px;
+            box-shadow: 0 8px 28px rgba(200, 16, 46, 0.2);
+        }
+        .apply-section .btn-submit:hover {
+            transform: translateY(-3px);
+            box-shadow: 0 12px 36px rgba(200, 16, 46, 0.3);
+        }
+
+        /* Footer */
+        footer {
+            background: #0f172a;
+            padding: 30px 0;
+            color: #fff;
+            border-top: 1px solid rgba(255, 255, 255, 0.04);
+        }
+        .footer-inner {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            gap: 20px;
+            flex-wrap: wrap;
+        }
+        .footer-brand p {
+            color: rgba(255, 255, 255, 0.4);
+            font-size: 14px;
+        }
+        .footer-copy {
+            color: rgba(255, 255, 255, 0.3);
+            font-size: 14px;
+        }
+
+        /* WhatsApp */
+        .whatsapp-float {
+            position: fixed;
+            right: 20px;
+            bottom: 20px;
+            width: 58px;
+            height: 58px;
+            border-radius: 50%;
+            background: #25D366;
+            color: #fff;
+            font-size: 28px;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            box-shadow: 0 6px 24px rgba(37, 211, 102, 0.3);
+            z-index: 999;
+            transition: all 0.3s ease;
+        }
+        .whatsapp-float:hover {
+            transform: scale(1.06);
+        }
+
+        /* Responsive */
+        @media (max-width: 991px) {
+            .hero .container {
+                flex-direction: column;
+                text-align: center;
+            }
+            .hero-content p {
+                margin-left: auto;
+                margin-right: auto;
+            }
+            .hero-image {
+                flex: 0 0 auto;
+            }
+            .nav-links {
+                display: none;
+                position: fixed;
+                top: 0;
+                left: 0;
+                width: 100%;
+                height: 100vh;
+                background: #ffffff;
+                flex-direction: column;
+                justify-content: center;
+                align-items: center;
+                gap: 24px;
+                z-index: 999;
+            }
+            .nav-links.open {
+                display: flex;
+            }
+            .nav-links a {
+                font-size: 20px;
+                color: #0f172a;
+            }
+            .hamburger {
+                display: block;
+            }
+            .apply-section .form-row {
+                grid-template-columns: 1fr;
+            }
+        }
+        @media (max-width: 600px) {
+            .hero-content h1 {
+                font-size: 32px;
+            }
+            .section-header h2 {
+                font-size: 28px;
+            }
+            .job-grid {
+                grid-template-columns: 1fr;
+            }
+            .apply-section {
+                padding: 32px 20px;
+            }
+        }
+    </style>
+</head>
+<body>
+
+    <!-- Header -->
+    <header class="header" id="header">
+        <div class="container">
+            <nav class="nav">
+                <a href="index.html" class="logo">
+                    <img src="logo-header-transparent.png" alt="Clean Care" class="logo-img" />
+                </a>
+                <ul class="nav-links">
+                    <li><a href="index.html">Home</a></li>
+                    <li><a href="index.html#about">About</a></li>
+                    <li><a href="index.html#services">Services</a></li>
+                    <li><a href="index.html#portfolio">Portfolio</a></li>
+                    <li><a href="careers.html" class="active">Careers</a></li>
+                    <li><a href="index.html#contact">Contact</a></li>
+                </ul>
+                <div class="nav-actions">
+                    <a href="tel:+919892000577" class="btn-call">
+                        <i class="fas fa-phone"></i> <span>Call Now</span>
+                    </a>
+                    <button class="hamburger" id="menuToggle" aria-label="Menu">
+                        <i class="fas fa-bars"></i>
+                    </button>
+                </div>
+            </nav>
+        </div>
+    </header>
+
+    <!-- Hero -->
+    <section class="hero">
+        <div class="container">
+            <div class="hero-content">
+                <span class="badge"><i class="fas fa-users"></i> Join Our Team</span>
+                <h1>Build Your <span class="highlight">Career</span> with Clean Care</h1>
+                <p>We're always looking for dedicated professionals to join our facility management team in Mumbai. If you're passionate about service excellence, we'd love to hear from you.</p>
+            </div>
+            <div class="hero-image">
+                <i class="fas fa-people-arrows"></i>
+            </div>
+        </div>
+    </section>
+
+    <!-- Open Positions -->
+    <section class="section">
+        <div class="container">
+            <div class="section-header center">
+                <span>Current Openings</span>
+                <h2>Join Our <span class="highlight">Team</span></h2>
+            </div>
+            <div class="job-grid">
+                <!-- Job 1 -->
+                <div class="job-card">
+                    <i class="fas fa-broom job-icon"></i>
+                    <h3>Housekeeping Supervisor</h3>
+                    <div class="location"><i class="fas fa-map-marker-alt"></i> Powai, Mumbai</div>
+                    <p>Lead and supervise housekeeping staff, ensure hygiene standards, and manage daily cleaning operations for residential properties.</p>
+                    <div class="tags">
+                        <span>Full-time</span>
+                        <span>3+ years exp</span>
+                        <span>Immediate</span>
+                    </div>
+                    <button class="btn-apply" onclick="scrollToForm()">Apply Now</button>
+                </div>
+
+                <!-- Job 2 -->
+                <div class="job-card">
+                    <i class="fas fa-tools job-icon"></i>
+                    <h3>Technical Maintenance Engineer</h3>
+                    <div class="location"><i class="fas fa-map-marker-alt"></i> Chandivali, Mumbai</div>
+                    <p>Handle electrical, plumbing, and general maintenance tasks across residential and commercial properties.</p>
+                    <div class="tags">
+                        <span>Full-time</span>
+                        <span>5+ years exp</span>
+                        <span>Urgent</span>
+                    </div>
+                    <button class="btn-apply" onclick="scrollToForm()">Apply Now</button>
+                </div>
+
+                <!-- Job 3 -->
+                <div class="job-card">
+                    <i class="fas fa-swimmer job-icon"></i>
+                    <h3>Pool & Gym Attendant</h3>
+                    <div class="location"><i class="fas fa-map-marker-alt"></i> Mulund, Mumbai</div>
+                    <p>Maintain swimming pool water quality, clean gym equipment, and ensure safety compliance for clubhouse amenities.</p>
+                    <div class="tags">
+                        <span>Part-time</span>
+                        <span>1+ years exp</span>
+                        <span>Weekend shifts</span>
+                    </div>
+                    <button class="btn-apply" onclick="scrollToForm()">Apply Now</button>
+                </div>
+
+                <!-- Job 4 -->
+                <div class="job-card">
+                    <i class="fas fa-seedling job-icon"></i>
+                    <h3>Gardening & Landscaping Staff</h3>
+                    <div class="location"><i class="fas fa-map-marker-alt"></i> Sakinaka, Mumbai</div>
+                    <p>Responsible for plant care, lawn mowing, garden upkeep, and landscaping for residential communities.</p>
+                    <div class="tags">
+                        <span>Full-time</span>
+                        <span>2+ years exp</span>
+                        <span>Immediate</span>
+                    </div>
+                    <button class="btn-apply" onclick="scrollToForm()">Apply Now</button>
+                </div>
+
+                <!-- Job 5 -->
+                <div class="job-card">
+                    <i class="fas fa-users job-icon"></i>
+                    <h3>Receptionist / Front Desk</h3>
+                    <div class="location"><i class="fas fa-map-marker-alt"></i> Powai, Mumbai</div>
+                    <p>Manage visitor entry, handle phone calls, and provide administrative support at a premium residential complex.</p>
+                    <div class="tags">
+                        <span>Full-time</span>
+                        <span>1+ years exp</span>
+                        <span>Female preferred</span>
+                    </div>
+                    <button class="btn-apply" onclick="scrollToForm()">Apply Now</button>
+                </div>
+
+                <!-- Job 6 -->
+                <div class="job-card">
+                    <i class="fas fa-clipboard-check job-icon"></i>
+                    <h3>Facility Manager</h3>
+                    <div class="location"><i class="fas fa-map-marker-alt"></i> Chandivali, Mumbai</div>
+                    <p>Oversee all facility operations, manage staff, coordinate with clients, and ensure compliance with service standards.</p>
+                    <div class="tags">
+                        <span>Full-time</span>
+                        <span>8+ years exp</span>
+                        <span>Leadership role</span>
+                    </div>
+                    <button class="btn-apply" onclick="scrollToForm()">Apply Now</button>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Application Form -->
+    <section class="section" style="padding-top:0;">
+        <div class="container">
+            <div class="apply-section" id="applyForm">
+                <h3><i class="fas fa-paper-plane" style="color:#c8102e;margin-right:8px;"></i> Apply Now</h3>
+                <p>Fill out the form below and our HR team will get back to you within 48 hours.</p>
+                <form id="jobApplicationForm">
+                    <div class="form-row">
+                        <input type="text" placeholder="Full Name" required />
+                        <input type="email" placeholder="Email Address" required />
+                    </div>
+                    <div class="form-row">
+                        <input type="tel" placeholder="Phone Number" required />
+                        <input type="text" placeholder="Current Location" required />
+                    </div>
+                    <select required>
+                        <option value="">Select Position You're Applying For</option>
+                        <option value="housekeeping_supervisor">Housekeeping Supervisor</option>
+                        <option value="technical_maintenance">Technical Maintenance Engineer</option>
+                        <option value="pool_gym_attendant">Pool & Gym Attendant</option>
+                        <option value="gardening_staff">Gardening & Landscaping Staff</option>
+                        <option value="receptionist">Receptionist / Front Desk</option>
+                        <option value="facility_manager">Facility Manager</option>
+                        <option value="other">Other</option>
+                    </select>
+                    <input type="text" placeholder="Years of Experience" required />
+                    <textarea placeholder="Tell us why you'd be a great fit for Clean Care..." rows="4"></textarea>
+                    <button type="submit" class="btn-submit">
+                        <i class="fas fa-paper-plane"></i> Submit Application
+                    </button>
+                </form>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer>
+        <div class="container">
+            <div class="footer-inner">
+                <div class="footer-brand">
+                    <img src="logo-header-transparent.png" alt="Clean Care" style="height:60px;width:auto;display:block;margin-bottom:4px;" />
+                    <p>Facility Management Services</p>
+                </div>
+                <div class="footer-copy">
+                    <p>&copy; 2026 Clean Care. All rights reserved.</p>
+                </div>
+            </div>
+        </div>
+    </footer>
+
+    <!-- WhatsApp -->
+    <a href="https://wa.me/919892000577" class="whatsapp-float" target="_blank">
+        <i class="fab fa-whatsapp"></i>
+    </a>
+
+    <!-- JavaScript -->
+    <script>
+        // Header scroll
+        const header = document.getElementById('header');
+        window.addEventListener('scroll', function() {
+            if (header) {
+                if (window.scrollY > 40) {
+                    header.classList.add('scrolled');
+                } else {
+                    header.classList.remove('scrolled');
+                }
+            }
+        });
+
+        // Mobile menu
+        const menuToggle = document.getElementById('menuToggle');
+        const navLinks = document.querySelector('.nav-links');
+        if (menuToggle && navLinks) {
+            menuToggle.addEventListener('click', function() {
+                navLinks.classList.toggle('open');
+                const icon = this.querySelector('i');
+                if (navLinks.classList.contains('open')) {
+                    icon.className = 'fas fa-times';
+                } else {
+                    icon.className = 'fas fa-bars';
+                }
+            });
+
+            navLinks.querySelectorAll('a').forEach(link => {
+                link.addEventListener('click', function() {
+                    navLinks.classList.remove('open');
+                    if (menuToggle.querySelector('i')) {
+                        menuToggle.querySelector('i').className = 'fas fa-bars';
+                    }
+                });
+            });
+        }
+
+        // Scroll to application form
+        function scrollToForm() {
+            const form = document.getElementById('applyForm');
+            if (form) {
+                const offset = 100;
+                const pos = form.getBoundingClientRect().top + window.pageYOffset - offset;
+                window.scrollTo({ top: pos, behavior: 'smooth' });
+            }
+        }
+
+        // Job application form submission
+        const jobForm = document.getElementById('jobApplicationForm');
+        if (jobForm) {
+            jobForm.addEventListener('submit', function(e) {
+                e.preventDefault();
+                const btn = this.querySelector('button[type="submit"]');
+                const original = btn.innerHTML;
+                btn.innerHTML = '<i class="fas fa-spinner fa-spin"></i> Sending...';
+                btn.disabled = true;
+
+                const formData = new FormData(this);
+                let dataStr = 'Job Application - Clean Care\n\n';
+                for (let [key, value] of formData.entries()) {
+                    dataStr += key + ': ' + value + '\n';
+                }
+
+                const mailtoLink = 'mailto:cleancare1067@gmail.com?subject=Job%20Application%20-%20Clean%20Care&body=' +
+                    encodeURIComponent(dataStr);
+
+                setTimeout(() => {
+                    window.location.href = mailtoLink;
+                    btn.innerHTML = '<i class="fas fa-check"></i> Done! Check Email';
+                    btn.style.background = '#25D366';
+                    setTimeout(() => {
+                        btn.innerHTML = original;
+                        btn.style.background = '';
+                        btn.disabled = false;
+                        jobForm.reset();
+                    }, 3000);
+                }, 1000);
+            });
+        }
+    </script>
+
+</body>
+</html>
