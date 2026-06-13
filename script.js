@@ -1,16 +1,16 @@
-// Loader
+// Loader hide
 window.addEventListener('load', function () {
     const loader = document.getElementById('loader');
     if (loader) {
         setTimeout(() => {
-            loader.style.opacity = '0';
+            loader.classList.add('hide');
             setTimeout(() => { loader.style.display = 'none'; }, 500);
-        }, 800);
+        }, 1000);
     }
 });
 
 // Header scroll
-const header = document.querySelector('.header-premium');
+const header = document.querySelector('.header');
 window.addEventListener('scroll', function () {
     if (header) {
         if (window.scrollY > 50) {
@@ -22,25 +22,30 @@ window.addEventListener('scroll', function () {
 });
 
 // Mobile menu
-const mobileBtn = document.getElementById('mobileMenu');
-const navLinks = document.getElementById('navLinks');
-if (mobileBtn && navLinks) {
-    mobileBtn.addEventListener('click', function () {
+const menuToggle = document.getElementById('menuToggle');
+const navLinks = document.querySelector('.nav-links');
+if (menuToggle && navLinks) {
+    menuToggle.addEventListener('click', function () {
         navLinks.classList.toggle('open');
-        this.classList.toggle('active');
+        const icon = this.querySelector('i');
+        if (navLinks.classList.contains('open')) {
+            icon.className = 'fas fa-times';
+        } else {
+            icon.className = 'fas fa-bars';
+        }
     });
 
     navLinks.querySelectorAll('a').forEach(link => {
         link.addEventListener('click', function () {
             navLinks.classList.remove('open');
-            if (mobileBtn) {
-                mobileBtn.classList.remove('active');
+            if (menuToggle.querySelector('i')) {
+                menuToggle.querySelector('i').className = 'fas fa-bars';
             }
         });
     });
 }
 
-// Counter Animation
+// Counter animation
 const counters = document.querySelectorAll('.counter');
 const observerOptions = { threshold: 0.5 };
 
@@ -87,3 +92,25 @@ document.querySelectorAll('a[href^="#"]').forEach(anchor => {
         }
     });
 });
+
+// Contact form
+const contactForm = document.getElementById('contactForm');
+if (contactForm) {
+    contactForm.addEventListener('submit', function (e) {
+        e.preventDefault();
+        const btn = this.querySelector('button');
+        const original = btn.textContent;
+        btn.textContent = 'Sending...';
+        btn.disabled = true;
+        setTimeout(() => {
+            btn.textContent = '✓ Thank You';
+            btn.style.background = '#25D366';
+            setTimeout(() => {
+                btn.textContent = original;
+                btn.style.background = '';
+                btn.disabled = false;
+                contactForm.reset();
+            }, 3000);
+        }, 1500);
+    });
+}
