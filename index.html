@@ -3,8 +3,8 @@
 <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Clean Care | Facility Management Mumbai</title>
-    <meta name="description" content="Professional facility management services across Mumbai. Housekeeping, maintenance, and amenities for residential & commercial properties." />
+    <title>Clean Care | Premium Facility Management Mumbai</title>
+    <meta name="description" content="Premium facility management services across Mumbai. Housekeeping, maintenance, amenities & staffing." />
     <meta name="theme-color" content="#c8102e" />
     <link rel="icon" href="favicon-512.png" type="image/png" />
     <link rel="preconnect" href="https://fonts.googleapis.com" />
@@ -59,10 +59,10 @@
             display: flex;
             align-items: center;
             justify-content: space-between;
-            padding: 8px 0;
+            padding: 12px 0;
         }
         .logo-img {
-            height: 50px;
+            height: 70px;  /* increased from 50px to make logo bigger */
             width: auto;
             display: block;
         }
@@ -130,7 +130,7 @@
             display: flex;
             align-items: center;
             background: linear-gradient(145deg, #ffffff 0%, #f1f5f9 100%);
-            padding-top: 80px;
+            padding-top: 100px;
             position: relative;
         }
         .hero-grid {
@@ -332,7 +332,7 @@
             color: #c8102e;
         }
 
-        /* Services */
+        /* Services Grid */
         .service-grid {
             display: grid;
             grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
@@ -410,7 +410,7 @@
         /* Portfolio */
         .portfolio-grid {
             display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(180px, 1fr));
+            grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
             gap: 16px;
         }
         .portfolio-item {
@@ -454,45 +454,147 @@
             color: #475569;
         }
 
-        /* Download */
-        .download-box {
-            background: linear-gradient(145deg, #ffffff, #f8fafc);
-            border-radius: 24px;
-            padding: 50px 40px;
-            text-align: center;
-            border: 1px solid #e2e8f0;
-            box-shadow: 0 4px 20px rgba(0, 0, 0, 0.02);
+        /* Scope of Work */
+        .scope-grid {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 40px;
         }
-        .download-box h2 {
-            font-size: 30px;
-            font-weight: 800;
-            margin-bottom: 8px;
-        }
-        .download-box p {
-            color: #64748b;
-            margin-bottom: 24px;
-            max-width: 500px;
-            margin-left: auto;
-            margin-right: auto;
-        }
-        .btn-download {
-            padding: 16px 44px;
-            background: #c8102e;
-            color: #fff;
-            border: none;
-            border-radius: 50px;
+        .scope-col h3 {
+            font-size: 20px;
             font-weight: 700;
-            font-size: 15px;
-            transition: all 0.3s ease;
-            cursor: pointer;
-            display: inline-flex;
+            margin-bottom: 16px;
+            display: flex;
             align-items: center;
-            gap: 12px;
-            box-shadow: 0 8px 28px rgba(200, 16, 46, 0.2);
+            gap: 10px;
         }
-        .btn-download:hover {
-            transform: translateY(-3px);
-            box-shadow: 0 12px 36px rgba(200, 16, 46, 0.3);
+        .scope-col h3 i {
+            color: #c8102e;
+        }
+        .scope-col ul {
+            display: grid;
+            grid-template-columns: 1fr;
+            gap: 10px;
+        }
+        .scope-col ul li {
+            padding: 8px 12px;
+            background: #ffffff;
+            border-radius: 8px;
+            box-shadow: 0 2px 8px rgba(0, 0, 0, 0.03);
+            display: flex;
+            align-items: center;
+            gap: 10px;
+            border: 1px solid #f1f5f9;
+            font-size: 14px;
+        }
+        .scope-col ul li i {
+            color: #c8102e;
+            font-size: 14px;
+            width: 20px;
+        }
+
+        /* Process */
+        .process-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(160px, 1fr));
+            gap: 24px;
+            text-align: center;
+        }
+        .process-step {
+            background: #ffffff;
+            padding: 24px 16px;
+            border-radius: 16px;
+            box-shadow: 0 4px 16px rgba(0, 0, 0, 0.04);
+            border: 1px solid #f1f5f9;
+            transition: all 0.3s ease;
+        }
+        .process-step:hover {
+            transform: translateY(-4px);
+            box-shadow: 0 8px 28px rgba(0, 0, 0, 0.06);
+            border-color: #c8102e;
+        }
+        .process-step .step-num {
+            display: inline-block;
+            width: 44px;
+            height: 44px;
+            line-height: 44px;
+            background: rgba(200, 16, 46, 0.08);
+            color: #c8102e;
+            border-radius: 50%;
+            font-weight: 800;
+            font-size: 16px;
+            margin-bottom: 12px;
+        }
+        .process-step h4 {
+            font-size: 16px;
+            font-weight: 700;
+            margin-bottom: 4px;
+        }
+        .process-step p {
+            color: #64748b;
+            font-size: 13px;
+            line-height: 1.6;
+        }
+
+        /* Training & Compliance */
+        .training-grid {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 40px;
+        }
+        .training-col h3 {
+            font-size: 20px;
+            font-weight: 700;
+            margin-bottom: 16px;
+            display: flex;
+            align-items: center;
+            gap: 10px;
+        }
+        .training-col h3 i {
+            color: #c8102e;
+        }
+        .training-col ul {
+            display: grid;
+            grid-template-columns: 1fr;
+            gap: 10px;
+        }
+        .training-col ul li {
+            padding: 8px 12px;
+            background: #ffffff;
+            border-radius: 8px;
+            border: 1px solid #f1f5f9;
+            display: flex;
+            align-items: center;
+            gap: 10px;
+            font-size: 14px;
+        }
+        .training-col ul li i {
+            color: #c8102e;
+            font-size: 14px;
+            width: 20px;
+        }
+
+        /* Closing Statement */
+        .closing-section {
+            background: #0f172a;
+            padding: 60px 0;
+            color: #fff;
+            text-align: center;
+        }
+        .closing-section h2 {
+            font-size: 32px;
+            font-weight: 800;
+            margin-bottom: 16px;
+        }
+        .closing-section h2 .highlight {
+            color: #c8102e;
+        }
+        .closing-section p {
+            max-width: 800px;
+            margin: 0 auto;
+            color: rgba(255, 255, 255, 0.7);
+            line-height: 1.8;
+            font-size: 17px;
         }
 
         /* Contact */
@@ -627,7 +729,9 @@
         @media (max-width: 991px) {
             .hero-grid,
             .about-grid,
-            .contact-grid {
+            .contact-grid,
+            .scope-grid,
+            .training-grid {
                 grid-template-columns: 1fr;
             }
             .hero-left h1 {
@@ -672,6 +776,9 @@
             .hero-stats {
                 gap: 28px;
             }
+            .process-grid {
+                grid-template-columns: repeat(3, 1fr);
+            }
         }
         @media (max-width: 600px) {
             .hero-left h1 {
@@ -687,6 +794,16 @@
                 font-size: 24px;
             }
             .service-grid {
+                grid-template-columns: 1fr;
+            }
+            .portfolio-grid {
+                grid-template-columns: repeat(2, 1fr);
+            }
+            .process-grid {
+                grid-template-columns: repeat(2, 1fr);
+            }
+            .scope-grid,
+            .training-grid {
                 grid-template-columns: 1fr;
             }
         }
@@ -706,6 +823,10 @@
                     <li><a href="#about">About</a></li>
                     <li><a href="#services">Services</a></li>
                     <li><a href="#portfolio">Portfolio</a></li>
+                    <li><a href="#scope">Scope of Work</a></li>
+                    <li><a href="#process">Process</a></li>
+                    <li><a href="#training">Compliance</a></li>
+                    <li><a href="careers.html">Careers</a></li>
                     <li><a href="#contact">Contact</a></li>
                 </ul>
                 <div class="nav-actions">
@@ -789,44 +910,44 @@
                 <div class="service-card">
                     <i class="fas fa-broom"></i>
                     <h3>Housekeeping</h3>
-                    <p>Daily cleaning, deep cleaning, and hygiene management for all spaces.</p>
+                    <p>Residential society, commercial, corporate office, clubhouse, and common area cleaning.</p>
                     <span class="service-tag">Residential & Commercial</span>
                 </div>
                 <div class="service-card">
                     <i class="fas fa-tools"></i>
                     <h3>Technical Maintenance</h3>
-                    <p>Electrical, plumbing, carpentry, and general property maintenance.</p>
+                    <p>Electricians, plumbers, carpenters, liftman services, and pump operators.</p>
                     <span class="service-tag">Preventive & Breakdown</span>
                 </div>
                 <div class="service-card">
                     <i class="fas fa-swimmer"></i>
                     <h3>Pool & Gym Management</h3>
-                    <p>Cleaning, equipment upkeep, water quality monitoring, and safety.</p>
+                    <p>Swimming pool operations, gym equipment upkeep, water quality monitoring, and safety.</p>
                     <span class="service-tag">Clubhouse Amenities</span>
                 </div>
                 <div class="service-card">
                     <i class="fas fa-seedling"></i>
                     <h3>Garden Maintenance</h3>
-                    <p>Landscaping, plant care, lawn mowing, and garden upkeep.</p>
+                    <p>Landscaping, plant care, lawn mowing, and garden upkeep for communities.</p>
                     <span class="service-tag">Outdoor Spaces</span>
                 </div>
                 <div class="service-card">
                     <i class="fas fa-users"></i>
                     <h3>Facility Management</h3>
-                    <p>Complete operations, reception, and support staff for your property.</p>
+                    <p>Facility supervisors, reception, office boy, pantry, and computer operator services.</p>
                     <span class="service-tag">Integrated Solutions</span>
                 </div>
                 <div class="service-card">
                     <i class="fas fa-clipboard-check"></i>
-                    <h3>Customized Packages</h3>
-                    <p>Tailored service plans designed specifically for your community's needs.</p>
+                    <h3>Specialized Cleaning</h3>
+                    <p>Deep cleaning, glass cleaning, terrace cleaning, post-construction, cobweb removal.</p>
                     <span class="service-tag">Flexible & Scalable</span>
                 </div>
             </div>
         </div>
     </section>
 
-    <!-- Stats Bar -->
+    <!-- Stats -->
     <section class="stats-bar">
         <div class="container">
             <div class="stats-grid">
@@ -858,58 +979,323 @@
                 <h2>Trusted by Leading <span class="highlight">Properties</span></h2>
             </div>
             <div class="portfolio-grid">
+                <!-- Raheja Vihar -->
                 <div class="portfolio-item">
                     <i class="fas fa-building"></i>
                     <strong>Raheja Vihar</strong>
                     <span class="location">Powai</span>
+                    <span class="service-badge">Full Facility Management</span>
+                </div>
+                <div class="portfolio-item">
+                    <i class="fas fa-building"></i>
+                    <strong>Sunrise CHS</strong>
+                    <span class="location">Powai</span>
                     <span class="service-badge">Housekeeping + Maintenance</span>
                 </div>
                 <div class="portfolio-item">
-                    <i class="fas fa-city"></i>
-                    <strong>Lake View CHS</strong>
+                    <i class="fas fa-building"></i>
+                    <strong>Rainbow CHS</strong>
+                    <span class="location">Powai</span>
+                    <span class="service-badge">Housekeeping</span>
+                </div>
+                <div class="portfolio-item">
+                    <i class="fas fa-building"></i>
+                    <strong>Hillside CHS</strong>
+                    <span class="location">Powai</span>
+                    <span class="service-badge">Maintenance</span>
+                </div>
+                <div class="portfolio-item">
+                    <i class="fas fa-building"></i>
+                    <strong>Lakeside CHS</strong>
                     <span class="location">Powai</span>
                     <span class="service-badge">Full Facility Management</span>
                 </div>
                 <div class="portfolio-item">
-                    <i class="fas fa-home"></i>
-                    <strong>Harmony CHS</strong>
-                    <span class="location">Chandivali</span>
-                    <span class="service-badge">Housekeeping + Gardening</span>
-                </div>
-                <div class="portfolio-item">
-                    <i class="fas fa-warehouse"></i>
-                    <strong>Sunrise CHS</strong>
-                    <span class="location">Sakinaka</span>
-                    <span class="service-badge">Technical Maintenance</span>
-                </div>
-                <div class="portfolio-item">
-                    <i class="fas fa-tree"></i>
-                    <strong>Green Valley CHS</strong>
-                    <span class="location">Mulund</span>
-                    <span class="service-badge">Garden + Pool Management</span>
-                </div>
-                <div class="portfolio-item">
-                    <i class="fas fa-hotel"></i>
-                    <strong>Blue Bell Hotel</strong>
+                    <i class="fas fa-building"></i>
+                    <strong>Sunset I CHS</strong>
                     <span class="location">Powai</span>
-                    <span class="service-badge">Commercial Housekeeping</span>
+                    <span class="service-badge">Housekeeping</span>
+                </div>
+                <div class="portfolio-item">
+                    <i class="fas fa-building"></i>
+                    <strong>Golden Rays CHS</strong>
+                    <span class="location">Powai</span>
+                    <span class="service-badge">Maintenance</span>
+                </div>
+                <div class="portfolio-item">
+                    <i class="fas fa-building"></i>
+                    <strong>Hillcrest I CHS</strong>
+                    <span class="location">Powai</span>
+                    <span class="service-badge">Full Facility Management</span>
+                </div>
+                <div class="portfolio-item">
+                    <i class="fas fa-building"></i>
+                    <strong>Hillcrest II CHS</strong>
+                    <span class="location">Powai</span>
+                    <span class="service-badge">Housekeeping + Maintenance</span>
+                </div>
+                <div class="portfolio-item">
+                    <i class="fas fa-building"></i>
+                    <strong>Paradise CHS</strong>
+                    <span class="location">Powai</span>
+                    <span class="service-badge">Housekeeping</span>
+                </div>
+                <div class="portfolio-item">
+                    <i class="fas fa-building"></i>
+                    <strong>Evening Glory CHS</strong>
+                    <span class="location">Powai</span>
+                    <span class="service-badge">Maintenance</span>
+                </div>
+                <div class="portfolio-item">
+                    <i class="fas fa-building"></i>
+                    <strong>Sunglory CHS</strong>
+                    <span class="location">Powai</span>
+                    <span class="service-badge">Full Facility Management</span>
+                </div>
+                <div class="portfolio-item">
+                    <i class="fas fa-building"></i>
+                    <strong>Sunglow CHS</strong>
+                    <span class="location">Powai</span>
+                    <span class="service-badge">Housekeeping</span>
+                </div>
+                <div class="portfolio-item">
+                    <i class="fas fa-building"></i>
+                    <strong>Twilight CHS</strong>
+                    <span class="location">Powai</span>
+                    <span class="service-badge">Maintenance</span>
+                </div>
+                <div class="portfolio-item">
+                    <i class="fas fa-building"></i>
+                    <strong>Harmony CHS</strong>
+                    <span class="location">Powai</span>
+                    <span class="service-badge">Full Facility Management</span>
+                </div>
+                <div class="portfolio-item">
+                    <i class="fas fa-building"></i>
+                    <strong>Sundew CHS</strong>
+                    <span class="location">Powai</span>
+                    <span class="service-badge">Housekeeping + Maintenance</span>
+                </div>
+                <div class="portfolio-item">
+                    <i class="fas fa-building"></i>
+                    <strong>Silvercrest CHS</strong>
+                    <span class="location">Powai</span>
+                    <span class="service-badge">Housekeeping</span>
+                </div>
+                <div class="portfolio-item">
+                    <i class="fas fa-building"></i>
+                    <strong>Adityavardhan CHS</strong>
+                    <span class="location">Powai</span>
+                    <span class="service-badge">Maintenance</span>
+                </div>
+                <div class="portfolio-item">
+                    <i class="fas fa-building"></i>
+                    <strong>Maple Leaf CHS</strong>
+                    <span class="location">Powai</span>
+                    <span class="service-badge">Full Facility Management</span>
+                </div>
+                <div class="portfolio-item">
+                    <i class="fas fa-building"></i>
+                    <strong>Assencio CHS</strong>
+                    <span class="location">Powai</span>
+                    <span class="service-badge">Housekeeping</span>
+                </div>
+                <div class="portfolio-item">
+                    <i class="fas fa-building"></i>
+                    <strong>Palatial Heights CHS</strong>
+                    <span class="location">Chandivali / Powai</span>
+                    <span class="service-badge">Full Facility Management</span>
+                </div>
+                <div class="portfolio-item">
+                    <i class="fas fa-building"></i>
+                    <strong>Harsh Vardhan CHS</strong>
+                    <span class="location">Chandivali / Powai</span>
+                    <span class="service-badge">Housekeeping + Maintenance</span>
+                </div>
+                <div class="portfolio-item">
+                    <i class="fas fa-building"></i>
+                    <strong>Vasu Kamal CHS</strong>
+                    <span class="location">Chandivali / Powai</span>
+                    <span class="service-badge">Maintenance</span>
+                </div>
+                <div class="portfolio-item">
+                    <i class="fas fa-building"></i>
+                    <strong>Parijat Tower CHS</strong>
+                    <span class="location">Chandivali / Powai</span>
+                    <span class="service-badge">Housekeeping</span>
+                </div>
+                <div class="portfolio-item">
+                    <i class="fas fa-building"></i>
+                    <strong>ANSA D, E & F</strong>
+                    <span class="location">Chandivali / Powai</span>
+                    <span class="service-badge">Full Facility Management</span>
+                </div>
+                <div class="portfolio-item">
+                    <i class="fas fa-building"></i>
+                    <strong>Regent Hill A Wing</strong>
+                    <span class="location">Chandivali / Powai</span>
+                    <span class="service-badge">Maintenance</span>
+                </div>
+                <div class="portfolio-item">
+                    <i class="fas fa-building"></i>
+                    <strong>Happiness CHS</strong>
+                    <span class="location">Mulund</span>
+                    <span class="service-badge">Housekeeping</span>
+                </div>
+                <div class="portfolio-item">
+                    <i class="fas fa-building"></i>
+                    <strong>Hurrah CHS</strong>
+                    <span class="location">Mulund</span>
+                    <span class="service-badge">Full Facility Management</span>
+                </div>
+                <div class="portfolio-item">
+                    <i class="fas fa-building"></i>
+                    <strong>Celebration CHS</strong>
+                    <span class="location">Mulund</span>
+                    <span class="service-badge">Housekeeping + Maintenance</span>
+                </div>
+                <div class="portfolio-item">
+                    <i class="fas fa-building"></i>
+                    <strong>Delight CHS</strong>
+                    <span class="location">Mulund</span>
+                    <span class="service-badge">Maintenance</span>
+                </div>
+                <div class="portfolio-item">
+                    <i class="fas fa-building"></i>
+                    <strong>Lok Everest CHS</strong>
+                    <span class="location">Mulund</span>
+                    <span class="service-badge">Full Facility Management</span>
+                </div>
+                <div class="portfolio-item">
+                    <i class="fas fa-building"></i>
+                    <strong>Sagar Heritage CHS</strong>
+                    <span class="location">Sakinaka</span>
+                    <span class="service-badge">Housekeeping</span>
                 </div>
             </div>
         </div>
     </section>
 
-    <!-- Download -->
-    <section class="section">
+    <!-- Scope of Work -->
+    <section id="scope" class="section" style="background:#ffffff;">
         <div class="container">
-            <div class="download-box">
-                <span class="hero-badge" style="margin-bottom:12px;">Company Profile</span>
-                <h2>Download Our 16-Page Brochure</h2>
-                <p>Get a detailed overview of our services, client portfolio, and operational standards.</p>
-                <a href="Clean_Care_Profile.pdf" download class="btn-download">
-                    <i class="fas fa-file-pdf"></i> Download Profile
-                </a>
-                <p style="margin-top:12px;font-size:13px;color:#94a3b8;">PDF • 2.4 MB • 16 Pages</p>
+            <div class="section-header center">
+                <span>Scope of Work</span>
+                <h2>Daily Operations &amp; <span class="highlight">Scheduled Maintenance</span></h2>
             </div>
+            <div class="scope-grid">
+                <div class="scope-col">
+                    <h3><i class="fas fa-clock"></i> Daily Operations</h3>
+                    <ul>
+                        <li><i class="fas fa-check"></i> Door-to-door garbage collection</li>
+                        <li><i class="fas fa-check"></i> Floor lobby cleaning</li>
+                        <li><i class="fas fa-check"></i> Staircase cleaning</li>
+                        <li><i class="fas fa-check"></i> Parking cleaning</li>
+                        <li><i class="fas fa-check"></i> Society office cleaning</li>
+                        <li><i class="fas fa-check"></i> Lift cleaning</li>
+                        <li><i class="fas fa-check"></i> Common toilet cleaning</li>
+                        <li><i class="fas fa-check"></i> Dusting and maintenance</li>
+                    </ul>
+                </div>
+                <div class="scope-col">
+                    <h3><i class="fas fa-calendar-alt"></i> Scheduled Maintenance</h3>
+                    <ul>
+                        <li><i class="fas fa-check"></i> Meter room cleaning</li>
+                        <li><i class="fas fa-check"></i> Pump room cleaning</li>
+                        <li><i class="fas fa-check"></i> Cobweb removal</li>
+                        <li><i class="fas fa-check"></i> Glass cleaning</li>
+                        <li><i class="fas fa-check"></i> Terrace cleaning</li>
+                        <li><i class="fas fa-check"></i> Compound washing</li>
+                        <li><i class="fas fa-check"></i> Electrical duct cleaning</li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Our Process -->
+    <section id="process" class="section">
+        <div class="container">
+            <div class="section-header center">
+                <span>Our Process</span>
+                <h2>From <span class="highlight">Inspection</span> to <span class="highlight">Continuous Improvement</span></h2>
+            </div>
+            <div class="process-grid">
+                <div class="process-step">
+                    <div class="step-num">01</div>
+                    <h4>Site Inspection</h4>
+                    <p>We visit your premises to understand your specific requirements.</p>
+                </div>
+                <div class="process-step">
+                    <div class="step-num">02</div>
+                    <h4>Requirement Assessment</h4>
+                    <p>We analyze your needs and identify the best service solution.</p>
+                </div>
+                <div class="process-step">
+                    <div class="step-num">03</div>
+                    <h4>Customized Proposal</h4>
+                    <p>We provide a tailored proposal with scope, work, and pricing.</p>
+                </div>
+                <div class="process-step">
+                    <div class="step-num">04</div>
+                    <h4>Staff Deployment</h4>
+                    <p>Trained and verified staff are deployed as per schedule.</p>
+                </div>
+                <div class="process-step">
+                    <div class="step-num">05</div>
+                    <h4>Daily Supervision</h4>
+                    <p>Our supervisors ensure proper execution and smooth daily operations.</p>
+                </div>
+                <div class="process-step">
+                    <div class="step-num">06</div>
+                    <h4>Quality Audits</h4>
+                    <p>Regular inspections and audits to maintain high service standards.</p>
+                </div>
+                <div class="process-step">
+                    <div class="step-num">07</div>
+                    <h4>Client Feedback &amp; Improvement</h4>
+                    <p>We value feedback and constantly improve to exceed expectations.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Training & Compliance -->
+    <section id="training" class="section" style="background:#ffffff;">
+        <div class="container">
+            <div class="section-header center">
+                <span>Training &amp; Compliance</span>
+                <h2>Our <span class="highlight">Commitment</span> to Excellence &amp; Integrity</h2>
+            </div>
+            <div class="training-grid">
+                <div class="training-col">
+                    <h3><i class="fas fa-user-check"></i> Employee Verification</h3>
+                    <ul>
+                        <li><i class="fas fa-check"></i> Police Verification</li>
+                        <li><i class="fas fa-check"></i> Address Verification</li>
+                        <li><i class="fas fa-check"></i> Identity Verification</li>
+                    </ul>
+                </div>
+                <div class="training-col">
+                    <h3><i class="fas fa-chalkboard-teacher"></i> Staff Training</h3>
+                    <ul>
+                        <li><i class="fas fa-check"></i> Housekeeping Standards</li>
+                        <li><i class="fas fa-check"></i> Safety Procedures</li>
+                        <li><i class="fas fa-check"></i> Chemical Handling</li>
+                        <li><i class="fas fa-check"></i> Equipment Operations</li>
+                        <li><i class="fas fa-check"></i> Customer Interaction</li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Closing Statement -->
+    <section class="closing-section">
+        <div class="container">
+            <h2>At Clean Care, we believe that exceptional facility management is built on <span class="highlight">integrity</span>, <span class="highlight">accountability</span>, and <span class="highlight">consistent service delivery</span>.</h2>
+            <p>Our commitment is not merely to clean and maintain properties, but to create safe, hygienic, and pleasant environments that enhance the quality of life for residents, visitors, and employees.</p>
+            <p style="margin-top:16px;font-weight:600;color:#fff;">We look forward to becoming your trusted facility management partner.</p>
         </div>
     </section>
 
