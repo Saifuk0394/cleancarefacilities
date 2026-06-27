@@ -1,679 +1,2104 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <meta charset="UTF-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Clean Care | Premium Facility Management Mumbai</title>
-    <meta name="description" content="Premium facility management services across Mumbai. Housekeeping, maintenance, amenities & staffing." />
-    <meta name="theme-color" content="#c8102e" />
-    <meta property="og:title" content="Clean Care | Premium Facility Management" />
-    <meta property="og:description" content="14+ Years of Excellence in Facility Management across Mumbai." />
-    <meta property="og:image" content="https://images.unsplash.com/photo-1497366754035-f200968a6e72?q=80&w=2000" />
-    <meta property="og:url" content="https://cleancarefacilities.com" />
-    <link rel="canonical" href="https://cleancarefacilities.com" />
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Clean Care — Facility Management for Mumbai Housing Societies</title>
+  <meta name="description" content="Clean Care runs the daily, fortnightly and periodic work that keeps Mumbai's residential communities operating. 14 years. 31 societies. 120+ trained staff." />
+  <meta name="theme-color" content="#0F1B33" />
 
-    <!-- Favicon (fixed) -->
-    <link rel="icon" href="favicon-512.png" type="image/png" />
+  <meta property="og:title" content="Clean Care — Facility Management for Mumbai Housing Societies" />
+  <meta property="og:description" content="14 years running daily, fortnightly and periodic operations for 31+ residential communities across Mumbai." />
+  <meta property="og:url" content="https://cleancarefacilities.com" />
+  <link rel="canonical" href="https://cleancarefacilities.com" />
+  <link rel="icon" href="favicon-512.png" type="image/png" />
 
-    <link rel="preconnect" href="https://fonts.googleapis.com" />
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
-    <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;600;700;800&display=swap" rel="stylesheet" />
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css" />
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Fraunces:opsz,wght@9..144,300;9..144,400;9..144,500;9..144,600;9..144,700&family=Geist:wght@300;400;500;600;700&family=JetBrains+Mono:wght@400;500;600&display=swap" rel="stylesheet" />
 
-    <style>
-        * { margin: 0; padding: 0; box-sizing: border-box; }
-        html { scroll-behavior: smooth; }
-        body { font-family: 'Plus Jakarta Sans', sans-serif; background: #f9fafb; color: #1e293b; line-height: 1.7; }
-        .container { width: min(1200px, 92%); margin: auto; padding: 0 15px; }
-        a { text-decoration: none; color: inherit; }
-        ul { list-style: none; }
+  <style>
+    /* ---------- TOKENS ---------- */
+    :root {
+      --ink:        #0F1B33;
+      --ink-2:      #2A3550;
+      --ink-3:      #5B6478;
+      --paper:      #FAFAF6;
+      --paper-2:    #F2EEE2;
+      --paper-3:    #E9E2CE;
+      --crimson:    #C8102E;
+      --crimson-d:  #9E0C24;
+      --brass:      #B8924A;
+      --hairline:   #DDD4BD;
+      --muted:      #76705F;
+      --black:      #0A1020;
 
-        /* Header */
-        .header { position: fixed; top: 0; left: 0; width: 100%; z-index: 1000; transition: all 0.3s ease; background: transparent; padding: 10px 0; }
-        .header.scrolled { background: rgba(255, 255, 255, 0.98); box-shadow: 0 4px 20px rgba(0, 0, 0, 0.06); }
-        .nav { display: flex; align-items: center; justify-content: space-between; padding: 12px 0; }
-        
-        /* ✅ Fixed Logo (using your uploaded PNG file) */
-        .logo-img { height: 80px; width: auto; display: block; }
+      --font-display: 'Fraunces', Georgia, serif;
+      --font-body:    'Geist', system-ui, -apple-system, sans-serif;
+      --font-mono:    'JetBrains Mono', ui-monospace, monospace;
 
-        .nav-links { display: flex; gap: 32px; }
-        .nav-links a { color: #475569; font-weight: 600; font-size: 14px; position: relative; transition: all 0.3s ease; }
-        .nav-links a:hover { color: #c8102e; }
-        .nav-links a::after { content: ''; position: absolute; left: 0; bottom: -4px; width: 0; height: 2px; background: #c8102e; transition: all 0.3s ease; }
-        .nav-links a:hover::after { width: 100%; }
-        .nav-actions { display: flex; align-items: center; gap: 20px; }
-        .btn-call { padding: 10px 22px; background: #c8102e; color: #fff; border-radius: 50px; font-weight: 700; font-size: 14px; transition: all 0.3s ease; display: flex; align-items: center; gap: 8px; box-shadow: 0 6px 20px rgba(200, 16, 46, 0.2); }
-        .btn-call:hover { transform: translateY(-2px); box-shadow: 0 8px 28px rgba(200, 16, 46, 0.3); }
-        .hamburger { display: none; background: none; border: none; color: #1e293b; font-size: 24px; cursor: pointer; }
+      --container: 1240px;
+      --gutter: clamp(20px, 4vw, 56px);
+    }
 
-        /* Hero */
-        .hero { min-height: 100vh; display: flex; align-items: center; background: linear-gradient(145deg, rgba(255,255,255,0.92) 0%, rgba(241,245,249,0.92) 100%), url('https://images.unsplash.com/photo-1486406146926-c627a92ad1ab?q=80&w=2000&auto=format&fit=crop') center/cover; padding-top: 100px; position: relative; }
-        .hero-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 60px; align-items: center; }
-        .hero-badge { display: inline-block; padding: 6px 18px; background: rgba(200, 16, 46, 0.08); color: #c8102e; border-radius: 50px; font-weight: 700; font-size: 13px; margin-bottom: 20px; letter-spacing: 0.5px; }
-        .hero-left h1 { font-size: 52px; line-height: 1.1; color: #0f172a; font-weight: 800; margin-bottom: 20px; }
-        .hero-left h1 .highlight { color: #c8102e; }
-        .hero-left p { color: #64748b; font-size: 18px; line-height: 1.8; margin-bottom: 30px; max-width: 500px; }
-        .hero-buttons { display: flex; gap: 15px; flex-wrap: wrap; margin-bottom: 40px; }
-        .btn-primary { padding: 16px 36px; background: #c8102e; color: #fff; border: none; border-radius: 50px; font-weight: 700; font-size: 15px; transition: all 0.3s ease; cursor: pointer; box-shadow: 0 8px 28px rgba(200, 16, 46, 0.25); }
-        .btn-primary:hover { transform: translateY(-3px); box-shadow: 0 12px 36px rgba(200, 16, 46, 0.35); }
-        .btn-outline { padding: 16px 36px; background: transparent; color: #1e293b; border: 1px solid #e2e8f0; border-radius: 50px; font-weight: 700; font-size: 15px; transition: all 0.3s ease; display: flex; align-items: center; gap: 10px; cursor: pointer; }
-        .btn-outline:hover { background: #f1f5f9; border-color: #c8102e; }
-        .hero-stats { display: flex; gap: 48px; }
-        .hero-stats strong { display: block; font-size: 30px; color: #0f172a; font-weight: 800; }
-        .hero-stats strong .accent { color: #c8102e; }
-        .hero-stats span { color: #64748b; font-size: 14px; font-weight: 500; }
-        .hero-card { background: #ffffff; padding: 36px 32px; border-radius: 20px; box-shadow: 0 20px 60px rgba(0, 0, 0, 0.06); border: 1px solid rgba(0, 0, 0, 0.02); }
-        .hero-card h3 { color: #0f172a; margin-bottom: 18px; font-size: 20px; font-weight: 700; display: flex; align-items: center; gap: 10px; }
-        .hero-card ul { display: grid; grid-template-columns: 1fr 1fr; gap: 12px 24px; }
-        .hero-card li { color: #475569; font-size: 15px; display: flex; align-items: center; gap: 10px; }
-        .hero-card li i { color: #c8102e; font-size: 14px; width: 18px; }
+    /* ---------- BASE ---------- */
+    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+    html { scroll-behavior: smooth; -webkit-text-size-adjust: 100%; }
+    body {
+      font-family: var(--font-body);
+      background: var(--paper);
+      color: var(--ink);
+      line-height: 1.55;
+      font-size: 16px;
+      font-weight: 400;
+      -webkit-font-smoothing: antialiased;
+      -moz-osx-font-smoothing: grayscale;
+      overflow-x: hidden;
+    }
+    a { color: inherit; text-decoration: none; }
+    ul, ol { list-style: none; }
+    img, svg { display: block; max-width: 100%; }
+    button { font: inherit; border: none; background: none; cursor: pointer; color: inherit; }
+    input, textarea, select { font: inherit; color: inherit; }
 
-        /* Sections */
-        .section { padding: 80px 0; }
-        .section-header { margin-bottom: 48px; }
-        .section-header.center { text-align: center; }
-        .section-header .label { display: inline-block; padding: 6px 18px; background: rgba(200, 16, 46, 0.08); color: #c8102e; border-radius: 50px; font-weight: 700; font-size: 13px; letter-spacing: 0.5px; margin-bottom: 14px; }
-        .section-header h2 { font-size: 36px; font-weight: 800; color: #0f172a; line-height: 1.2; }
-        .section-header h2 .highlight { color: #c8102e; background: transparent; padding: 0; border-radius: 0; }
+    .container {
+      width: 100%;
+      max-width: var(--container);
+      margin: 0 auto;
+      padding-left: var(--gutter);
+      padding-right: var(--gutter);
+    }
 
-        /* About */
-        .about-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 50px; align-items: center; }
-        .about-image { height: 420px; border-radius: 20px; background: linear-gradient(145deg, #f1f5f9, #e2e8f0); display: flex; justify-content: center; align-items: center; font-size: 80px; color: #c8102e; position: relative; }
-        .about-text p { color: #475569; line-height: 1.9; margin-bottom: 20px; font-size: 16px; }
-        .about-features { display: grid; grid-template-columns: 1fr 1fr; gap: 14px; margin-top: 10px; }
-        .about-features div { display: flex; align-items: center; gap: 10px; font-weight: 600; color: #1e293b; }
-        .about-features i { color: #c8102e; }
+    /* ---------- TYPE PRIMITIVES ---------- */
+    .display {
+      font-family: var(--font-display);
+      font-weight: 400;
+      letter-spacing: -0.02em;
+      line-height: 0.98;
+      color: var(--ink);
+      font-variation-settings: "opsz" 144;
+    }
+    .eyebrow {
+      font-family: var(--font-mono);
+      font-size: 11px;
+      font-weight: 500;
+      text-transform: uppercase;
+      letter-spacing: 0.18em;
+      color: var(--muted);
+      display: inline-flex;
+      align-items: center;
+      gap: 10px;
+    }
+    .eyebrow::before {
+      content: '';
+      width: 22px;
+      height: 1px;
+      background: var(--brass);
+    }
+    .eyebrow.no-rule::before { display: none; }
+    .lede {
+      font-family: var(--font-display);
+      font-weight: 300;
+      font-style: italic;
+      color: var(--ink-2);
+      letter-spacing: -0.01em;
+    }
+    .label-mono {
+      font-family: var(--font-mono);
+      font-size: 11px;
+      letter-spacing: 0.12em;
+      text-transform: uppercase;
+      color: var(--muted);
+    }
+    em.script {
+      font-family: var(--font-display);
+      font-style: italic;
+      font-weight: 400;
+    }
+    .text-crimson { color: var(--crimson); }
+    .text-brass { color: var(--brass); }
 
-        /* Services */
-        .service-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(220px, 1fr)); gap: 24px; }
-        .service-card { background: #ffffff; padding: 30px 24px; border-radius: 16px; box-shadow: 0 4px 16px rgba(0, 0, 0, 0.04); transition: all 0.3s ease; border: 1px solid #f1f5f9; text-align: center; }
-        .service-card:hover { transform: translateY(-6px); box-shadow: 0 12px 40px rgba(0, 0, 0, 0.08); border-color: #c8102e; }
-        .service-card i { font-size: 32px; color: #c8102e; margin-bottom: 14px; display: block; }
-        .service-card h3 { font-size: 18px; margin-bottom: 6px; font-weight: 700; }
-        .service-card p { color: #64748b; font-size: 14px; line-height: 1.7; }
-        .service-card .service-tag { display: inline-block; margin-top: 12px; padding: 4px 14px; background: rgba(200, 16, 46, 0.06); color: #c8102e; border-radius: 20px; font-size: 12px; font-weight: 600; }
+    /* ---------- HEADER ---------- */
+    .topline {
+      background: var(--ink);
+      color: rgba(255,255,255,0.78);
+      font-family: var(--font-mono);
+      font-size: 11px;
+      letter-spacing: 0.08em;
+      padding: 7px 0;
+    }
+    .topline .container {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      gap: 16px;
+    }
+    .topline .left { display: flex; gap: 22px; flex-wrap: wrap; }
+    .topline a { color: inherit; opacity: 0.9; }
+    .topline a:hover { color: #fff; opacity: 1; }
+    .dot { display: inline-block; width: 4px; height: 4px; background: var(--brass); border-radius: 50%; vertical-align: middle; margin: 0 2px 2px; }
 
-        /* Stats */
-        .stats-bar { padding: 60px 0; background: #0f172a; color: #fff; }
-        .stats-grid { display: grid; grid-template-columns: repeat(4, 1fr); gap: 30px; text-align: center; }
-        .stat-item .number { display: block; font-size: 40px; font-weight: 800; color: #fff; line-height: 1.2; }
-        .stat-item .number .accent { color: #c8102e; }
-        .stat-item p { color: rgba(255, 255, 255, 0.5); margin-top: 4px; font-size: 14px; }
+    .header {
+      position: sticky;
+      top: 0;
+      z-index: 100;
+      background: var(--paper);
+      border-bottom: 1px solid var(--hairline);
+    }
+    .header .container {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 32px;
+      min-height: 78px;
+    }
+    .brand { display: flex; align-items: center; gap: 12px; }
+    .brand-mark {
+      width: 40px; height: 40px;
+      background: var(--crimson);
+      border-radius: 2px;
+      display: grid; place-items: center;
+      color: #fff;
+      font-family: var(--font-display);
+      font-weight: 700;
+      font-size: 22px;
+      line-height: 1;
+      letter-spacing: -0.04em;
+    }
+    .brand-text {
+      font-family: var(--font-display);
+      font-weight: 600;
+      font-size: 19px;
+      color: var(--ink);
+      letter-spacing: -0.01em;
+      line-height: 1;
+    }
+    .brand-text small {
+      display: block;
+      font-family: var(--font-mono);
+      font-weight: 400;
+      font-size: 9.5px;
+      letter-spacing: 0.16em;
+      color: var(--muted);
+      margin-top: 4px;
+      text-transform: uppercase;
+    }
 
-        /* Portfolio */
-        .portfolio-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(220px, 1fr)); gap: 16px; }
-        .portfolio-item { background: #ffffff; padding: 24px 16px; border-radius: 12px; text-align: center; box-shadow: 0 4px 12px rgba(0, 0, 0, 0.04); transition: all 0.3s ease; border: 1px solid #f1f5f9; }
-        .portfolio-item:hover { transform: translateY(-4px); box-shadow: 0 8px 24px rgba(0, 0, 0, 0.06); }
-        .portfolio-item i { display: block; font-size: 26px; color: #c8102e; margin-bottom: 8px; }
-        .portfolio-item strong { display: block; font-size: 15px; font-weight: 700; }
-        .portfolio-item .location { display: block; font-size: 13px; color: #94a3b8; margin-top: 2px; }
-        .portfolio-item .service-badge { display: inline-block; margin-top: 8px; padding: 2px 12px; background: #f1f5f9; border-radius: 20px; font-size: 11px; font-weight: 600; color: #475569; }
+    .nav { display: flex; gap: 28px; }
+    .nav a {
+      font-size: 14px;
+      font-weight: 500;
+      color: var(--ink-2);
+      padding: 8px 0;
+      position: relative;
+      transition: color 0.18s;
+    }
+    .nav a:hover { color: var(--crimson); }
+    .nav a::after {
+      content: '';
+      position: absolute;
+      left: 0; right: 0; bottom: 0;
+      height: 1px;
+      background: var(--crimson);
+      transform: scaleX(0);
+      transform-origin: left;
+      transition: transform 0.25s ease;
+    }
+    .nav a:hover::after { transform: scaleX(1); }
 
-        /* ✅ Fixed Show More / Show Less */
-        .portfolio-extra { display: none; grid-template-columns: repeat(auto-fit, minmax(220px, 1fr)); gap: 16px; margin-top: 16px; }
-        .portfolio-extra.visible { display: grid; }
-        .btn-show-more { display: block; margin: 20px auto 0; padding: 12px 30px; background: #0f172a; color: #fff; border: none; border-radius: 50px; font-weight: 700; font-size: 14px; cursor: pointer; transition: all 0.3s ease; }
-        .btn-show-more:hover { background: #c8102e; }
+    .header-actions { display: flex; align-items: center; gap: 16px; }
+    .cta-call {
+      display: inline-flex;
+      align-items: center;
+      gap: 10px;
+      padding: 11px 20px 11px 16px;
+      background: var(--ink);
+      color: #fff;
+      font-weight: 500;
+      font-size: 13.5px;
+      letter-spacing: 0.01em;
+      border-radius: 2px;
+      transition: background 0.2s, transform 0.2s;
+    }
+    .cta-call:hover { background: var(--crimson); transform: translateY(-1px); }
+    .cta-call .num { font-family: var(--font-mono); font-size: 12px; opacity: 0.85; }
 
-        /* Scope of Work */
-        .scope-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 40px; }
-        .scope-col h3 { font-size: 20px; font-weight: 700; margin-bottom: 16px; display: flex; align-items: center; gap: 10px; }
-        .scope-col h3 i { color: #c8102e; }
-        .scope-col ul { display: grid; grid-template-columns: 1fr; gap: 10px; }
-        .scope-col ul li { padding: 8px 12px; background: #ffffff; border-radius: 8px; box-shadow: 0 2px 8px rgba(0, 0, 0, 0.03); display: flex; align-items: center; gap: 10px; border: 1px solid #f1f5f9; font-size: 14px; }
-        .scope-col ul li i { color: #c8102e; font-size: 14px; width: 20px; }
+    .hamburger { display: none; padding: 8px; }
+    .hamburger span {
+      display: block;
+      width: 24px; height: 1.5px;
+      background: var(--ink);
+      transition: 0.25s;
+    }
+    .hamburger span + span { margin-top: 6px; }
 
-        /* Process */
-        .process-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(160px, 1fr)); gap: 24px; text-align: center; }
-        .process-step { background: #ffffff; padding: 24px 16px; border-radius: 16px; box-shadow: 0 4px 16px rgba(0, 0, 0, 0.04); border: 1px solid #f1f5f9; transition: all 0.3s ease; }
-        .process-step:hover { transform: translateY(-4px); box-shadow: 0 8px 28px rgba(0, 0, 0, 0.06); border-color: #c8102e; }
-        .process-step .step-num { display: inline-block; width: 44px; height: 44px; line-height: 44px; background: rgba(200, 16, 46, 0.08); color: #c8102e; border-radius: 50%; font-weight: 800; font-size: 16px; margin-bottom: 12px; }
-        .process-step h4 { font-size: 16px; font-weight: 700; margin-bottom: 4px; }
-        .process-step p { color: #64748b; font-size: 13px; line-height: 1.6; }
+    /* ---------- HERO ---------- */
+    .hero {
+      position: relative;
+      padding: clamp(48px, 8vw, 96px) 0 clamp(48px, 8vw, 96px);
+      overflow: hidden;
+    }
+    .hero-grid {
+      display: grid;
+      grid-template-columns: 1fr;
+      gap: clamp(40px, 6vw, 80px);
+      align-items: end;
+    }
+    @media (min-width: 980px) {
+      .hero-grid { grid-template-columns: minmax(0, 1.4fr) minmax(0, 1fr); }
+    }
+    .hero-eyebrow-row {
+      display: flex; gap: 20px; align-items: center; flex-wrap: wrap;
+      margin-bottom: 36px;
+      padding-bottom: 14px;
+      border-bottom: 1px solid var(--hairline);
+    }
+    .hero-eyebrow-row .crumb {
+      font-family: var(--font-mono);
+      font-size: 11px;
+      letter-spacing: 0.16em;
+      text-transform: uppercase;
+      color: var(--muted);
+    }
+    .hero-eyebrow-row .crumb.accent { color: var(--crimson); }
 
-        /* Training & Compliance */
-        .training-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 40px; }
-        .training-col h3 { font-size: 20px; font-weight: 700; margin-bottom: 16px; display: flex; align-items: center; gap: 10px; }
-        .training-col h3 i { color: #c8102e; }
-        .training-col ul { display: grid; grid-template-columns: 1fr; gap: 10px; }
-        .training-col ul li { padding: 8px 12px; background: #ffffff; border-radius: 8px; border: 1px solid #f1f5f9; display: flex; align-items: center; gap: 10px; font-size: 14px; }
-        .training-col ul li i { color: #c8102e; font-size: 14px; width: 20px; }
+    .hero h1.display {
+      font-size: clamp(44px, 7.6vw, 108px);
+      font-weight: 350;
+      line-height: 0.94;
+      letter-spacing: -0.035em;
+      margin-bottom: 32px;
+      font-variation-settings: "opsz" 144;
+    }
+    .hero h1 .ital {
+      font-style: italic;
+      font-weight: 300;
+      color: var(--ink-2);
+    }
+    .hero h1 .red {
+      color: var(--crimson);
+      font-weight: 500;
+    }
+    .hero-meta {
+      display: grid;
+      grid-template-columns: auto 1fr;
+      gap: 24px 32px;
+      align-items: start;
+      margin-top: 28px;
+      padding-top: 28px;
+      border-top: 1px solid var(--hairline);
+    }
+    .hero-meta p {
+      font-size: 16.5px;
+      line-height: 1.55;
+      color: var(--ink-2);
+      max-width: 52ch;
+    }
+    .hero-meta .since {
+      font-family: var(--font-mono);
+      font-size: 11px;
+      letter-spacing: 0.14em;
+      text-transform: uppercase;
+      color: var(--muted);
+      writing-mode: vertical-rl;
+      transform: rotate(180deg);
+      padding-right: 6px;
+      border-right: 1px solid var(--hairline);
+    }
+    .hero-ctas {
+      display: flex;
+      gap: 14px;
+      flex-wrap: wrap;
+      margin-top: 36px;
+    }
+    .btn {
+      display: inline-flex;
+      align-items: center;
+      gap: 12px;
+      padding: 16px 26px;
+      font-size: 14px;
+      font-weight: 500;
+      letter-spacing: 0.01em;
+      border-radius: 2px;
+      transition: all 0.2s;
+      border: 1px solid transparent;
+    }
+    .btn-primary {
+      background: var(--ink);
+      color: #fff;
+    }
+    .btn-primary:hover {
+      background: var(--crimson);
+    }
+    .btn-ghost {
+      background: transparent;
+      color: var(--ink);
+      border-color: var(--ink);
+    }
+    .btn-ghost:hover {
+      background: var(--ink);
+      color: #fff;
+    }
+    .btn .arrow { font-family: var(--font-mono); font-size: 14px; }
 
-        /* Closing Statement */
-        .closing-section { background: #0f172a; padding: 60px 0; color: #fff; text-align: center; }
-        .closing-section h2 { font-size: 32px; font-weight: 800; margin-bottom: 16px; }
-        .closing-section h2 .highlight { color: #c8102e; }
-        .closing-section p { max-width: 800px; margin: 0 auto; color: rgba(255, 255, 255, 0.7); line-height: 1.8; font-size: 17px; }
+    /* Hero right: status card */
+    .ops-card {
+      background: var(--ink);
+      color: #fff;
+      padding: 32px 30px;
+      border-radius: 3px;
+      position: relative;
+      box-shadow: 0 30px 70px -30px rgba(15,27,51,0.35);
+    }
+    .ops-card::before {
+      content: '';
+      position: absolute;
+      top: 14px; right: 14px;
+      width: 8px; height: 8px;
+      background: #6BCB77;
+      border-radius: 50%;
+      box-shadow: 0 0 0 4px rgba(107,203,119,0.18);
+      animation: pulse 2s ease-in-out infinite;
+    }
+    @keyframes pulse {
+      0%, 100% { opacity: 1; }
+      50% { opacity: 0.5; }
+    }
+    .ops-card .ops-label {
+      font-family: var(--font-mono);
+      font-size: 10.5px;
+      letter-spacing: 0.18em;
+      text-transform: uppercase;
+      color: rgba(255,255,255,0.55);
+      margin-bottom: 22px;
+    }
+    .ops-card .ops-title {
+      font-family: var(--font-display);
+      font-size: 22px;
+      font-weight: 400;
+      letter-spacing: -0.015em;
+      line-height: 1.2;
+      margin-bottom: 24px;
+      color: #fff;
+    }
+    .ops-rows { display: grid; gap: 14px; }
+    .ops-row {
+      display: grid;
+      grid-template-columns: 1fr auto;
+      align-items: baseline;
+      gap: 16px;
+      padding-bottom: 13px;
+      border-bottom: 1px solid rgba(255,255,255,0.10);
+    }
+    .ops-row:last-child { border-bottom: none; padding-bottom: 0; }
+    .ops-row .k {
+      font-family: var(--font-mono);
+      font-size: 11px;
+      letter-spacing: 0.10em;
+      text-transform: uppercase;
+      color: rgba(255,255,255,0.6);
+    }
+    .ops-row .v {
+      font-family: var(--font-display);
+      font-size: 26px;
+      font-weight: 400;
+      color: #fff;
+      letter-spacing: -0.02em;
+      line-height: 1;
+    }
+    .ops-row .v sup {
+      font-family: var(--font-mono);
+      font-size: 11px;
+      color: var(--brass);
+      vertical-align: super;
+      margin-left: 4px;
+    }
 
-        /* Contact */
-        .contact-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 50px; align-items: start; }
-        .contact-info h2 { font-size: 36px; font-weight: 800; margin-bottom: 12px; }
-        .contact-info p { color: #64748b; margin-bottom: 24px; max-width: 380px; font-size: 16px; }
-        .contact-details { display: flex; flex-direction: column; gap: 12px; }
-        .contact-details div { display: flex; align-items: center; gap: 12px; color: #1e293b; }
-        .contact-details i { color: #c8102e; width: 20px; }
-        .contact-form { background: #ffffff; padding: 32px; border-radius: 20px; box-shadow: 0 4px 20px rgba(0, 0, 0, 0.04); border: 1px solid #f1f5f9; }
-        .contact-form h3 { font-size: 18px; margin-bottom: 18px; font-weight: 700; }
-        .contact-form .form-row { display: grid; grid-template-columns: 1fr 1fr; gap: 14px; }
-        .contact-form input, .contact-form select, .contact-form textarea {
-            width: 100%; padding: 14px 16px; border: 1px solid #e2e8f0; border-radius: 10px; background: #fafbfc; color: #1e293b; margin-bottom: 14px; font-family: inherit; transition: all 0.3s ease; outline: none; font-size: 14px;
-        }
-        .contact-form input:focus, .contact-form select:focus, .contact-form textarea:focus { border-color: #c8102e; background: #ffffff; box-shadow: 0 0 0 3px rgba(200, 16, 46, 0.06); }
-        .contact-form textarea { min-height: 80px; resize: vertical; }
-        .btn-primary.full { width: 100%; display: block; text-align: center; border: none; cursor: pointer; }
+    /* ---------- BAND (rolling stat ticker style) ---------- */
+    .band {
+      background: var(--ink);
+      color: #fff;
+      padding: 22px 0;
+      border-top: 1px solid rgba(255,255,255,0.06);
+      border-bottom: 1px solid rgba(255,255,255,0.06);
+    }
+    .band .container {
+      display: flex;
+      gap: 48px;
+      align-items: center;
+      justify-content: space-between;
+      flex-wrap: wrap;
+    }
+    .band-item {
+      display: flex;
+      align-items: baseline;
+      gap: 14px;
+    }
+    .band-item .num {
+      font-family: var(--font-display);
+      font-size: 30px;
+      font-weight: 400;
+      letter-spacing: -0.02em;
+      color: #fff;
+      line-height: 1;
+    }
+    .band-item .num span {
+      color: var(--brass);
+      font-family: var(--font-mono);
+      font-size: 13px;
+      vertical-align: super;
+      margin-left: 2px;
+    }
+    .band-item .lbl {
+      font-family: var(--font-mono);
+      font-size: 10.5px;
+      letter-spacing: 0.16em;
+      text-transform: uppercase;
+      color: rgba(255,255,255,0.55);
+      max-width: 14ch;
+      line-height: 1.5;
+    }
 
-        /* Footer */
-        footer { background: #0f172a; padding: 30px 0; color: #fff; border-top: 1px solid rgba(255, 255, 255, 0.04); }
-        .footer-inner { display: flex; justify-content: space-between; align-items: center; gap: 20px; flex-wrap: wrap; }
-        .footer-brand p { color: rgba(255, 255, 255, 0.4); font-size: 14px; }
-        .footer-copy { color: rgba(255, 255, 255, 0.3); font-size: 14px; }
+    /* ---------- SECTION SHELL ---------- */
+    section.s {
+      padding: clamp(72px, 9vw, 130px) 0;
+      position: relative;
+    }
+    .s-head {
+      display: grid;
+      grid-template-columns: 1fr;
+      gap: 18px;
+      margin-bottom: clamp(40px, 5vw, 70px);
+      padding-bottom: 22px;
+      border-bottom: 1px solid var(--hairline);
+    }
+    @media (min-width: 800px) {
+      .s-head {
+        grid-template-columns: minmax(0, 1.05fr) minmax(0, 0.95fr);
+        align-items: end;
+        gap: 40px;
+      }
+    }
+    .s-head h2.display {
+      font-size: clamp(34px, 5vw, 60px);
+      font-weight: 400;
+      line-height: 0.98;
+      letter-spacing: -0.025em;
+      font-variation-settings: "opsz" 144;
+    }
+    .s-head h2 .ital { font-style: italic; font-weight: 300; color: var(--ink-2); }
+    .s-head .s-deck {
+      color: var(--ink-2);
+      font-size: 16px;
+      line-height: 1.6;
+      max-width: 48ch;
+      justify-self: end;
+    }
+    .s-num {
+      font-family: var(--font-mono);
+      font-size: 11px;
+      letter-spacing: 0.16em;
+      text-transform: uppercase;
+      color: var(--muted);
+      margin-bottom: 14px;
+    }
 
-        /* WhatsApp */
-        .whatsapp-float { position: fixed; right: 20px; bottom: 20px; width: 58px; height: 58px; border-radius: 50%; background: #25D366; color: #fff; font-size: 28px; display: flex; justify-content: center; align-items: center; box-shadow: 0 6px 24px rgba(37, 211, 102, 0.3); z-index: 999; transition: all 0.3s ease; }
+    /* ---------- ABOUT ---------- */
+    .about-grid {
+      display: grid;
+      grid-template-columns: 1fr;
+      gap: 56px;
+    }
+    @media (min-width: 880px) {
+      .about-grid { grid-template-columns: minmax(0, 1.15fr) minmax(0, 0.85fr); gap: 80px; }
+    }
+    .about-body p {
+      font-size: 17.5px;
+      line-height: 1.65;
+      color: var(--ink-2);
+      margin-bottom: 22px;
+    }
+    .about-body p:first-of-type {
+      font-family: var(--font-display);
+      font-size: 22px;
+      line-height: 1.4;
+      font-weight: 400;
+      color: var(--ink);
+      letter-spacing: -0.01em;
+      margin-bottom: 28px;
+    }
+    .about-body p:first-of-type::first-letter {
+      font-family: var(--font-display);
+      font-size: 56px;
+      float: left;
+      line-height: 0.9;
+      padding: 4px 12px 0 0;
+      color: var(--crimson);
+      font-weight: 500;
+    }
+    .facts {
+      border-top: 1px solid var(--hairline);
+    }
+    .fact {
+      display: grid;
+      grid-template-columns: 110px 1fr;
+      gap: 18px;
+      padding: 18px 0;
+      border-bottom: 1px solid var(--hairline);
+      align-items: baseline;
+    }
+    .fact .k {
+      font-family: var(--font-mono);
+      font-size: 11px;
+      letter-spacing: 0.14em;
+      text-transform: uppercase;
+      color: var(--muted);
+    }
+    .fact .v {
+      font-family: var(--font-display);
+      font-size: 17px;
+      font-weight: 500;
+      color: var(--ink);
+      letter-spacing: -0.01em;
+    }
+    .fact .v small {
+      display: block;
+      font-family: var(--font-body);
+      font-size: 13.5px;
+      color: var(--ink-3);
+      font-weight: 400;
+      margin-top: 4px;
+      letter-spacing: 0;
+    }
 
-        @media (max-width: 991px) {
-            .hero-grid, .about-grid, .contact-grid, .scope-grid, .training-grid { grid-template-columns: 1fr; }
-            .hero-left h1 { font-size: 40px; }
-            .hero-right { margin-top: 20px; }
-            .stats-grid { grid-template-columns: repeat(2, 1fr); }
-            .nav-links { display: none; position: fixed; top: 0; left: 0; width: 100%; height: 100vh; background: #ffffff; flex-direction: column; justify-content: center; align-items: center; gap: 24px; z-index: 999; }
-            .nav-links.open { display: flex; }
-            .nav-links a { font-size: 20px; color: #0f172a; }
-            .hamburger { display: block; }
-            .contact-form .form-row { grid-template-columns: 1fr; }
-            .process-grid { grid-template-columns: repeat(3, 1fr); }
-        }
-        @media (max-width: 600px) {
-            .hero-left h1 { font-size: 30px; }
-            .section-header h2 { font-size: 28px; }
-            .stats-grid { grid-template-columns: 1fr; }
-            .hero-stats strong { font-size: 24px; }
-            .service-grid { grid-template-columns: 1fr; }
-            .portfolio-grid { grid-template-columns: repeat(2, 1fr); }
-            .process-grid { grid-template-columns: repeat(2, 1fr); }
-        }
-    </style>
+    /* ---------- SIGNATURE: OPERATING RHYTHM ---------- */
+    .rhythm-section {
+      background: var(--paper-2);
+      border-top: 1px solid var(--hairline);
+      border-bottom: 1px solid var(--hairline);
+    }
+    .rhythm-intro {
+      max-width: 720px;
+      margin-bottom: 56px;
+    }
+    .rhythm-intro h2.display {
+      font-size: clamp(34px, 5vw, 60px);
+      font-weight: 400;
+      line-height: 0.98;
+      letter-spacing: -0.025em;
+      margin-bottom: 20px;
+    }
+    .rhythm-intro h2 .ital { font-style: italic; font-weight: 300; }
+    .rhythm-intro p {
+      font-size: 17px;
+      color: var(--ink-2);
+      line-height: 1.65;
+      max-width: 56ch;
+    }
+
+    /* Rhythm bar — visualizes pulse frequency */
+    .rhythm-bar {
+      display: grid;
+      grid-template-columns: 1fr 1fr 1fr;
+      gap: 0;
+      margin-bottom: 48px;
+      border-top: 1px solid var(--hairline);
+      border-bottom: 1px solid var(--hairline);
+      padding: 18px 0;
+    }
+    .rhythm-col-header {
+      padding: 0 24px;
+      border-right: 1px solid var(--hairline);
+    }
+    .rhythm-col-header:last-child { border-right: none; }
+    .rhythm-col-header .freq-name {
+      font-family: var(--font-mono);
+      font-size: 11px;
+      letter-spacing: 0.18em;
+      text-transform: uppercase;
+      color: var(--ink);
+      margin-bottom: 12px;
+      display: flex;
+      align-items: center;
+      gap: 10px;
+    }
+    .rhythm-col-header .freq-name::before {
+      content: '';
+      width: 7px; height: 7px;
+      border-radius: 50%;
+      background: var(--crimson);
+    }
+    .rhythm-col-header .freq-cadence {
+      font-family: var(--font-mono);
+      font-size: 10.5px;
+      color: var(--muted);
+      letter-spacing: 0.08em;
+    }
+    /* Pulse pattern visual */
+    .pulse-pattern {
+      display: flex;
+      align-items: center;
+      gap: 3px;
+      margin-top: 10px;
+      height: 14px;
+    }
+    .pulse-pattern i {
+      display: block;
+      width: 6px; height: 6px;
+      background: var(--crimson);
+      border-radius: 50%;
+      opacity: 0.92;
+    }
+    .pulse-pattern i.faint { background: var(--hairline); opacity: 1; }
+    .pulse-pattern.daily i { width: 5px; height: 5px; }
+    .pulse-pattern.fort i { width: 5px; height: 5px; }
+    .pulse-pattern.peri i { width: 5px; height: 5px; }
+
+    /* Rhythm cards */
+    .rhythm-cols {
+      display: grid;
+      grid-template-columns: 1fr;
+      gap: 24px;
+    }
+    @media (min-width: 820px) {
+      .rhythm-cols { grid-template-columns: 1fr 1fr 1fr; gap: 28px; }
+    }
+    .rhythm-col {
+      background: var(--paper);
+      padding: 32px 28px;
+      border: 1px solid var(--hairline);
+      border-radius: 3px;
+    }
+    .rhythm-col h3 {
+      font-family: var(--font-display);
+      font-size: 26px;
+      font-weight: 500;
+      letter-spacing: -0.01em;
+      color: var(--ink);
+      margin-bottom: 6px;
+      line-height: 1.05;
+    }
+    .rhythm-col h3 .ital { font-style: italic; font-weight: 300; color: var(--ink-2); }
+    .rhythm-col .freq-tag {
+      font-family: var(--font-mono);
+      font-size: 11px;
+      letter-spacing: 0.14em;
+      text-transform: uppercase;
+      color: var(--crimson);
+      display: inline-block;
+      margin-bottom: 22px;
+      padding-bottom: 16px;
+      border-bottom: 1px dashed var(--hairline);
+      width: 100%;
+    }
+    .rhythm-col ul {
+      display: grid;
+      gap: 13px;
+    }
+    .rhythm-col li {
+      display: grid;
+      grid-template-columns: 22px 1fr;
+      gap: 10px;
+      align-items: baseline;
+      font-size: 14.5px;
+      color: var(--ink-2);
+      line-height: 1.5;
+    }
+    .rhythm-col li .ix {
+      font-family: var(--font-mono);
+      font-size: 10.5px;
+      color: var(--muted);
+      letter-spacing: 0.06em;
+    }
+
+    /* ---------- SERVICES ---------- */
+    .services-list {
+      display: grid;
+      grid-template-columns: 1fr;
+      gap: 0;
+      border-top: 1px solid var(--hairline);
+    }
+    .svc {
+      display: grid;
+      grid-template-columns: 60px minmax(0, 1.1fr) minmax(0, 1.4fr) minmax(0, 1fr);
+      gap: 40px;
+      padding: 32px 0 28px;
+      border-bottom: 1px solid var(--hairline);
+      align-items: start;
+      transition: background 0.2s;
+    }
+    .svc:hover { background: var(--paper-2); }
+    .svc:hover .svc-num { color: var(--crimson); }
+    @media (max-width: 880px) {
+      .svc { grid-template-columns: 40px 1fr; gap: 18px 20px; }
+      .svc-desc, .svc-items { grid-column: 1 / -1; padding-left: 60px; }
+    }
+    .svc-num {
+      font-family: var(--font-mono);
+      font-size: 12px;
+      letter-spacing: 0.12em;
+      color: var(--muted);
+      padding-top: 8px;
+      transition: color 0.2s;
+    }
+    .svc-name {
+      font-family: var(--font-display);
+      font-size: clamp(24px, 2.6vw, 32px);
+      font-weight: 400;
+      line-height: 1.05;
+      letter-spacing: -0.015em;
+      color: var(--ink);
+    }
+    .svc-name .ital { font-style: italic; color: var(--ink-2); font-weight: 300; }
+    .svc-desc {
+      font-size: 15px;
+      color: var(--ink-2);
+      line-height: 1.6;
+      padding-top: 6px;
+    }
+    .svc-items {
+      display: grid;
+      gap: 7px;
+      padding-top: 6px;
+    }
+    .svc-items li {
+      font-size: 13.5px;
+      color: var(--ink-3);
+      letter-spacing: 0.005em;
+      display: flex;
+      align-items: baseline;
+      gap: 8px;
+    }
+    .svc-items li::before {
+      content: '·';
+      color: var(--brass);
+      font-weight: 700;
+    }
+
+    /* ---------- COMMUNITIES INDEX ---------- */
+    .communities-section {
+      background: var(--paper-2);
+      border-top: 1px solid var(--hairline);
+      border-bottom: 1px solid var(--hairline);
+    }
+    .index-meta {
+      display: flex;
+      justify-content: space-between;
+      gap: 24px;
+      flex-wrap: wrap;
+      padding: 18px 0;
+      border-top: 1px solid var(--hairline);
+      border-bottom: 1px solid var(--hairline);
+      margin-bottom: 40px;
+      font-family: var(--font-mono);
+      font-size: 11px;
+      letter-spacing: 0.14em;
+      text-transform: uppercase;
+      color: var(--muted);
+    }
+    .index-meta .right { color: var(--ink-2); }
+    .area-block {
+      display: grid;
+      grid-template-columns: 1fr;
+      gap: 24px;
+      padding: 32px 0;
+      border-bottom: 1px solid var(--hairline);
+    }
+    @media (min-width: 820px) {
+      .area-block { grid-template-columns: 280px 1fr; gap: 60px; }
+    }
+    .area-block:last-child { border-bottom: none; }
+    .area-name {
+      font-family: var(--font-display);
+      font-size: 26px;
+      font-weight: 500;
+      letter-spacing: -0.01em;
+      color: var(--ink);
+    }
+    .area-name small {
+      display: block;
+      font-family: var(--font-mono);
+      font-size: 11px;
+      letter-spacing: 0.14em;
+      text-transform: uppercase;
+      color: var(--muted);
+      font-weight: 400;
+      margin-top: 6px;
+    }
+    .area-list {
+      column-count: 2;
+      column-gap: 40px;
+    }
+    @media (max-width: 600px) {
+      .area-list { column-count: 1; }
+    }
+    .area-list li {
+      display: grid;
+      grid-template-columns: 30px 1fr;
+      gap: 8px;
+      padding: 7px 0;
+      font-size: 14.5px;
+      color: var(--ink-2);
+      break-inside: avoid;
+      align-items: baseline;
+      border-bottom: 1px dashed var(--hairline);
+    }
+    .area-list li .num {
+      font-family: var(--font-mono);
+      font-size: 10.5px;
+      color: var(--brass);
+      letter-spacing: 0.06em;
+    }
+    .area-list li small {
+      display: block;
+      font-size: 12px;
+      color: var(--muted);
+      margin-top: 2px;
+      letter-spacing: 0;
+    }
+
+    /* ---------- PROCESS ---------- */
+    .process {
+      display: grid;
+      grid-template-columns: 1fr;
+      gap: 0;
+      counter-reset: step;
+    }
+    @media (min-width: 880px) {
+      .process { grid-template-columns: repeat(7, 1fr); }
+    }
+    .step {
+      padding: 32px 24px 32px 0;
+      border-top: 1px solid var(--hairline);
+      border-right: 1px solid var(--hairline);
+      position: relative;
+    }
+    @media (min-width: 880px) {
+      .step { padding: 32px 20px 32px 20px; border-top: 1px solid var(--ink); }
+    }
+    .step:last-child { border-right: none; }
+    .step .step-num {
+      font-family: var(--font-mono);
+      font-size: 11px;
+      letter-spacing: 0.12em;
+      color: var(--crimson);
+      margin-bottom: 18px;
+      display: block;
+    }
+    .step h4 {
+      font-family: var(--font-display);
+      font-size: 19px;
+      font-weight: 500;
+      line-height: 1.15;
+      color: var(--ink);
+      letter-spacing: -0.01em;
+      margin-bottom: 10px;
+    }
+    .step p {
+      font-size: 13.5px;
+      color: var(--ink-3);
+      line-height: 1.55;
+    }
+
+    /* ---------- COMPLIANCE ---------- */
+    .compliance-grid {
+      display: grid;
+      grid-template-columns: 1fr;
+      gap: 0;
+      border-top: 1px solid var(--hairline);
+    }
+    @media (min-width: 820px) {
+      .compliance-grid { grid-template-columns: 1fr 1fr 1fr; }
+    }
+    .comp {
+      padding: 36px 32px 36px 0;
+      border-bottom: 1px solid var(--hairline);
+    }
+    @media (min-width: 820px) {
+      .comp { padding: 40px 36px; border-right: 1px solid var(--hairline); border-bottom: none; }
+      .comp:last-child { border-right: none; padding-right: 0; }
+      .comp:first-child { padding-left: 0; }
+    }
+    .comp h3 {
+      font-family: var(--font-display);
+      font-size: 22px;
+      font-weight: 500;
+      letter-spacing: -0.01em;
+      color: var(--ink);
+      margin-bottom: 6px;
+    }
+    .comp h3 .ital { font-style: italic; font-weight: 300; color: var(--ink-2); }
+    .comp .comp-tag {
+      font-family: var(--font-mono);
+      font-size: 10.5px;
+      letter-spacing: 0.14em;
+      text-transform: uppercase;
+      color: var(--brass);
+      margin-bottom: 22px;
+      display: block;
+    }
+    .comp ul li {
+      display: grid;
+      grid-template-columns: 18px 1fr;
+      gap: 10px;
+      padding: 10px 0;
+      border-bottom: 1px dashed var(--hairline);
+      font-size: 14px;
+      color: var(--ink-2);
+      align-items: center;
+    }
+    .comp ul li:last-child { border-bottom: none; }
+    .comp ul li::before {
+      content: '✓';
+      color: var(--crimson);
+      font-size: 13px;
+      font-weight: 600;
+    }
+
+    /* ---------- TESTIMONIAL PULL ---------- */
+    .pull {
+      background: var(--ink);
+      color: #fff;
+      padding: clamp(60px, 8vw, 110px) 0;
+    }
+    .pull .container { max-width: 1000px; }
+    .pull .pull-eyebrow {
+      font-family: var(--font-mono);
+      font-size: 11px;
+      letter-spacing: 0.18em;
+      text-transform: uppercase;
+      color: var(--brass);
+      margin-bottom: 32px;
+    }
+    .pull blockquote {
+      font-family: var(--font-display);
+      font-size: clamp(28px, 4.2vw, 50px);
+      font-weight: 300;
+      line-height: 1.18;
+      letter-spacing: -0.02em;
+      color: #fff;
+      font-variation-settings: "opsz" 144;
+    }
+    .pull blockquote .ital { font-style: italic; }
+    .pull blockquote .accent { color: var(--brass); }
+    .pull .pull-attrib {
+      margin-top: 36px;
+      font-family: var(--font-mono);
+      font-size: 12px;
+      letter-spacing: 0.12em;
+      color: rgba(255,255,255,0.55);
+      text-transform: uppercase;
+    }
+
+    /* ---------- CONTACT ---------- */
+    .contact-grid {
+      display: grid;
+      grid-template-columns: 1fr;
+      gap: 50px;
+    }
+    @media (min-width: 880px) {
+      .contact-grid { grid-template-columns: minmax(0, 1fr) minmax(0, 1.1fr); gap: 80px; }
+    }
+    .contact-left .ct-name {
+      font-family: var(--font-display);
+      font-size: clamp(34px, 4.5vw, 52px);
+      font-weight: 400;
+      line-height: 1;
+      letter-spacing: -0.025em;
+      margin-bottom: 32px;
+    }
+    .contact-left .ct-name .ital { font-style: italic; font-weight: 300; }
+    .contact-block {
+      padding: 22px 0;
+      border-top: 1px solid var(--hairline);
+    }
+    .contact-block:last-child { border-bottom: 1px solid var(--hairline); }
+    .contact-block .k {
+      font-family: var(--font-mono);
+      font-size: 11px;
+      letter-spacing: 0.14em;
+      text-transform: uppercase;
+      color: var(--muted);
+      margin-bottom: 8px;
+    }
+    .contact-block .v {
+      font-family: var(--font-display);
+      font-size: 18px;
+      font-weight: 500;
+      color: var(--ink);
+      letter-spacing: -0.005em;
+    }
+    .contact-block .v a:hover { color: var(--crimson); }
+    .contact-block .v small {
+      display: block;
+      font-family: var(--font-body);
+      font-size: 13.5px;
+      color: var(--ink-3);
+      font-weight: 400;
+      margin-top: 4px;
+      letter-spacing: 0;
+    }
+
+    .form-card {
+      background: var(--paper);
+      border: 1px solid var(--hairline);
+      padding: 36px 32px;
+      border-radius: 3px;
+    }
+    .form-card .form-title {
+      font-family: var(--font-mono);
+      font-size: 11px;
+      letter-spacing: 0.18em;
+      text-transform: uppercase;
+      color: var(--crimson);
+      margin-bottom: 26px;
+      padding-bottom: 16px;
+      border-bottom: 1px solid var(--hairline);
+    }
+    .field {
+      margin-bottom: 18px;
+    }
+    .field label {
+      display: block;
+      font-family: var(--font-mono);
+      font-size: 10.5px;
+      letter-spacing: 0.14em;
+      text-transform: uppercase;
+      color: var(--muted);
+      margin-bottom: 8px;
+    }
+    .field input, .field select, .field textarea {
+      width: 100%;
+      padding: 13px 0;
+      background: transparent;
+      border: none;
+      border-bottom: 1px solid var(--hairline);
+      font-size: 15px;
+      color: var(--ink);
+      outline: none;
+      transition: border-color 0.2s;
+      font-family: var(--font-body);
+    }
+    .field input:focus, .field select:focus, .field textarea:focus {
+      border-bottom-color: var(--crimson);
+    }
+    .field textarea { resize: vertical; min-height: 80px; padding: 13px 0; }
+    .field-row {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 28px;
+    }
+    @media (max-width: 600px) {
+      .field-row { grid-template-columns: 1fr; }
+    }
+    .form-submit {
+      margin-top: 14px;
+      width: 100%;
+      padding: 16px;
+      background: var(--ink);
+      color: #fff;
+      border-radius: 2px;
+      font-weight: 500;
+      font-size: 14px;
+      letter-spacing: 0.02em;
+      transition: background 0.2s;
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      gap: 12px;
+    }
+    .form-submit:hover { background: var(--crimson); }
+    .form-submit .arrow { font-family: var(--font-mono); }
+    .form-note {
+      margin-top: 14px;
+      font-family: var(--font-mono);
+      font-size: 10.5px;
+      letter-spacing: 0.10em;
+      color: var(--muted);
+      text-transform: uppercase;
+      text-align: center;
+    }
+
+    /* ---------- FOOTER ---------- */
+    footer {
+      background: var(--ink);
+      color: rgba(255,255,255,0.7);
+      padding: 64px 0 32px;
+    }
+    .footer-grid {
+      display: grid;
+      grid-template-columns: 1fr;
+      gap: 40px;
+      padding-bottom: 40px;
+      border-bottom: 1px solid rgba(255,255,255,0.1);
+    }
+    @media (min-width: 760px) {
+      .footer-grid { grid-template-columns: 1.3fr 1fr 1fr 1fr; gap: 48px; }
+    }
+    .foot-brand .brand-text { color: #fff; }
+    .foot-brand .brand-text small { color: rgba(255,255,255,0.5); }
+    .foot-brand p {
+      margin-top: 18px;
+      font-size: 13.5px;
+      line-height: 1.6;
+      max-width: 36ch;
+      color: rgba(255,255,255,0.55);
+    }
+    .foot-h {
+      font-family: var(--font-mono);
+      font-size: 10.5px;
+      letter-spacing: 0.18em;
+      text-transform: uppercase;
+      color: rgba(255,255,255,0.4);
+      margin-bottom: 16px;
+    }
+    .foot-list { display: grid; gap: 9px; }
+    .foot-list a {
+      font-size: 13.5px;
+      color: rgba(255,255,255,0.75);
+      transition: color 0.2s;
+    }
+    .foot-list a:hover { color: var(--brass); }
+    .foot-base {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 18px;
+      justify-content: space-between;
+      align-items: center;
+      padding-top: 28px;
+      font-family: var(--font-mono);
+      font-size: 11px;
+      letter-spacing: 0.12em;
+      color: rgba(255,255,255,0.4);
+      text-transform: uppercase;
+    }
+    .foot-base .right { display: flex; gap: 18px; flex-wrap: wrap; }
+
+    /* ---------- WHATSAPP FAB ---------- */
+    .wa-fab {
+      position: fixed;
+      right: 22px;
+      bottom: 22px;
+      width: 54px; height: 54px;
+      background: #25D366;
+      color: #fff;
+      border-radius: 50%;
+      display: grid;
+      place-items: center;
+      box-shadow: 0 14px 30px -10px rgba(37, 211, 102, 0.45);
+      z-index: 80;
+      transition: transform 0.2s;
+    }
+    .wa-fab:hover { transform: translateY(-3px) scale(1.05); }
+    .wa-fab svg { width: 26px; height: 26px; }
+
+    /* ---------- RESPONSIVE NAV ---------- */
+    @media (max-width: 980px) {
+      .nav, .header-actions .cta-call .label { display: none; }
+      .hamburger { display: block; }
+      .nav.open {
+        display: flex;
+        position: fixed;
+        top: 78px; left: 0; right: 0;
+        background: var(--paper);
+        flex-direction: column;
+        gap: 0;
+        padding: 16px var(--gutter) 32px;
+        border-bottom: 1px solid var(--hairline);
+        box-shadow: 0 30px 40px -20px rgba(15,27,51,0.15);
+      }
+      .nav.open a {
+        padding: 18px 0;
+        border-bottom: 1px solid var(--hairline);
+        font-size: 17px;
+      }
+      .nav.open a::after { display: none; }
+    }
+
+    @media (max-width: 700px) {
+      .topline .left { display: none; }
+      .hero-meta { grid-template-columns: 1fr; gap: 18px; }
+      .hero-meta .since { display: none; }
+      .area-list { grid-template-columns: 1fr; }
+      .ops-row .v { font-size: 22px; }
+    }
+
+    /* ---------- ANIMATIONS ---------- */
+    @media (prefers-reduced-motion: no-preference) {
+      .reveal {
+        opacity: 0;
+        transform: translateY(20px);
+        transition: opacity 0.8s ease, transform 0.8s ease;
+      }
+      .reveal.in {
+        opacity: 1;
+        transform: translateY(0);
+      }
+    }
+    :focus-visible {
+      outline: 2px solid var(--crimson);
+      outline-offset: 3px;
+      border-radius: 2px;
+    }
+  </style>
 </head>
 <body>
 
-    <!-- Header -->
-    <header class="header" id="header">
-        <div class="container">
-            <nav class="nav">
-                <a href="#" class="logo">
-                    <!-- ✅ Fixed: Using your actual uploaded PNG file -->
-                    <img src="logo-header-transparent.png" alt="Clean Care" class="logo-img" />
-                </a>
-                <ul class="nav-links" id="navLinks">
-                    <li><a href="#home">Home</a></li>
-                    <li><a href="#about">About</a></li>
-                    <li><a href="#services">Services</a></li>
-                    <li><a href="#portfolio">Portfolio</a></li>
-                    <li><a href="#scope">Scope of Work</a></li>
-                    <li><a href="#process">Process</a></li>
-                    <li><a href="#training">Compliance</a></li>
-                    <li><a href="careers.html">Careers</a></li>
-                    <li><a href="#contact">Contact</a></li>
-                </ul>
-                <div class="nav-actions">
-                    <a href="tel:+919892000577" class="btn-call">
-                        <i class="fas fa-phone"></i> <span>Call Now</span>
-                    </a>
-                    <button class="hamburger" id="menuToggle" aria-label="Toggle Menu" aria-expanded="false">
-                        <i class="fas fa-bars"></i>
-                    </button>
-                </div>
-            </nav>
+  <!-- TOPLINE -->
+  <div class="topline">
+    <div class="container">
+      <div class="left">
+        <span>Mumbai <span class="dot"></span> Powai <span class="dot"></span> Chandivali <span class="dot"></span> Mulund</span>
+        <span>GSTIN 27CTWPK0096K1ZZ</span>
+      </div>
+      <div class="right">
+        <a href="mailto:cleancare1067@gmail.com">cleancare1067@gmail.com</a>
+      </div>
+    </div>
+  </div>
+
+  <!-- HEADER -->
+  <header class="header">
+    <div class="container">
+      <a href="#top" class="brand" aria-label="Clean Care home">
+        <div class="brand-mark">C</div>
+        <div class="brand-text">
+          Clean Care
+          <small>Facility Management · Est. 2012</small>
         </div>
-    </header>
+      </a>
+      <nav class="nav" id="nav">
+        <a href="#about">About</a>
+        <a href="#rhythm">Operating Rhythm</a>
+        <a href="#services">Services</a>
+        <a href="#communities">Communities</a>
+        <a href="#process">Process</a>
+        <a href="#compliance">Compliance</a>
+        <a href="#contact">Contact</a>
+      </nav>
+      <div class="header-actions">
+        <a href="tel:+919892000577" class="cta-call">
+          <span class="label">Request a visit</span>
+          <span class="num">+91 98920 00577</span>
+        </a>
+        <button class="hamburger" id="menuToggle" aria-label="Toggle menu" aria-expanded="false">
+          <span></span><span></span><span></span>
+        </button>
+      </div>
+    </div>
+  </header>
 
-    <!-- Hero -->
-    <section id="home" class="hero">
-        <div class="container">
-            <div class="hero-grid">
-                <div class="hero-left">
-                    <span class="hero-badge"><i class="fas fa-star"></i> Mumbai's Trusted Partner</span>
-                    <h1>Clean Spaces. <span class="highlight">Better Places.</span> Stronger Communities.</h1>
-                    <p>With 14+ years of experience, 31+ communities served, and 120+ professionals, we deliver premium facility management solutions across Mumbai.</p>
-                    <div class="hero-buttons">
-                        <a href="#contact" class="btn-primary">Get Proposal</a>
-                        <a href="https://wa.me/919892000577" target="_blank" rel="noopener noreferrer" class="btn-outline"><i class="fab fa-whatsapp"></i> WhatsApp</a>
-                    </div>
-                    <div class="hero-stats">
-                        <div><strong>14<span class="accent">+</span></strong> <span>Years</span></div>
-                        <div><strong>31<span class="accent">+</span></strong> <span>Communities</span></div>
-                        <div><strong>120<span class="accent">+</span></strong> <span>Professionals</span></div>
-                    </div>
-                </div>
-                <div class="hero-right">
-                    <div class="hero-card">
-                        <h3><i class="fas fa-bolt" style="color:#c8102e;"></i> Core Services</h3>
-                        <ul>
-                            <li><i class="fas fa-check-circle"></i> Housekeeping</li>
-                            <li><i class="fas fa-check-circle"></i> Technical Maintenance</li>
-                            <li><i class="fas fa-check-circle"></i> Pool & Gym Management</li>
-                            <li><i class="fas fa-check-circle"></i> Garden Maintenance</li>
-                        </ul>
-                    </div>
-                </div>
-            </div>
+  <!-- HERO -->
+  <section class="hero" id="top">
+    <div class="container">
+      <div class="hero-eyebrow-row">
+        <span class="crumb accent">●  Currently operating across 31 communities</span>
+        <span class="crumb">Daily as of <span id="today">Today</span></span>
+      </div>
+      <div class="hero-grid">
+        <div>
+          <h1 class="display">
+            Fourteen years<br/>
+            <span class="ital">of running</span><br/>
+            Mumbai's <span class="red">homes.</span>
+          </h1>
+          <div class="hero-meta">
+            <span class="since">Since · 2012</span>
+            <p>
+              Clean Care is the facility management partner that 31+ residential
+              societies across Powai, Chandivali, Saki Vihar, Sakinaka and Mulund
+              rely on for the quiet, documented work that makes a building feel
+              cared for — every morning, every fortnight, every quarter.
+            </p>
+          </div>
+          <div class="hero-ctas">
+            <a href="#contact" class="btn btn-primary">
+              Request a proposal <span class="arrow">→</span>
+            </a>
+            <a href="#rhythm" class="btn btn-ghost">
+              See the operating rhythm
+            </a>
+          </div>
         </div>
-    </section>
 
-    <!-- About -->
-    <section id="about" class="section">
-        <div class="container">
-            <div class="section-header">
-                <span class="label">About Us</span>
-                <h2>Built on <span class="highlight">Trust</span>, Driven by <span class="highlight">Quality</span></h2>
+        <aside class="ops-card" aria-label="Operating snapshot">
+          <div class="ops-label">Live · operating snapshot</div>
+          <div class="ops-title">A morning at Clean Care, in numbers.</div>
+          <div class="ops-rows">
+            <div class="ops-row">
+              <span class="k">Years of operation</span>
+              <span class="v">14<sup>+</sup></span>
             </div>
-            <div class="about-grid">
-                <div class="about-image">
-                    <i class="fas fa-building"></i>
-                </div>
-                <div class="about-text">
-                    <p>Clean Care is a professionally managed facility management company with over 14 years of experience. We specialize in comprehensive housekeeping, maintenance, and amenities management for residential and commercial properties across Mumbai.</p>
-                    <p>Our team of 120+ trained professionals ensures that every space we manage is clean, safe, and well-maintained.</p>
-                    <div class="about-features">
-                        <div><i class="fas fa-check"></i> 14+ Years Experience</div>
-                        <div><i class="fas fa-check"></i> 120+ Trained Staff</div>
-                        <div><i class="fas fa-check"></i> 24/7 Support</div>
-                        <div><i class="fas fa-check"></i> Compliance Ready</div>
-                    </div>
-                </div>
+            <div class="ops-row">
+              <span class="k">Residential communities</span>
+              <span class="v">31<sup>+</sup></span>
             </div>
+            <div class="ops-row">
+              <span class="k">Trained personnel deployed</span>
+              <span class="v">120<sup>+</sup></span>
+            </div>
+            <div class="ops-row">
+              <span class="k">Mumbai locations served</span>
+              <span class="v">5</span>
+            </div>
+            <div class="ops-row">
+              <span class="k">Statutory compliance</span>
+              <span class="v">100<sup>%</sup></span>
+            </div>
+          </div>
+        </aside>
+      </div>
+    </div>
+  </section>
+
+  <!-- BAND -->
+  <div class="band">
+    <div class="container">
+      <div class="band-item">
+        <span class="num">14<span>+</span></span>
+        <span class="lbl">Years <br/>of experience</span>
+      </div>
+      <div class="band-item">
+        <span class="num">31<span>+</span></span>
+        <span class="lbl">Residential <br/>communities served</span>
+      </div>
+      <div class="band-item">
+        <span class="num">120<span>+</span></span>
+        <span class="lbl">Trained <br/>professionals</span>
+      </div>
+      <div class="band-item">
+        <span class="num">100<span>%</span></span>
+        <span class="lbl">Statutory <br/>compliance</span>
+      </div>
+      <div class="band-item">
+        <span class="num">5</span>
+        <span class="lbl">Mumbai <br/>locations</span>
+      </div>
+    </div>
+  </div>
+
+  <!-- ABOUT -->
+  <section class="s" id="about">
+    <div class="container">
+      <div class="s-head">
+        <div>
+          <div class="s-num">§ 01 — About</div>
+          <h2 class="display">
+            A facility management company <span class="ital">that takes the word</span> management <span class="ital">seriously.</span>
+          </h2>
         </div>
-    </section>
+        <p class="s-deck">
+          We aren't a one-time cleaning crew. We're the team your committee briefs at
+          monthly meetings — uniformed, supervised, accountable, with a documented
+          schedule that runs whether anyone is watching or not.
+        </p>
+      </div>
 
-    <!-- Services -->
-    <section id="services" class="section" style="background:#ffffff;">
-        <div class="container">
-            <div class="section-header center">
-                <span class="label">Our Services</span>
-                <h2>Everything You Need, <span class="highlight">Under One Roof</span></h2>
-            </div>
-            <div class="service-grid">
-                <div class="service-card">
-                    <i class="fas fa-broom"></i>
-                    <h3>Housekeeping</h3>
-                    <p>Residential society, commercial, corporate office, and common area cleaning.</p>
-                    <span class="service-tag">Residential & Commercial</span>
-                </div>
-                <div class="service-card">
-                    <i class="fas fa-tools"></i>
-                    <h3>Technical Maintenance</h3>
-                    <p>Electricians, plumbers, carpenters, liftman services, and pump operators.</p>
-                    <span class="service-tag">Preventive & Breakdown</span>
-                </div>
-                <div class="service-card">
-                    <i class="fas fa-swimmer"></i>
-                    <h3>Pool & Gym Management</h3>
-                    <p>Swimming pool operations, gym equipment upkeep, water quality monitoring, and safety.</p>
-                    <span class="service-tag">Clubhouse Amenities</span>
-                </div>
-                <div class="service-card">
-                    <i class="fas fa-seedling"></i>
-                    <h3>Garden Maintenance</h3>
-                    <p>Landscaping, plant care, lawn mowing, and garden upkeep for communities.</p>
-                    <span class="service-tag">Outdoor Spaces</span>
-                </div>
-                <div class="service-card">
-                    <i class="fas fa-users"></i>
-                    <h3>Facility Management</h3>
-                    <p>Facility supervisors, reception, office boy, pantry, and computer operator services.</p>
-                    <span class="service-tag">Integrated Solutions</span>
-                </div>
-                <div class="service-card">
-                    <i class="fas fa-clipboard-check"></i>
-                    <h3>Specialized Cleaning</h3>
-                    <p>Deep cleaning, glass cleaning, terrace cleaning, post-construction, cobweb removal.</p>
-                    <span class="service-tag">Flexible & Scalable</span>
-                </div>
-            </div>
+      <div class="about-grid">
+        <div class="about-body">
+          <p>
+            Clean Care has been keeping Mumbai's housing societies and commercial
+            premises operating since 2012. Across fourteen years we've grown into a
+            trusted partner for residential communities, corporate offices and
+            industrial facilities — quietly, by doing the boring work brilliantly.
+          </p>
+          <p>
+            Our model is simple. Trained, background-verified manpower in uniform.
+            Dedicated supervisors who own each site. Modern equipment we actually
+            maintain. A scope of work documented in writing, audited weekly, and
+            adjusted to what a property really needs — not a copy-paste contract.
+          </p>
+          <p>
+            Today we serve thirty-one residential communities across Powai,
+            Chandivali, Saki Vihar Road, Sakinaka and Mulund — every one of them on
+            the same operating standard, every one of them able to call us when
+            something goes wrong at 11pm.
+          </p>
         </div>
-    </section>
 
-    <!-- Stats -->
-    <section class="stats-bar">
-        <div class="container">
-            <div class="stats-grid">
-                <div class="stat-item">
-                    <span class="number"><span class="counter" data-target="14">0</span><span class="accent">+</span></span>
-                    <p>Years of Excellence</p>
-                </div>
-                <div class="stat-item">
-                    <span class="number"><span class="counter" data-target="31">0</span><span class="accent">+</span></span>
-                    <p>Communities Served</p>
-                </div>
-                <div class="stat-item">
-                    <span class="number"><span class="counter" data-target="120">0</span><span class="accent">+</span></span>
-                    <p>Professionals</p>
-                </div>
-                <div class="stat-item">
-                    <span class="number">24/7</span>
-                    <p>Support Available</p>
-                </div>
-            </div>
+        <aside class="facts" aria-label="Company facts">
+          <div class="fact">
+            <span class="k">Founded</span>
+            <span class="v">2012<small>14+ years of continuous operation</small></span>
+          </div>
+          <div class="fact">
+            <span class="k">Scope</span>
+            <span class="v">Integrated FM<small>Housekeeping, maintenance, amenities, support staff</small></span>
+          </div>
+          <div class="fact">
+            <span class="k">Coverage</span>
+            <span class="v">Mumbai<small>Powai · Chandivali · Saki Vihar · Sakinaka · Mulund</small></span>
+          </div>
+          <div class="fact">
+            <span class="k">Headcount</span>
+            <span class="v">120+ deployed<small>Across daily and on-call shifts</small></span>
+          </div>
+          <div class="fact">
+            <span class="k">GSTIN</span>
+            <span class="v" style="font-family: var(--font-mono); font-size: 13.5px; letter-spacing: 0.04em;">27CTWPK0096K1ZZ<small>Hiranandani Gardens, Powai, Mumbai 400076</small></span>
+          </div>
+          <div class="fact">
+            <span class="k">Statutory</span>
+            <span class="v">Fully compliant<small>GST · PF · ESIC · Minimum Wage · Labour Law</small></span>
+          </div>
+        </aside>
+      </div>
+    </div>
+  </section>
+
+  <!-- OPERATING RHYTHM (SIGNATURE) -->
+  <section class="s rhythm-section" id="rhythm">
+    <div class="container">
+      <div class="rhythm-intro">
+        <div class="s-num">§ 02 — The Operating Rhythm</div>
+        <h2 class="display">
+          A building runs on a schedule.<br/>
+          <span class="ital">So do we.</span>
+        </h2>
+        <p>
+          Reliable facility management isn't a one-time clean — it's a documented
+          cadence of daily, fortnightly and periodic work that compounds into a
+          property that quietly stays in shape. This is the schedule we run on
+          every site we operate.
+        </p>
+      </div>
+
+      <!-- Rhythm bar with cadence dots -->
+      <div class="rhythm-bar" aria-label="Cadence overview">
+        <div class="rhythm-col-header">
+          <div class="freq-name">Daily</div>
+          <div class="freq-cadence">Mon — Sun · every morning</div>
+          <div class="pulse-pattern daily" aria-hidden="true">
+            <i></i><i></i><i></i><i></i><i></i><i></i><i></i>
+          </div>
         </div>
-    </section>
-
-    <!-- Portfolio -->
-    <section id="portfolio" class="section">
-        <div class="container">
-            <div class="section-header center">
-                <span class="label">Client Portfolio</span>
-                <h2>Trusted by Leading <span class="highlight">Properties</span></h2>
-            </div>
-            <div class="portfolio-grid">
-                <!-- First 8 visible items -->
-                <div class="portfolio-item"><i class="fas fa-building"></i> <strong>Raheja Vihar</strong> <span class="location">Powai</span> <span class="service-badge">Full Facility Mgmt</span></div>
-                <div class="portfolio-item"><i class="fas fa-building"></i> <strong>Sunrise CHS</strong> <span class="location">Powai</span> <span class="service-badge">Housekeeping + Maint</span></div>
-                <div class="portfolio-item"><i class="fas fa-building"></i> <strong>Rainbow CHS</strong> <span class="location">Powai</span> <span class="service-badge">Housekeeping</span></div>
-                <div class="portfolio-item"><i class="fas fa-building"></i> <strong>Hillside CHS</strong> <span class="location">Powai</span> <span class="service-badge">Maintenance</span></div>
-                <div class="portfolio-item"><i class="fas fa-building"></i> <strong>Lakeside CHS</strong> <span class="location">Powai</span> <span class="service-badge">Full Facility Mgmt</span></div>
-                <div class="portfolio-item"><i class="fas fa-building"></i> <strong>Sunset I CHS</strong> <span class="location">Powai</span> <span class="service-badge">Housekeeping</span></div>
-                <div class="portfolio-item"><i class="fas fa-building"></i> <strong>Golden Rays CHS</strong> <span class="location">Powai</span> <span class="service-badge">Maintenance</span></div>
-                <div class="portfolio-item"><i class="fas fa-building"></i> <strong>Hillcrest I CHS</strong> <span class="location">Powai</span> <span class="service-badge">Full Facility Mgmt</span></div>
-            </div>
-
-            <!-- ✅ Fixed: All remaining clients in the hidden div -->
-            <div class="portfolio-extra" id="portfolioExtra">
-                <div class="portfolio-item"><i class="fas fa-building"></i> <strong>Hillcrest II CHS</strong> <span class="location">Powai</span> <span class="service-badge">Housekeeping + Maint</span></div>
-                <div class="portfolio-item"><i class="fas fa-building"></i> <strong>Paradise CHS</strong> <span class="location">Powai</span> <span class="service-badge">Housekeeping</span></div>
-                <div class="portfolio-item"><i class="fas fa-building"></i> <strong>Evening Glory CHS</strong> <span class="location">Powai</span> <span class="service-badge">Maintenance</span></div>
-                <div class="portfolio-item"><i class="fas fa-building"></i> <strong>Sunglory CHS</strong> <span class="location">Powai</span> <span class="service-badge">Full Facility Mgmt</span></div>
-                <div class="portfolio-item"><i class="fas fa-building"></i> <strong>Sunglow CHS</strong> <span class="location">Powai</span> <span class="service-badge">Housekeeping</span></div>
-                <div class="portfolio-item"><i class="fas fa-building"></i> <strong>Twilight CHS</strong> <span class="location">Powai</span> <span class="service-badge">Maintenance</span></div>
-                <div class="portfolio-item"><i class="fas fa-building"></i> <strong>Harmony CHS</strong> <span class="location">Powai</span> <span class="service-badge">Full Facility Mgmt</span></div>
-                <div class="portfolio-item"><i class="fas fa-building"></i> <strong>Sundew CHS</strong> <span class="location">Powai</span> <span class="service-badge">Housekeeping + Maint</span></div>
-                <div class="portfolio-item"><i class="fas fa-building"></i> <strong>Silvercrest CHS</strong> <span class="location">Powai</span> <span class="service-badge">Housekeeping</span></div>
-                <div class="portfolio-item"><i class="fas fa-building"></i> <strong>Adityavardhan CHS</strong> <span class="location">Powai</span> <span class="service-badge">Maintenance</span></div>
-                <div class="portfolio-item"><i class="fas fa-building"></i> <strong>Maple Leaf CHS</strong> <span class="location">Powai</span> <span class="service-badge">Full Facility Mgmt</span></div>
-                <div class="portfolio-item"><i class="fas fa-building"></i> <strong>Assencio CHS</strong> <span class="location">Powai</span> <span class="service-badge">Housekeeping</span></div>
-                <div class="portfolio-item"><i class="fas fa-building"></i> <strong>Palatial Heights CHS</strong> <span class="location">Chandivali / Powai</span> <span class="service-badge">Full Facility Mgmt</span></div>
-                <div class="portfolio-item"><i class="fas fa-building"></i> <strong>Harsh Vardhan CHS</strong> <span class="location">Chandivali / Powai</span> <span class="service-badge">Housekeeping + Maint</span></div>
-                <div class="portfolio-item"><i class="fas fa-building"></i> <strong>Vasu Kamal CHS</strong> <span class="location">Chandivali / Powai</span> <span class="service-badge">Maintenance</span></div>
-                <div class="portfolio-item"><i class="fas fa-building"></i> <strong>Parijat Tower CHS</strong> <span class="location">Chandivali / Powai</span> <span class="service-badge">Housekeeping</span></div>
-                <div class="portfolio-item"><i class="fas fa-building"></i> <strong>ANSA D, E & F</strong> <span class="location">Chandivali / Powai</span> <span class="service-badge">Full Facility Mgmt</span></div>
-                <div class="portfolio-item"><i class="fas fa-building"></i> <strong>Regent Hill A Wing</strong> <span class="location">Chandivali / Powai</span> <span class="service-badge">Maintenance</span></div>
-                <div class="portfolio-item"><i class="fas fa-building"></i> <strong>Happiness CHS</strong> <span class="location">Mulund</span> <span class="service-badge">Housekeeping</span></div>
-                <div class="portfolio-item"><i class="fas fa-building"></i> <strong>Hurrah CHS</strong> <span class="location">Mulund</span> <span class="service-badge">Full Facility Mgmt</span></div>
-                <div class="portfolio-item"><i class="fas fa-building"></i> <strong>Celebration CHS</strong> <span class="location">Mulund</span> <span class="service-badge">Housekeeping + Maint</span></div>
-                <div class="portfolio-item"><i class="fas fa-building"></i> <strong>Delight CHS</strong> <span class="location">Mulund</span> <span class="service-badge">Maintenance</span></div>
-                <div class="portfolio-item"><i class="fas fa-building"></i> <strong>Lok Everest CHS</strong> <span class="location">Mulund</span> <span class="service-badge">Full Facility Mgmt</span></div>
-                <div class="portfolio-item"><i class="fas fa-building"></i> <strong>Sagar Heritage CHS</strong> <span class="location">Sakinaka</span> <span class="service-badge">Housekeeping</span></div>
-            </div>
-
-            <button class="btn-show-more" id="showMoreBtn">Show More Clients</button>
+        <div class="rhythm-col-header">
+          <div class="freq-name">Fortnightly</div>
+          <div class="freq-cadence">Every 14 days · documented</div>
+          <div class="pulse-pattern fort" aria-hidden="true">
+            <i></i><i class="faint"></i><i class="faint"></i><i class="faint"></i><i class="faint"></i><i class="faint"></i><i class="faint"></i><i></i>
+          </div>
         </div>
-    </section>
-
-    <!-- Scope of Work -->
-    <section id="scope" class="section" style="background:#ffffff;">
-        <div class="container">
-            <div class="section-header center">
-                <span class="label">Scope of Work</span>
-                <h2>Daily Operations &amp; <span class="highlight">Scheduled Maintenance</span></h2>
-            </div>
-            <div class="scope-grid">
-                <div class="scope-col">
-                    <h3><i class="fas fa-clock"></i> Daily Operations</h3>
-                    <ul>
-                        <li><i class="fas fa-check"></i> Door-to-door garbage collection</li>
-                        <li><i class="fas fa-check"></i> Floor lobby cleaning</li>
-                        <li><i class="fas fa-check"></i> Staircase cleaning</li>
-                        <li><i class="fas fa-check"></i> Parking cleaning</li>
-                        <li><i class="fas fa-check"></i> Society office cleaning</li>
-                        <li><i class="fas fa-check"></i> Lift cleaning</li>
-                        <li><i class="fas fa-check"></i> Common toilet cleaning</li>
-                        <li><i class="fas fa-check"></i> Dusting and maintenance</li>
-                    </ul>
-                </div>
-                <div class="scope-col">
-                    <h3><i class="fas fa-calendar-alt"></i> Scheduled Maintenance</h3>
-                    <ul>
-                        <li><i class="fas fa-check"></i> Meter room cleaning</li>
-                        <li><i class="fas fa-check"></i> Pump room cleaning</li>
-                        <li><i class="fas fa-check"></i> Cobweb removal</li>
-                        <li><i class="fas fa-check"></i> Glass cleaning</li>
-                        <li><i class="fas fa-check"></i> Terrace cleaning</li>
-                        <li><i class="fas fa-check"></i> Compound washing</li>
-                        <li><i class="fas fa-check"></i> Electrical duct cleaning</li>
-                    </ul>
-                </div>
-            </div>
+        <div class="rhythm-col-header">
+          <div class="freq-name">Periodic</div>
+          <div class="freq-cadence">Monthly / quarterly · scheduled</div>
+          <div class="pulse-pattern peri" aria-hidden="true">
+            <i></i><i class="faint"></i><i class="faint"></i><i class="faint"></i><i class="faint"></i><i class="faint"></i><i class="faint"></i><i class="faint"></i>
+          </div>
         </div>
-    </section>
+      </div>
 
-    <!-- Process -->
-    <section id="process" class="section">
-        <div class="container">
-            <div class="section-header center">
-                <span class="label">Our Process</span>
-                <h2>From <span class="highlight">Inspection</span> to <span class="highlight">Continuous Improvement</span></h2>
-            </div>
-            <div class="process-grid">
-                <div class="process-step"><div class="step-num">01</div><h4>Site Inspection</h4><p>We visit your premises to understand your specific requirements.</p></div>
-                <div class="process-step"><div class="step-num">02</div><h4>Requirement Assessment</h4><p>We analyze your needs and identify the best service solution.</p></div>
-                <div class="process-step"><div class="step-num">03</div><h4>Customized Proposal</h4><p>We provide a tailored proposal with scope, work, and pricing.</p></div>
-                <div class="process-step"><div class="step-num">04</div><h4>Staff Deployment</h4><p>Trained and verified staff are deployed as per schedule.</p></div>
-                <div class="process-step"><div class="step-num">05</div><h4>Daily Supervision</h4><p>Our supervisors ensure proper execution and smooth daily operations.</p></div>
-                <div class="process-step"><div class="step-num">06</div><h4>Quality Audits</h4><p>Regular inspections and audits to maintain high service standards.</p></div>
-                <div class="process-step"><div class="step-num">07</div><h4>Client Feedback &amp; Improvement</h4><p>We value feedback and constantly improve to exceed expectations.</p></div>
-            </div>
+      <!-- Rhythm columns -->
+      <div class="rhythm-cols">
+        <article class="rhythm-col">
+          <h3>Daily <span class="ital">operations</span></h3>
+          <span class="freq-tag">07:00 – 19:00 · every day</span>
+          <ul>
+            <li><span class="ix">01</span><span>Sweeping &amp; mopping of lobbies, corridors and staircases</span></li>
+            <li><span class="ix">02</span><span>Washroom hygiene — cleaning, disinfection, consumables</span></li>
+            <li><span class="ix">03</span><span>Lift cabin, door and lobby cleaning</span></li>
+            <li><span class="ix">04</span><span>Door-to-door waste collection &amp; segregation</span></li>
+            <li><span class="ix">05</span><span>Parking floor sweeping &amp; spot cleaning</span></li>
+            <li><span class="ix">06</span><span>Watering plants, maintaining garden &amp; surroundings</span></li>
+            <li><span class="ix">07</span><span>Supervisor checklist &amp; issue reporting</span></li>
+            <li><span class="ix">08</span><span>Safety protocols, PPE compliance, signage</span></li>
+          </ul>
+        </article>
+
+        <article class="rhythm-col">
+          <h3>Fortnightly <span class="ital">work</span></h3>
+          <span class="freq-tag">Every 14 days · logged</span>
+          <ul>
+            <li><span class="ix">01</span><span>Glass and internal window cleaning</span></li>
+            <li><span class="ix">02</span><span>Drain &amp; gully cleaning, silt removal</span></li>
+            <li><span class="ix">03</span><span>Tube light, panel and fixture cleaning</span></li>
+            <li><span class="ix">04</span><span>Fire safety equipment visual inspection</span></li>
+            <li><span class="ix">05</span><span>Plant &amp; pot maintenance, pruning</span></li>
+            <li><span class="ix">06</span><span>High-touch surface deep disinfection</span></li>
+            <li><span class="ix">07</span><span>Furniture, fixture &amp; railing dusting</span></li>
+          </ul>
+        </article>
+
+        <article class="rhythm-col">
+          <h3>Periodic <span class="ital">deep work</span></h3>
+          <span class="freq-tag">Monthly / quarterly · scheduled</span>
+          <ul>
+            <li><span class="ix">01</span><span>Overhead &amp; underground water tank cleaning</span></li>
+            <li><span class="ix">02</span><span>AC filter and duct cleaning</span></li>
+            <li><span class="ix">03</span><span>Ceiling fan, exhaust and vent cleaning</span></li>
+            <li><span class="ix">04</span><span>High-pressure washing — ramps, driveways</span></li>
+            <li><span class="ix">05</span><span>Electrical panel and DB cleaning</span></li>
+            <li><span class="ix">06</span><span>Cobweb removal and high dusting</span></li>
+            <li><span class="ix">07</span><span>Post-event cleanups &amp; festival prep</span></li>
+          </ul>
+        </article>
+      </div>
+    </div>
+  </section>
+
+  <!-- SERVICES -->
+  <section class="s" id="services">
+    <div class="container">
+      <div class="s-head">
+        <div>
+          <div class="s-num">§ 03 — Services</div>
+          <h2 class="display">
+            Six lines of work, <span class="ital">one operating standard.</span>
+          </h2>
         </div>
-    </section>
+        <p class="s-deck">
+          We organise our work around what a property actually needs day-to-day:
+          the people in lobbies, the staff in machine rooms, the equipment in
+          plant rooms, and the discipline that ties it all together.
+        </p>
+      </div>
 
-    <!-- Training & Compliance -->
-    <section id="training" class="section" style="background:#ffffff;">
-        <div class="container">
-            <div class="section-header center">
-                <span class="label">Training &amp; Compliance</span>
-                <h2>Our <span class="highlight">Commitment</span> to Excellence &amp; Integrity</h2>
-            </div>
-            <div class="training-grid">
-                <div class="training-col">
-                    <h3><i class="fas fa-user-check"></i> Employee Verification</h3>
-                    <ul>
-                        <li><i class="fas fa-check"></i> Police Verification</li>
-                        <li><i class="fas fa-check"></i> Address Verification</li>
-                        <li><i class="fas fa-check"></i> Identity Verification</li>
-                    </ul>
-                </div>
-                <div class="training-col">
-                    <h3><i class="fas fa-chalkboard-teacher"></i> Staff Training</h3>
-                    <ul>
-                        <li><i class="fas fa-check"></i> Housekeeping Standards</li>
-                        <li><i class="fas fa-check"></i> Safety Procedures</li>
-                        <li><i class="fas fa-check"></i> Chemical Handling</li>
-                        <li><i class="fas fa-check"></i> Equipment Operations</li>
-                        <li><i class="fas fa-check"></i> Customer Interaction</li>
-                    </ul>
-                </div>
-            </div>
+      <div class="services-list">
+        <article class="svc">
+          <div class="svc-num">01 /</div>
+          <h3 class="svc-name">Housekeeping <span class="ital">&amp; common areas</span></h3>
+          <p class="svc-desc">
+            The visible work — lobbies, staircases, lifts, parking floors, common
+            washrooms and clubhouse interiors — kept consistently clean by a
+            trained, uniformed crew under daily supervision.
+          </p>
+          <ul class="svc-items">
+            <li>Residential society housekeeping</li>
+            <li>Commercial &amp; corporate cleaning</li>
+            <li>Clubhouse &amp; common area cleaning</li>
+            <li>Staircase, lobby &amp; passage upkeep</li>
+            <li>Waste collection &amp; disposal</li>
+          </ul>
+        </article>
+
+        <article class="svc">
+          <div class="svc-num">02 /</div>
+          <h3 class="svc-name">Technical <span class="ital">maintenance</span></h3>
+          <p class="svc-desc">
+            On-site technicians who handle the unglamorous infrastructure most
+            properties struggle with — electrical, plumbing, carpentry, pumps and
+            lifts — preventively, not just reactively.
+          </p>
+          <ul class="svc-items">
+            <li>Electrician services &amp; panel maintenance</li>
+            <li>Plumbing &amp; pump operations</li>
+            <li>Carpentry &amp; civil handyman work</li>
+            <li>Liftman services &amp; coordination</li>
+            <li>Generator &amp; power backup support</li>
+          </ul>
+        </article>
+
+        <article class="svc">
+          <div class="svc-num">03 /</div>
+          <h3 class="svc-name">Facility <span class="ital">support staff</span></h3>
+          <p class="svc-desc">
+            The trained, well-presented staff a working property needs at the
+            front desk, in the back office, and in the pantry — reliable people
+            you don't have to manage personally.
+          </p>
+          <ul class="svc-items">
+            <li>Facility supervisors &amp; site managers</li>
+            <li>Reception &amp; lobby management</li>
+            <li>Office boys &amp; pantry services</li>
+            <li>Computer operators &amp; data entry</li>
+            <li>Society management coordination</li>
+          </ul>
+        </article>
+
+        <article class="svc">
+          <div class="svc-num">04 /</div>
+          <h3 class="svc-name">Clubhouse <span class="ital">&amp; amenities</span></h3>
+          <p class="svc-desc">
+            Specialist operators for the amenities residents actually care about —
+            pool water chemistry, gym equipment upkeep, lobby reception and
+            landscape maintenance — managed safely and to standard.
+          </p>
+          <ul class="svc-items">
+            <li>Swimming pool operations &amp; chemistry</li>
+            <li>Gym equipment cleaning &amp; upkeep</li>
+            <li>Garden &amp; landscape maintenance</li>
+            <li>Lobby &amp; reception services</li>
+            <li>Plantation &amp; pest control</li>
+          </ul>
+        </article>
+
+        <article class="svc">
+          <div class="svc-num">05 /</div>
+          <h3 class="svc-name">Specialised <span class="ital">deep cleaning</span></h3>
+          <p class="svc-desc">
+            Periodic work that protects the asset — water tank sanitisation,
+            glass façades, high-pressure washing, post-construction handovers —
+            executed with branded machinery and proper PPE.
+          </p>
+          <ul class="svc-items">
+            <li>Water tank cleaning &amp; sanitisation</li>
+            <li>Glass façade &amp; high-dusting cleaning</li>
+            <li>Post-construction handover cleaning</li>
+            <li>Terrace, compound &amp; parking deep clean</li>
+            <li>High-pressure washing of driveways</li>
+          </ul>
+        </article>
+
+        <article class="svc">
+          <div class="svc-num">06 /</div>
+          <h3 class="svc-name">Equipment <span class="ital">&amp; machinery</span></h3>
+          <p class="svc-desc">
+            Branded machines, properly serviced — ride-on scrubbers, industrial
+            vacuums, single-disc polishers, steam cleaners, carpet extractors —
+            operated by trained staff, not borrowed from a vendor.
+          </p>
+          <ul class="svc-items">
+            <li>Ride-on &amp; walk-behind floor scrubbers</li>
+            <li>Industrial HEPA vacuum cleaners</li>
+            <li>High-pressure jet cleaners</li>
+            <li>Single-disc floor polishers</li>
+            <li>Steam cleaners &amp; carpet extractors</li>
+          </ul>
+        </article>
+      </div>
+    </div>
+  </section>
+
+  <!-- COMMUNITIES -->
+  <section class="s communities-section" id="communities">
+    <div class="container">
+      <div class="s-head">
+        <div>
+          <div class="s-num">§ 04 — Communities Served</div>
+          <h2 class="display">
+            Thirty-one residential communities <span class="ital">across five Mumbai pockets.</span>
+          </h2>
         </div>
-    </section>
+        <p class="s-deck">
+          Most of our work has come the way good work usually does in Mumbai —
+          one society recommending us to another. The current portfolio,
+          alphabetised by area.
+        </p>
+      </div>
 
-    <!-- Closing Statement -->
-    <section class="closing-section">
-        <div class="container">
-            <h2>At Clean Care, we believe that exceptional facility management is built on <span class="highlight">integrity</span>, <span class="highlight">accountability</span>, and <span class="highlight">consistent service delivery</span>.</h2>
-            <p>Our commitment is not merely to clean and maintain properties, but to create safe, hygienic, and pleasant environments that enhance the quality of life for residents, visitors, and employees.</p>
-            <p style="margin-top:16px;font-weight:600;color:#fff;">We look forward to becoming your trusted facility management partner.</p>
+      <div class="index-meta">
+        <span class="left">Index · current portfolio</span>
+        <span class="right">31 communities · 5 areas · updated 2026</span>
+      </div>
+
+      <div class="area-block">
+        <div>
+          <div class="area-name">Raheja Vihar
+            <small>Powai · 19 societies</small>
+          </div>
         </div>
-    </section>
+        <ul class="area-list">
+          <li><span class="num">01</span><span>Sunrise CHS</span></li>
+          <li><span class="num">02</span><span>Rainbow CHS</span></li>
+          <li><span class="num">03</span><span>Hillside CHS</span></li>
+          <li><span class="num">04</span><span>Lakeside CHS</span></li>
+          <li><span class="num">05</span><span>Sunset I CHS</span></li>
+          <li><span class="num">06</span><span>Golden Rays CHS</span></li>
+          <li><span class="num">07</span><span>Hillcrest 1 CHS</span></li>
+          <li><span class="num">08</span><span>Hillcrest 2 CHS</span></li>
+          <li><span class="num">09</span><span>Paradise CHS</span></li>
+          <li><span class="num">10</span><span>Evening Glory CHS</span></li>
+          <li><span class="num">11</span><span>Sunglory CHS</span></li>
+          <li><span class="num">12</span><span>Sunglow CHS</span></li>
+          <li><span class="num">13</span><span>Twilight CHS</span></li>
+          <li><span class="num">14</span><span>Harmony CHS</span></li>
+          <li><span class="num">15</span><span>Sundew CHS</span></li>
+          <li><span class="num">16</span><span>Silvercrest CHS</span></li>
+          <li><span class="num">17</span><span>Adityavardhan CHS</span></li>
+          <li><span class="num">18</span><span>Maple Leaf CHS</span></li>
+          <li><span class="num">19</span><span>Raheja Asencio CHS</span></li>
+        </ul>
+      </div>
 
-    <!-- Contact -->
-    <section id="contact" class="section" style="background:#ffffff;">
-        <div class="container">
-            <div class="section-header center">
-                <span class="label">Get In Touch</span>
-                <h2>Let's Build a <span class="highlight">Better Future</span> Together</h2>
-            </div>
-            <div class="contact-grid">
-                <div class="contact-info">
-                    <p style="color:#475569;font-size:16px;">Whether you need housekeeping, maintenance, or full facility management — our team is ready to help.</p>
-                    <div class="contact-details">
-                        <div><i class="fas fa-phone"></i> +91 98920 00577</div>
-                        <div><i class="fas fa-envelope"></i> cleancare1067@gmail.com</div>
-                        <div><i class="fas fa-map-marker-alt"></i> Powai, Mumbai</div>
-                    </div>
-                </div>
-                <div class="contact-form">
-                    <h3><i class="fas fa-pen-alt" style="color:#c8102e;margin-right:8px;"></i> Request Proposal</h3>
-                    <!-- ✅ Using your Google Form link -->
-                    <form action="https://docs.google.com/forms/d/e/YOUR_GOOGLE_FORM_ID/formResponse" method="POST" target="_blank">
-                        <div class="form-row">
-                            <input type="text" name="entry.123456789" placeholder="Your Name" required />
-                            <input type="text" name="entry.987654321" placeholder="Society Name" required />
-                        </div>
-                        <div class="form-row">
-                            <input type="text" name="entry.456789123" placeholder="Location (e.g. Powai, Chandivali)" required />
-                            <input type="tel" name="entry.789123456" placeholder="Contact Number" required />
-                        </div>
-                        <select name="entry.321654987" required>
-                            <option value="">Select Services Required</option>
-                            <option value="Housekeeping">Housekeeping</option>
-                            <option value="Facility Management">Facility Management</option>
-                            <option value="Technical Maintenance">Technical Maintenance</option>
-                            <option value="Pool Management">Pool Management</option>
-                            <option value="Gym Management">Gym Management</option>
-                            <option value="Garden Maintenance">Garden Maintenance</option>
-                            <option value="Multiple Services">Multiple Services</option>
-                        </select>
-                        <input type="number" name="entry.654987321" placeholder="Number of Units / Flats" required />
-                        <textarea name="entry.147258369" placeholder="Any additional requirements..."></textarea>
-                        <button type="submit" class="btn-primary full">
-                            <i class="fas fa-paper-plane"></i> Submit Proposal
-                        </button>
-                    </form>
-                </div>
-            </div>
+      <div class="area-block">
+        <div>
+          <div class="area-name">Chandivali / Powai
+            <small>2 societies</small>
+          </div>
         </div>
-    </section>
+        <ul class="area-list">
+          <li><span class="num">20</span><span>Palatial Height CHS<small>Sangarsh Nagar, Chandivali, Powai</small></span></li>
+          <li><span class="num">21</span><span>Regent Hill<small>Hiranandani Gardens, Powai</small></span></li>
+        </ul>
+      </div>
 
-    <!-- Footer -->
-    <footer>
-        <div class="container">
-            <div class="footer-inner">
-                <div class="footer-brand">
-                    <img src="logo-header-transparent.png" alt="Clean Care" style="height:60px;width:auto;display:block;margin-bottom:4px;" />
-                    <p>Facility Management Services</p>
-                </div>
-                <div class="footer-copy">
-                    <p>&copy; 2026 Clean Care. All rights reserved.</p>
-                </div>
-            </div>
+      <div class="area-block">
+        <div>
+          <div class="area-name">Saki Vihar Road
+            <small>3 societies</small>
+          </div>
         </div>
-    </footer>
+        <ul class="area-list">
+          <li><span class="num">22</span><span>Harsh Vardhan CHS</span></li>
+          <li><span class="num">23</span><span>Vasu Kamal CHS</span></li>
+          <li><span class="num">24</span><span>Parijat Tower CHS</span></li>
+        </ul>
+      </div>
 
-    <!-- WhatsApp -->
-    <a href="https://wa.me/919892000577" class="whatsapp-float" target="_blank" rel="noopener noreferrer">
-        <i class="fab fa-whatsapp"></i>
-    </a>
+      <div class="area-block">
+        <div>
+          <div class="area-name">ANSA Complex &amp; Sakinaka
+            <small>2 societies</small>
+          </div>
+        </div>
+        <ul class="area-list">
+          <li><span class="num">25</span><span>ANSA D, E &amp; F</span></li>
+          <li><span class="num">26</span><span>Sagar Heritage CHS<small>Sakinaka</small></span></li>
+        </ul>
+      </div>
 
-    <!-- JavaScript -->
-    <script>
-        // Header scroll
-        const header = document.getElementById('header');
-        window.addEventListener('scroll', function() {
-            if (header) {
-                if (window.scrollY > 40) {
-                    header.classList.add('scrolled');
-                } else {
-                    header.classList.remove('scrolled');
-                }
-            }
-        });
+      <div class="area-block">
+        <div>
+          <div class="area-name">Mulund
+            <small>5 societies</small>
+          </div>
+        </div>
+        <ul class="area-list">
+          <li><span class="num">27</span><span>Happiness CHS</span></li>
+          <li><span class="num">28</span><span>Hurrah CHS</span></li>
+          <li><span class="num">29</span><span>Celebration CHS</span></li>
+          <li><span class="num">30</span><span>Delight CHS</span></li>
+          <li><span class="num">31</span><span>Lok Everest CHS</span></li>
+        </ul>
+      </div>
+    </div>
+  </section>
 
-        // Mobile menu with Accessibility
-        const menuToggle = document.getElementById('menuToggle');
-        const navLinks = document.querySelector('.nav-links');
-        if (menuToggle && navLinks) {
-            menuToggle.addEventListener('click', function() {
-                const isOpen = navLinks.classList.toggle('open');
-                const icon = this.querySelector('i');
-                if (icon) {
-                    icon.className = isOpen ? 'fas fa-times' : 'fas fa-bars';
-                }
-                this.setAttribute('aria-expanded', isOpen);
-                this.setAttribute('aria-label', isOpen ? 'Close Menu' : 'Open Menu');
-            });
+  <!-- PROCESS -->
+  <section class="s" id="process">
+    <div class="container">
+      <div class="s-head">
+        <div>
+          <div class="s-num">§ 05 — Onboarding</div>
+          <h2 class="display">
+            From first site visit <span class="ital">to a property that runs itself.</span>
+          </h2>
+        </div>
+        <p class="s-deck">
+          A short, predictable seven-step onboarding so your committee knows
+          exactly what to expect — and exactly when.
+        </p>
+      </div>
 
-            navLinks.querySelectorAll('a').forEach(link => {
-                link.addEventListener('click', function() {
-                    navLinks.classList.remove('open');
-                    if (menuToggle) {
-                        const icon = menuToggle.querySelector('i');
-                        if (icon) {
-                            icon.className = 'fas fa-bars';
-                        }
-                        menuToggle.setAttribute('aria-expanded', 'false');
-                        menuToggle.setAttribute('aria-label', 'Open Menu');
-                    }
-                });
-            });
+      <div class="process">
+        <div class="step">
+          <span class="step-num">Step 01</span>
+          <h4>Site inspection</h4>
+          <p>We walk your premises with your team to understand the building, the layout and the real day-to-day requirements.</p>
+        </div>
+        <div class="step">
+          <span class="step-num">Step 02</span>
+          <h4>Requirement assessment</h4>
+          <p>We analyse manpower, equipment, frequencies and special needs — and identify the right operating model for the property.</p>
+        </div>
+        <div class="step">
+          <span class="step-num">Step 03</span>
+          <h4>Customised proposal</h4>
+          <p>You receive a written scope, schedule, headcount plan and transparent pricing — built for your property, not a template.</p>
+        </div>
+        <div class="step">
+          <span class="step-num">Step 04</span>
+          <h4>Staff deployment</h4>
+          <p>Trained, verified, uniformed staff are deployed on day one — with the agreed schedule already in place.</p>
+        </div>
+        <div class="step">
+          <span class="step-num">Step 05</span>
+          <h4>Daily supervision</h4>
+          <p>A dedicated supervisor owns your site — checklists every shift, escalations within the hour, monthly reviews on record.</p>
+        </div>
+        <div class="step">
+          <span class="step-num">Step 06</span>
+          <h4>Quality audits</h4>
+          <p>Surprise audits, photo logs and a written quality score — reviewed with your managing committee on a fixed cadence.</p>
+        </div>
+        <div class="step">
+          <span class="step-num">Step 07</span>
+          <h4>Continuous improvement</h4>
+          <p>We act on feedback — from residents, from the committee, from our own audits — and adjust the scope as the property changes.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- PULL QUOTE -->
+  <section class="pull">
+    <div class="container">
+      <div class="pull-eyebrow">— Our standing principle</div>
+      <blockquote>
+        We don't want to be the cheapest facility partner in Mumbai.<br/>
+        We want to be the one your <span class="ital accent">committee never has to chase.</span>
+      </blockquote>
+      <div class="pull-attrib">Clean Care · Operating philosophy · Est. 2012</div>
+    </div>
+  </section>
+
+  <!-- COMPLIANCE -->
+  <section class="s" id="compliance">
+    <div class="container">
+      <div class="s-head">
+        <div>
+          <div class="s-num">§ 06 — Compliance &amp; training</div>
+          <h2 class="display">
+            We are <span class="ital">the people</span> we send into your building.
+          </h2>
+        </div>
+        <p class="s-deck">
+          Every person we deploy is on our books, verified, trained and covered
+          under statutory benefits. No agency layers, no surprises during
+          inspections, no liability gaps for your society.
+        </p>
+      </div>
+
+      <div class="compliance-grid">
+        <article class="comp">
+          <span class="comp-tag">Per employee</span>
+          <h3>Employee <span class="ital">verification</span></h3>
+          <ul>
+            <li>Police verification on record</li>
+            <li>Permanent address verification</li>
+            <li>Identity proof &amp; documentation</li>
+            <li>Reference check from prior employer</li>
+            <li>Photo-uniform identification</li>
+            <li>100% verified workforce</li>
+          </ul>
+        </article>
+
+        <article class="comp">
+          <span class="comp-tag">Ongoing</span>
+          <h3>Staff <span class="ital">training</span></h3>
+          <ul>
+            <li>Housekeeping standards &amp; SOPs</li>
+            <li>Safety procedures &amp; PPE use</li>
+            <li>Chemical handling &amp; dilution</li>
+            <li>Equipment operation training</li>
+            <li>Customer interaction &amp; etiquette</li>
+            <li>Quarterly refresher modules</li>
+          </ul>
+        </article>
+
+        <article class="comp">
+          <span class="comp-tag">Statutory</span>
+          <h3>Compliance <span class="ital">assurance</span></h3>
+          <ul>
+            <li>GST registered &amp; current</li>
+            <li>Provident Fund (PF) compliant</li>
+            <li>ESIC compliant for all staff</li>
+            <li>Minimum Wage Act adherence</li>
+            <li>Labour Law &amp; Contract Act compliant</li>
+            <li>MSME registered</li>
+          </ul>
+        </article>
+      </div>
+    </div>
+  </section>
+
+  <!-- CONTACT -->
+  <section class="s" id="contact">
+    <div class="container">
+      <div class="contact-grid">
+        <div class="contact-left">
+          <div class="s-num">§ 07 — Get in touch</div>
+          <h2 class="ct-name display">
+            Let's walk through <span class="ital">your property.</span>
+          </h2>
+
+          <p style="color: var(--ink-2); font-size: 16.5px; line-height: 1.6; margin-bottom: 40px; max-width: 38ch;">
+            A site visit takes about forty minutes. You'll get a written
+            requirement assessment and a transparent proposal within 48 hours —
+            no obligation, no pressure.
+          </p>
+
+          <div class="contact-block">
+            <div class="k">Call us</div>
+            <div class="v">
+              <a href="tel:+919892000577">+91 98920 00577</a><br/>
+              <a href="tel:+919004991677">+91 90049 91677</a>
+              <small>Monday – Saturday · 9:00am – 8:00pm IST</small>
+            </div>
+          </div>
+          <div class="contact-block">
+            <div class="k">Email</div>
+            <div class="v"><a href="mailto:cleancare1067@gmail.com">cleancare1067@gmail.com</a><small>We reply to RFPs within one working day</small></div>
+          </div>
+          <div class="contact-block">
+            <div class="k">Registered office</div>
+            <div class="v">
+              Hiranandani Gardens, Powai<br/>
+              Mumbai 400076, Maharashtra
+              <small>By appointment for committee site visits</small>
+            </div>
+          </div>
+          <div class="contact-block">
+            <div class="k">GSTIN</div>
+            <div class="v" style="font-family: var(--font-mono); font-size: 14px; letter-spacing: 0.06em;">
+              27CTWPK0096K1ZZ
+              <small style="font-family: var(--font-body); letter-spacing: 0;">Goods and services tax registered · Maharashtra</small>
+            </div>
+          </div>
+        </div>
+
+        <div class="form-card">
+          <div class="form-title">Request a proposal · Form 01</div>
+
+          <div class="field-row">
+            <div class="field">
+              <label for="f-name">Your name</label>
+              <input type="text" id="f-name" placeholder="As it appears on the society register" />
+            </div>
+            <div class="field">
+              <label for="f-role">Your role</label>
+              <select id="f-role">
+                <option>Managing Committee Member</option>
+                <option>Society Chairman / Secretary</option>
+                <option>Property Manager</option>
+                <option>Corporate / Admin</option>
+                <option>Other</option>
+              </select>
+            </div>
+          </div>
+
+          <div class="field-row">
+            <div class="field">
+              <label for="f-society">Society / Property</label>
+              <input type="text" id="f-society" placeholder="Name of the property" />
+            </div>
+            <div class="field">
+              <label for="f-area">Area</label>
+              <select id="f-area">
+                <option>Powai</option>
+                <option>Chandivali</option>
+                <option>Saki Vihar Road</option>
+                <option>Sakinaka</option>
+                <option>Mulund</option>
+                <option>Other Mumbai location</option>
+              </select>
+            </div>
+          </div>
+
+          <div class="field-row">
+            <div class="field">
+              <label for="f-phone">Phone</label>
+              <input type="tel" id="f-phone" placeholder="+91 ··· ····· " />
+            </div>
+            <div class="field">
+              <label for="f-email">Email</label>
+              <input type="email" id="f-email" placeholder="you@society.com" />
+            </div>
+          </div>
+
+          <div class="field">
+            <label for="f-scope">Scope of interest</label>
+            <textarea id="f-scope" placeholder="Briefly describe your property — number of wings, staff needed, services required, current pain points."></textarea>
+          </div>
+
+          <button class="form-submit" type="button" onclick="alert('Thank you. Our team will be in touch within one working day.\n\nFor immediate response, call +91 98920 00577.');">
+            Submit request <span class="arrow">→</span>
+          </button>
+          <div class="form-note">Or call directly · +91 98920 00577</div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- FOOTER -->
+  <footer>
+    <div class="container">
+      <div class="footer-grid">
+        <div class="foot-brand">
+          <div class="brand">
+            <div class="brand-mark">C</div>
+            <div class="brand-text">
+              Clean Care
+              <small>Facility Management · Est. 2012</small>
+            </div>
+          </div>
+          <p>
+            A documented, supervised facility management operation serving
+            Mumbai's residential communities since 2012. Clean spaces, better
+            places, stronger communities.
+          </p>
+        </div>
+
+        <div>
+          <div class="foot-h">Navigate</div>
+          <ul class="foot-list">
+            <li><a href="#about">About</a></li>
+            <li><a href="#rhythm">Operating Rhythm</a></li>
+            <li><a href="#services">Services</a></li>
+            <li><a href="#communities">Communities</a></li>
+            <li><a href="#process">Process</a></li>
+          </ul>
+        </div>
+
+        <div>
+          <div class="foot-h">Reach us</div>
+          <ul class="foot-list">
+            <li><a href="tel:+919892000577">+91 98920 00577</a></li>
+            <li><a href="tel:+919004991677">+91 90049 91677</a></li>
+            <li><a href="mailto:cleancare1067@gmail.com">cleancare1067@gmail.com</a></li>
+            <li><a href="https://wa.me/919892000577" target="_blank" rel="noopener">WhatsApp →</a></li>
+          </ul>
+        </div>
+
+        <div>
+          <div class="foot-h">Office</div>
+          <ul class="foot-list" style="color: rgba(255,255,255,0.7); font-size: 13.5px; line-height: 1.6;">
+            <li>Hiranandani Gardens</li>
+            <li>Powai, Mumbai 400076</li>
+            <li>Maharashtra, India</li>
+            <li style="margin-top: 8px; font-family: var(--font-mono); font-size: 11px; letter-spacing: 0.12em; color: rgba(255,255,255,0.5);">GSTIN · 27CTWPK0096K1ZZ</li>
+          </ul>
+        </div>
+      </div>
+
+      <div class="foot-base">
+        <span>© 2012–2026 Clean Care Facility Management</span>
+        <div class="right">
+          <span>Mumbai</span>
+          <span>India</span>
+          <span>Cleancarefacilities.com</span>
+        </div>
+      </div>
+    </div>
+  </footer>
+
+  <!-- WHATSAPP FAB -->
+  <a class="wa-fab" href="https://wa.me/919892000577" target="_blank" rel="noopener" aria-label="Chat on WhatsApp">
+    <svg viewBox="0 0 24 24" fill="currentColor" aria-hidden="true">
+      <path d="M.057 24l1.687-6.163a11.867 11.867 0 0 1-1.587-5.946C.16 5.335 5.495 0 12.05 0a11.817 11.817 0 0 1 8.413 3.488 11.824 11.824 0 0 1 3.48 8.414c-.003 6.557-5.338 11.892-11.893 11.892a11.9 11.9 0 0 1-5.688-1.448L.057 24zm6.597-3.807c1.676.995 3.276 1.591 5.392 1.592 5.448 0 9.886-4.434 9.889-9.885.002-5.462-4.415-9.89-9.881-9.892-5.452 0-9.887 4.434-9.889 9.884a9.86 9.86 0 0 0 1.51 5.26l-.999 3.648 3.978-1.607zm11.387-5.464c-.074-.124-.272-.198-.57-.347-.297-.149-1.758-.868-2.031-.967-.272-.099-.47-.149-.669.149-.198.297-.768.967-.941 1.165-.173.198-.347.223-.644.074-.297-.149-1.255-.462-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.297-.347.446-.521.151-.172.2-.296.3-.495.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51l-.57-.01c-.198 0-.52.074-.792.372s-1.04 1.016-1.04 2.479 1.065 2.876 1.213 3.074c.149.198 2.095 3.2 5.076 4.486.71.306 1.263.489 1.694.626.712.226 1.36.194 1.872.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413z"/>
+    </svg>
+  </a>
+
+  <script>
+    // Today date
+    const today = new Date();
+    document.getElementById('today').textContent = today.toLocaleDateString('en-IN', { day: 'numeric', month: 'short', year: 'numeric' });
+
+    // Mobile menu
+    const menuToggle = document.getElementById('menuToggle');
+    const nav = document.getElementById('nav');
+    menuToggle.addEventListener('click', () => {
+      const open = nav.classList.toggle('open');
+      menuToggle.setAttribute('aria-expanded', open);
+    });
+    nav.querySelectorAll('a').forEach(a => a.addEventListener('click', () => {
+      nav.classList.remove('open');
+      menuToggle.setAttribute('aria-expanded', false);
+    }));
+
+    // Scroll reveal
+    const io = new IntersectionObserver((entries) => {
+      entries.forEach(e => {
+        if (e.isIntersecting) {
+          e.target.classList.add('in');
+          io.unobserve(e.target);
         }
-
-        // Counter animation
-        const counters = document.querySelectorAll('.counter');
-        const observerOptions = { threshold: 0.5 };
-
-        const counterObserver = new IntersectionObserver((entries) => {
-            entries.forEach(entry => {
-                if (entry.isIntersecting) {
-                    const el = entry.target;
-                    const target = parseInt(el.getAttribute('data-target'));
-                    const duration = 2000;
-                    const start = performance.now();
-
-                    function update(currentTime) {
-                        const elapsed = currentTime - start;
-                        const progress = Math.min(elapsed / duration, 1);
-                        const ease = 1 - Math.pow(1 - progress, 3);
-                        el.textContent = Math.round(ease * target);
-                        if (progress < 1) {
-                            requestAnimationFrame(update);
-                        } else {
-                            el.textContent = target;
-                        }
-                    }
-                    requestAnimationFrame(update);
-                    counterObserver.unobserve(el);
-                }
-            });
-        }, observerOptions);
-
-        counters.forEach(counter => {
-            counterObserver.observe(counter);
-        });
-
-        // Smooth scroll
-        document.querySelectorAll('a[href^="#"]').forEach(anchor => {
-            anchor.addEventListener('click', function(e) {
-                const href = this.getAttribute('href');
-                if (href === '#') return;
-                const target = document.querySelector(href);
-                if (target) {
-                    e.preventDefault();
-                    const offset = 80;
-                    const pos = target.getBoundingClientRect().top + window.pageYOffset - offset;
-                    window.scrollTo({ top: pos, behavior: 'smooth' });
-                }
-            });
-        });
-
-        // ✅ Fixed: Show More / Show Less for Portfolio
-        const showMoreBtn = document.getElementById('showMoreBtn');
-        const portfolioExtra = document.getElementById('portfolioExtra');
-
-        if (showMoreBtn && portfolioExtra) {
-            showMoreBtn.addEventListener('click', function() {
-                const isVisible = portfolioExtra.classList.toggle('visible');
-                this.textContent = isVisible ? 'Show Less Clients' : 'Show More Clients';
-            });
-        }
-    </script>
-
+      });
+    }, { threshold: 0.08, rootMargin: '0px 0px -50px 0px' });
+    document.querySelectorAll('.s-head, .about-grid, .rhythm-cols, .services-list, .area-block, .process, .compliance-grid, .contact-grid, .ops-card').forEach(el => {
+      el.classList.add('reveal');
+      io.observe(el);
+    });
+  </script>
 </body>
 </html>
