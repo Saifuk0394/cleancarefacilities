@@ -168,7 +168,7 @@
             justify-content: space-between;
         }
 
-        /* ----- LOGO OVERRIDE (Using your assets) ----- */
+        /* ----- LOGO (larger) ----- */
         .logo {
             display: flex;
             align-items: center;
@@ -179,7 +179,7 @@
         }
 
         .logo img {
-            height: 45px;
+            height: 65px;  /* was 45px — now larger */
             width: auto;
             object-fit: contain;
         }
@@ -1005,11 +1005,11 @@
             margin-bottom: 12px;
         }
 
-        /* Footer logo using white SVG */
+        /* Footer logo using white SVG — now larger */
         .footer .logo img {
-            height: 40px;
+            height: 50px;  /* was 40px — now larger */
             width: auto;
-            filter: brightness(0) invert(1); /* Ensures SVG is white on dark bg */
+            filter: brightness(0) invert(1);
         }
 
         .footer p {
@@ -1177,6 +1177,7 @@
                 <li><a href="#values">Values</a></li>
                 <li><a href="#process">Process</a></li>
                 <li><a href="#portfolio">Portfolio</a></li>
+                <li><a href="careers.html">Careers</a></li>  <!-- ← NEW: Careers page link -->
                 <li><a href="#contact" class="nav-cta">Get in Touch</a></li>
             </ul>
             <button class="hamburger" id="hamburger" aria-label="Menu">
