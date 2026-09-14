@@ -45,8 +45,6 @@ jobs:
           if 'application/ld+json' not in html:
               html = html.replace('</head>', head_add + '</head>', 1)
 
-          # Add descriptive alt text to existing logo images where missing.
-          html = re.sub(r'<img([^>]*?src=["\'](?:logo|logo-white)\.svg["\'][^>]*?)(?<!alt=["\'][^"\']*)>', lambda m: '<img' + (m.group(1) if 'alt=' in m.group(1).lower() else m.group(1) + ' alt="Clean Care Facilities logo"') + '>', html, flags=re.I)
           p.write_text(html, encoding='utf-8')
 
           pages = {
