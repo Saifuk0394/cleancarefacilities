@@ -1,0 +1,66 @@
+name: Performance and accessibility polish
+
+on:
+  push:
+    branches: [main]
+
+permissions:
+  contents: write
+
+jobs:
+  polish:
+    if: ${{ !contains(github.event.head_commit.message, '[skip ci]') }}
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v4
+
+      - name: Polish homepage loading and accessibility
+        shell: python
+        run: |
+          from pathlib import Path
+          import re
+
+          p = Path('index.html')
+          html = p.read_text(encoding='utf-8')
+
+          # Load Google Fonts without keeping the stylesheet on the critical render path.
+          fonts = re.compile(r'<link rel="stylesheet" href="https://fonts\.googleapis\.com/css2\?[^>]*?>', re.I)
+          m = fonts.search(html)
+          if m:
+              tag = m.group(0)
+              if 'media="print"' not in tag:
+                  async_tag = tag[:-1].replace(' rel="stylesheet"', ' rel="stylesheet" media="print" onload="this.media=\'all\'"') + '>'
+                  noscript = '<noscript>' + tag + '</noscript>'
+                  html = html[:m.start()] + async_tag + noscript + html[m.end():]
+
+          # Give logo images intrinsic dimensions to prevent layout shifts.
+          html = re.sub(r'<img(?=[^>]*src=["\']logo\.svg["\'])\s+([^>]*?)>',
+                        lambda x: '<img ' + (('width="180" height="55" decoding="async" ' + x.group(1).strip())
+                                             if 'width=' not in x.group(1).lower() else x.group(1).strip()) + '>',
+                        html, flags=re.I)
+          html = re.sub(r'<img(?=[^>]*src=["\']logo-white\.svg["\'])\s+([^>]*?)>',
+                        lambda x: '<img ' + (('width="180" height="55" decoding="async" ' + x.group(1).strip())
+                                             if 'width=' not in x.group(1).lower() else x.group(1).strip()) + '>',
+                        html, flags=re.I)
+
+          # Improve semantic heading order for the two reported skips.
+          html = html.replace('<h3>Experience, people and performance — working together.</h3>', '<h2>Experience, people and performance — working together.</h2>')
+          html = html.replace('<h4>Explore</h4>', '<h3>Explore</h3>')
+
+          # Add a small accessibility/performance override block once.
+          marker = '<!-- PERFORMANCE_ACCESSIBILITY_POLISH -->'
+          if marker not in html:
+              css = '''\n<style id="performance-accessibility-polish">\n/* PERFORMANCE_ACCESSIBILITY_POLISH */\n.ccx-kicker{color:#b10f17}\n.ccx-kicker:before{background:#b10f17}\n.ccx-mobilebar a,.wa,.primary{min-height:48px;min-width:48px}\n@media (prefers-reduced-motion: reduce){*,*::before,*::after{animation-duration:.001ms!important;animation-iteration-count:1!important;scroll-behavior:auto!important;transition-duration:.001ms!important}}\n</style>\n'''
+              html = html.replace('</head>', css + '</head>', 1)
+
+          p.write_text(html, encoding='utf-8')
+
+      - name: Commit polish
+        run: |
+          git config user.name "github-actions[bot]"
+          git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
+          git add index.html
+          git diff --cached --quiet && exit 0
+          git commit -m "[skip ci] Polish loading performance and accessibility"
+          git push
