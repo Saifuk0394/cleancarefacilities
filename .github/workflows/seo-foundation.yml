@@ -1,0 +1,80 @@
+name: SEO foundation
+
+on:
+  push:
+    branches: [main]
+
+permissions:
+  contents: write
+
+jobs:
+  seo:
+    if: ${{ !contains(github.event.head_commit.message, '[skip ci]') }}
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v4
+
+      - name: Patch homepage SEO and create service pages
+        shell: python
+        run: |
+          from pathlib import Path
+          import re
+
+          root = Path('.')
+          p = root / 'index.html'
+          html = p.read_text(encoding='utf-8')
+
+          html = re.sub(r'<meta name="description" content="[^"]*">', '<meta name="description" content="Clean Care provides facility management, housekeeping, technical maintenance, clubhouse support and specialized cleaning services for residential communities in Mumbai.">', html, count=1, flags=re.I)
+          html = re.sub(r'<title>.*?</title>', '<title>Clean Care Facilities | Facility Management & Housekeeping Services in Mumbai</title>', html, count=1, flags=re.I|re.S)
+
+          head_add = '''
+          <link rel="canonical" href="https://cleancarefacilities.com/">
+          <meta name="robots" content="index,follow,max-image-preview:large">
+          <meta name="theme-color" content="#071b31">
+          <meta property="og:type" content="website">
+          <meta property="og:title" content="Clean Care Facilities | Facility Management & Housekeeping Services in Mumbai">
+          <meta property="og:description" content="Facility management, housekeeping, technical maintenance, clubhouse support and specialized cleaning for residential communities in Mumbai.">
+          <meta property="og:url" content="https://cleancarefacilities.com/">
+          <meta property="og:site_name" content="Clean Care">
+          <meta name="twitter:card" content="summary">
+          <script type="application/ld+json">
+          {"@context":"https://schema.org","@type":"LocalBusiness","name":"Clean Care","url":"https://cleancarefacilities.com/","logo":"https://cleancarefacilities.com/logo.svg","telephone":["+91 90049 91677","+91 98920 00577"],"email":"cleancare1067@gmail.com","address":{"@type":"PostalAddress","streetAddress":"Hirandani Gardens, Powai","addressLocality":"Mumbai","postalCode":"400076","addressCountry":"IN"},"areaServed":{"@type":"City","name":"Mumbai"},"description":"Facility management, housekeeping, technical maintenance, clubhouse and amenities support, and specialized cleaning services.","sameAs":["https://cleancarefacilities.com/"]}
+          </script>
+          '''
+          if 'application/ld+json' not in html:
+              html = html.replace('</head>', head_add + '</head>', 1)
+
+          # Add descriptive alt text to existing logo images where missing.
+          html = re.sub(r'<img([^>]*?src=["\'](?:logo|logo-white)\.svg["\'][^>]*?)(?<!alt=["\'][^"\']*)>', lambda m: '<img' + (m.group(1) if 'alt=' in m.group(1).lower() else m.group(1) + ' alt="Clean Care Facilities logo"') + '>', html, flags=re.I)
+          p.write_text(html, encoding='utf-8')
+
+          pages = {
+            'facility-management.html': ('Facility Management Services in Mumbai | Clean Care', 'Integrated facility management for residential communities, with housekeeping, supervision, maintenance and operational controls.', 'Facility Management Services', ['Site inspection and requirement assessment','Customized operating proposal','Staff deployment and daily supervision','Quality audits and feedback','Preventive and periodic operations']),
+            'housekeeping-services.html': ('Housekeeping Services for Residential Societies in Mumbai | Clean Care', 'Professional housekeeping services for residential communities, common areas, amenities and daily property operations.', 'Housekeeping Services', ['Daily housekeeping operations','Common-area cleaning','Staff deployment and supervision','Quality checks and reporting','Cleaning equipment and consumables']),
+            'technical-maintenance.html': ('Technical Maintenance Services in Mumbai | Clean Care', 'Technical maintenance support for residential communities and property operations from Clean Care.', 'Technical Maintenance', ['Routine technical support','Preventive maintenance coordination','Common-area operational support','Site supervision','Service quality controls']),
+            'specialized-cleaning.html': ('Specialized Cleaning Services in Mumbai | Clean Care', 'Specialized cleaning using modern equipment for demanding surfaces, soft furnishings and periodic cleaning requirements.', 'Specialized Cleaning Services', ['Floor scrubbing and polishing','Carpet and sofa extraction','Wet and dry vacuum cleaning','High-pressure jet cleaning','Steam cleaning']),
+            'clubhouse-amenities.html': ('Clubhouse & Amenities Management in Mumbai | Clean Care', 'Clubhouse and amenities support for residential communities, combining housekeeping, upkeep and operational supervision.', 'Clubhouse & Amenities', ['Clubhouse housekeeping','Amenities upkeep','Daily supervision','Periodic cleaning','Operational support'])
+          }
+          nav = '<p class="seo-nav"><a href="index.html">Home</a> · <a href="facility-management.html">Facility Management</a> · <a href="housekeeping-services.html">Housekeeping</a> · <a href="technical-maintenance.html">Technical Maintenance</a> · <a href="specialized-cleaning.html">Specialized Cleaning</a> · <a href="clubhouse-amenities.html">Clubhouse & Amenities</a> · <a href="quote.html">Request a Quote</a></p>'
+          for filename,(title,desc,h1,items) in pages.items():
+              lis=''.join(f'<li>{x}</li>' for x in items)
+              schema='''<script type="application/ld+json">{"@context":"https://schema.org","@type":"Service","name":"%s","provider":{"@type":"LocalBusiness","name":"Clean Care","url":"https://cleancarefacilities.com/"},"areaServed":{"@type":"City","name":"Mumbai"},"url":"https://cleancarefacilities.com/%s"}</script>''' % (h1,filename)
+              body=f'''<!doctype html><html lang="en"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1"><title>{title}</title><meta name="description" content="{desc}"><link rel="canonical" href="https://cleancarefacilities.com/{filename}"><meta name="robots" content="index,follow"><link rel="icon" href="favicon.ico"><link rel="stylesheet" href="seo-pages.css">{schema}</head><body><header><a href="index.html"><img src="logo.svg" alt="Clean Care Facilities logo"></a><a href="quote.html">Request a Quote</a></header><main><p class="eyebrow">Clean Care · Mumbai</p><h1>{h1}</h1><p class="lead">{desc}</p><section><h2>What we provide</h2><ul>{lis}</ul></section><section><h2>A structured operating approach</h2><p>Clean Care’s company profile describes a process built around site inspection, requirement assessment, customized proposal, staff deployment, daily supervision, quality audits, feedback and continuous improvement.</p></section><a class="cta" href="quote.html">Request a Site Inspection →</a></main><footer>{nav}<p>© Clean Care · Hirandani Gardens, Powai, Mumbai - 400076 · +91 90049 91677 · +91 98920 00577</p></footer></body></html>'''
+              (root/filename).write_text(body,encoding='utf-8')
+
+      - name: Add shared SEO page styles
+        run: |
+          cat > seo-pages.css <<'EOF'
+          :root{--navy:#071b31;--red:#ed1b24;--gold:#dda92d;--mist:#f4f7fa;--text:#14263a;--muted:#667a8e;--line:#dbe4ec}*{box-sizing:border-box}body{margin:0;font-family:Arial,sans-serif;color:var(--text);background:linear-gradient(135deg,#fff,#f4f7fa);line-height:1.7}header{height:78px;padding:0 5%;display:flex;align-items:center;justify-content:space-between;background:#fff;border-bottom:1px solid var(--line);position:sticky;top:0;z-index:2}header img{height:50px}header a:last-child,.cta{background:var(--red);color:#fff;padding:11px 17px;border-radius:8px;text-decoration:none;font-weight:700}main{width:min(900px,90%);margin:80px auto}h1{font-size:clamp(2.4rem,6vw,4.5rem);line-height:1.05;letter-spacing:-.05em;color:var(--navy)}h2{font-size:1.7rem;color:var(--navy)}.eyebrow{color:var(--red);font-weight:800;text-transform:uppercase;letter-spacing:.12em;font-size:.75rem}.lead{font-size:1.15rem;color:var(--muted);max-width:720px}section{background:#fff;border:1px solid var(--line);border-radius:18px;padding:28px;margin:22px 0}li{margin:9px 0}footer{background:var(--navy);color:#b7c8d6;padding:35px 5%;text-align:center;font-size:.8rem}.seo-nav{line-height:2}.seo-nav a{color:#fff;text-decoration:none;margin:0 4px}
+          @media(max-width:600px){header{height:68px}header img{height:43px}header a:last-child{font-size:.72rem;padding:9px 11px}main{margin:55px auto}}
+          EOF
+
+      - name: Commit SEO changes
+        run: |
+          git config user.name "github-actions[bot]"
+          git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
+          git add index.html robots.txt sitemap.xml seo-pages.css facility-management.html housekeeping-services.html technical-maintenance.html specialized-cleaning.html clubhouse-amenities.html
+          git diff --cached --quiet && exit 0
+          git commit -m "[skip ci] Add local SEO metadata and service pages"
+          git push
