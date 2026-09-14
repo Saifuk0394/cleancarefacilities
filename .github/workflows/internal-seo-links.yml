@@ -1,0 +1,73 @@
+name: Internal SEO links
+
+on:
+  push:
+    branches: [main]
+
+permissions:
+  contents: write
+
+jobs:
+  links:
+    if: ${{ !contains(github.event.head_commit.message, '[skip ci]') }}
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v4
+
+      - name: Add service hub to homepage
+        shell: python
+        run: |
+          from pathlib import Path
+          p = Path('index.html')
+          html = p.read_text(encoding='utf-8')
+          marker = '<!-- INTERNAL_SEO_SERVICE_HUB -->'
+          if marker not in html:
+              hub = '''\n<section class="section mist internal-seo-hub" id="service-pages">\n  <div class="container">\n    <div class="head">\n      <div><span class="eyebrow">Explore our services</span><h2>Specialist support for cleaner, better-managed properties.</h2></div>\n      <p>Explore dedicated pages for Clean Care’s core facility management, housekeeping, maintenance, specialized cleaning, and clubhouse support services across Mumbai.</p>\n    </div>\n    <div class="cards">\n      <a class="card" href="facility-management.html"><div class="icon">↗</div><h3>Facility Management Services</h3><p>Integrated support for residential communities, supervision, operations and quality controls.</p></a>\n      <a class="card" href="housekeeping-services.html"><div class="icon">↗</div><h3>Housekeeping Services</h3><p>Professional daily housekeeping and common-area cleaning for managed properties.</p></a>\n      <a class="card" href="technical-maintenance.html"><div class="icon">↗</div><h3>Technical Maintenance</h3><p>Routine technical support and preventive maintenance coordination for properties.</p></a>\n      <a class="card" href="specialized-cleaning.html"><div class="icon">↗</div><h3>Specialized Cleaning</h3><p>Floor care, extraction, vacuuming, jet cleaning and steam cleaning solutions.</p></a>\n      <a class="card" href="clubhouse-amenities.html"><div class="icon">↗</div><h3>Clubhouse & Amenities</h3><p>Housekeeping and upkeep support for clubhouses and shared amenities.</p></a>\n      <a class="card" href="quote.html"><div class="icon">→</div><h3>Request a Quote</h3><p>Tell us about your property and requirements to start a site discussion.</p></a>\n    </div>\n  </div>\n</section>\n<!-- INTERNAL_SEO_SERVICE_HUB -->\n'''
+              idx = html.rfind('</main>')
+              if idx == -1:
+                  raise SystemExit('No closing </main> found')
+              html = html[:idx] + hub + html[idx:]
+              p.write_text(html, encoding='utf-8')
+
+      - name: Ensure service pages link back to homepage and each other
+        shell: python
+        run: |
+          from pathlib import Path
+          pages = [
+            'facility-management.html',
+            'housekeeping-services.html',
+            'technical-maintenance.html',
+            'specialized-cleaning.html',
+            'clubhouse-amenities.html',
+          ]
+          nav = '<nav class="seo-crosslinks"><a href="index.html">Home</a><a href="facility-management.html">Facility Management</a><a href="housekeeping-services.html">Housekeeping</a><a href="technical-maintenance.html">Technical Maintenance</a><a href="specialized-cleaning.html">Specialized Cleaning</a><a href="clubhouse-amenities.html">Clubhouse & Amenities</a><a href="quote.html">Request a Quote</a></nav>'
+          for filename in pages:
+              p = Path(filename)
+              if not p.exists():
+                  continue
+              html = p.read_text(encoding='utf-8')
+              if 'class="seo-crosslinks"' not in html:
+                  html = html.replace('<footer>', nav + '<footer>', 1)
+                  p.write_text(html, encoding='utf-8')
+
+      - name: Add crosslink styles
+        shell: bash
+        run: |
+          python - <<'PY'
+          from pathlib import Path
+          p=Path('seo-pages.css')
+          css=p.read_text(encoding='utf-8') if p.exists() else ''
+          add='''\n.seo-crosslinks{display:flex;flex-wrap:wrap;gap:8px;justify-content:center;padding:16px 5%;background:#0b2948;border-top:1px solid rgba(255,255,255,.08)}.seo-crosslinks a{color:#dce8f0;text-decoration:none;font-size:.76rem;padding:7px 10px;border:1px solid rgba(255,255,255,.13);border-radius:8px}.seo-crosslinks a:hover{color:#fff;border-color:rgba(221,169,45,.55)}.internal-seo-hub .card{text-decoration:none;color:inherit}.internal-seo-hub .card h3{margin-bottom:8px}.internal-seo-hub .card p{margin:0}\n'''
+          if '.seo-crosslinks' not in css:
+              p.write_text(css+add,encoding='utf-8')
+          PY
+
+      - name: Commit internal SEO links
+        run: |
+          git config user.name "github-actions[bot]"
+          git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
+          git add index.html seo-pages.css facility-management.html housekeeping-services.html technical-maintenance.html specialized-cleaning.html clubhouse-amenities.html
+          git diff --cached --quiet && exit 0
+          git commit -m "[skip ci] Add internal service links"
+          git push
