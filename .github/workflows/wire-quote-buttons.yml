@@ -1,0 +1,55 @@
+name: Wire quote CTAs
+
+on:
+  push:
+    branches: [main]
+
+permissions:
+  contents: write
+
+jobs:
+  wire:
+    if: ${{ !contains(github.event.head_commit.message, '[skip ci]') }}
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v4
+
+      - name: Update quote links
+        shell: python
+        run: |
+          from pathlib import Path
+          import re
+
+          path = Path('index.html')
+          html = path.read_text(encoding='utf-8')
+          changed = 0
+
+          def patch_anchor(match):
+              global changed
+              tag, body = match.group(1), match.group(2)
+              text = re.sub(r'<[^>]*>', ' ', body)
+              text = re.sub(r'\s+', ' ', text).strip().lower()
+              if 'get a quote' not in text and 'request a site inspection' not in text:
+                  return match.group(0)
+              new_tag = re.sub(r'href\s*=\s*(["\']).*?\1', 'href="quote.html"', tag, count=1, flags=re.I|re.S)
+              if new_tag == tag and not re.search(r'href\s*=', tag, flags=re.I):
+                  new_tag = tag + ' href="quote.html"'
+              changed += 1
+              return '<a' + new_tag + '>' + body + '</a>'
+
+          patched = re.sub(r'<a\b([^>]*)>(.*?)</a>', patch_anchor, html, flags=re.I|re.S)
+          path.write_text(patched, encoding='utf-8')
+          print(f'quote CTA links updated: {changed}')
+
+      - name: Commit changes
+        run: |
+          if git diff --quiet -- index.html; then
+            echo "No CTA changes required"
+            exit 0
+          fi
+          git config user.name "github-actions[bot]"
+          git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
+          git add index.html
+          git commit -m "[skip ci] Wire quote CTAs to enquiry page"
+          git push
