@@ -1,0 +1,130 @@
+name: Enhance homepage
+
+on:
+  push:
+    branches: [main]
+
+permissions:
+  contents: write
+
+jobs:
+  enhance:
+    if: ${{ !contains(github.event.head_commit.message, '[skip ci]') }}
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v4
+
+      - name: Add premium showcase sections
+        shell: python
+        run: |
+          from pathlib import Path
+          import re
+
+          p = Path('index.html')
+          html = p.read_text(encoding='utf-8')
+          marker = '<!-- CLEANCARE PREMIUM SHOWCASE -->'
+          if marker in html:
+              print('Premium showcase already present')
+              raise SystemExit(0)
+
+          css = r'''
+          .ccx-wrap{padding:105px 0;background:#fff}.ccx-kicker{display:inline-flex;align-items:center;gap:9px;color:#ed1b24;font-size:.71rem;font-weight:800;letter-spacing:.16em;text-transform:uppercase}.ccx-kicker:before{content:"";width:28px;height:2px;background:#ed1b24}.ccx-heading{font:800 clamp(2.25rem,4.5vw,3.6rem)/1.03 Manrope;letter-spacing:-.055em;margin:10px 0 0;max-width:760px}.ccx-sub{color:#667a8e;max-width:620px;margin:14px 0 36px;line-height:1.7}.ccx-why{display:grid;grid-template-columns:1.05fr .95fr;gap:18px}.ccx-why-main{border-radius:22px;padding:31px;background:linear-gradient(145deg,#0c2948,#071b31);color:#fff;position:relative;overflow:hidden}.ccx-why-main:after{content:"";position:absolute;width:360px;height:360px;border:1px solid rgba(221,169,45,.3);border-radius:50%;right:-180px;bottom:-190px}.ccx-why-main h3{font:800 2rem/1.1 Manrope;max-width:520px}.ccx-why-main p{color:#b7c8d6;max-width:560px;margin:12px 0 24px}.ccx-checks{display:grid;grid-template-columns:1fr 1fr;gap:10px}.ccx-check{padding:13px 14px;border:1px solid rgba(255,255,255,.12);border-radius:11px;background:rgba(255,255,255,.035);font-size:.76rem}.ccx-check b{display:block;font:800 .9rem Manrope;margin-bottom:4px}.ccx-check span{color:#afc1cf}.ccx-why-side{display:grid;grid-template-columns:1fr 1fr;gap:12px}.ccx-mini-card{border:1px solid #dbe4ec;border-radius:17px;padding:22px;background:#fff;transition:.3s}.ccx-mini-card:hover{transform:translateY(-6px);box-shadow:0 18px 42px rgba(7,27,49,.09)}.ccx-mini-card strong{display:block;font:800 1.55rem Manrope;color:#ed1b24}.ccx-mini-card h4{font:800 .96rem Manrope;margin:8px 0 5px}.ccx-mini-card p{font-size:.74rem;color:#667a8e}.ccx-band{margin-top:70px}.ccx-band h3{font:800 1.8rem Manrope;letter-spacing:-.035em}.ccx-tools{display:grid;grid-template-columns:repeat(4,1fr);gap:12px;margin-top:20px}.ccx-tool{background:#f7fafc;border:1px solid #dbe4ec;border-radius:14px;padding:18px;min-height:125px;position:relative;overflow:hidden;transition:.3s}.ccx-tool:before{content:"";position:absolute;left:0;top:0;bottom:0;width:3px;background:linear-gradient(#ed1b24,#dda92d)}.ccx-tool:hover{transform:translateY(-5px);background:#fff;box-shadow:0 16px 35px rgba(7,27,49,.08)}.ccx-tool b{font:800 .9rem Manrope;display:block}.ccx-tool span{display:block;color:#667a8e;font-size:.71rem;margin-top:7px;line-height:1.45}.ccx-clients{background:#f4f7fa;padding:105px 0}.ccx-client-grid{display:grid;grid-template-columns:1.15fr .85fr;gap:17px}.ccx-client-wall{display:flex;flex-wrap:wrap;gap:8px;align-content:flex-start}.ccx-client{padding:11px 13px;border:1px solid #dbe4ec;background:#fff;border-radius:10px;font-size:.72rem;font-weight:700;transition:.25s}.ccx-client:hover{border-color:#ed1b24;transform:translateY(-3px)}.ccx-client-story{background:#071b31;color:#fff;border-radius:20px;padding:29px;position:relative;overflow:hidden}.ccx-client-story:after{content:"31+";position:absolute;right:15px;bottom:-23px;font:800 8rem Manrope;color:rgba(255,255,255,.045)}.ccx-client-story h3{font:800 2rem/1.05 Manrope}.ccx-client-story p{color:#b7c8d6;line-height:1.65;margin:12px 0 22px}.ccx-client-story .tag{display:inline-block;border:1px solid rgba(221,169,45,.45);color:#f1cc61;border-radius:8px;padding:7px 9px;font-size:.67rem;font-weight:800}.ccx-compliance{background:#fff}.ccx-compliance-grid{display:grid;grid-template-columns:.9fr 1.1fr;gap:18px}.ccx-compliance-main{background:#f4f7fa;border:1px solid #dbe4ec;border-radius:20px;padding:28px}.ccx-compliance-main h3{font:800 2rem/1.08 Manrope}.ccx-compliance-main p{color:#667a8e;line-height:1.65;margin:10px 0 18px}.ccx-badges{display:flex;flex-wrap:wrap;gap:8px}.ccx-badge{padding:9px 10px;border-radius:9px;background:#fff;border:1px solid #dbe4ec;font-size:.7rem;font-weight:800}.ccx-compliance-side{display:grid;grid-template-columns:1fr 1fr;gap:12px}.ccx-compliance-card{border:1px solid #dbe4ec;border-radius:15px;padding:19px;background:#fff}.ccx-compliance-card b{font:800 1rem Manrope}.ccx-compliance-card p{font-size:.73rem;color:#667a8e;line-height:1.5;margin-top:7px}.ccx-faq{background:#f4f7fa}.ccx-faq-grid{display:grid;grid-template-columns:.78fr 1.22fr;gap:34px}.ccx-faq-list{display:grid;gap:9px}.ccx-faq details{background:#fff;border:1px solid #dbe4ec;border-radius:13px;padding:16px 18px}.ccx-faq summary{cursor:pointer;font-weight:800;font-size:.86rem;list-style:none}.ccx-faq summary::-webkit-details-marker{display:none}.ccx-faq summary:after{content:"+";float:right;color:#ed1b24;font-size:1.05rem}.ccx-faq details[open] summary:after{content:"−"}.ccx-faq details p{color:#667a8e;font-size:.77rem;line-height:1.6;margin:10px 0 0}.ccx-mobilebar{display:none}
+          @media(max-width:900px){.ccx-why,.ccx-client-grid,.ccx-compliance-grid,.ccx-faq-grid{grid-template-columns:1fr}.ccx-tools{grid-template-columns:repeat(2,1fr)}.ccx-mobilebar{display:flex;position:fixed;left:12px;right:12px;bottom:12px;z-index:80;gap:7px;background:rgba(7,27,49,.96);padding:8px;border-radius:14px;box-shadow:0 15px 40px rgba(0,0,0,.25);backdrop-filter:blur(15px)}.ccx-mobilebar a{flex:1;text-align:center;color:#fff;padding:11px 7px;border-radius:9px;font-size:.7rem;font-weight:800}.ccx-mobilebar a.primary{background:#ed1b24}.ccx-mobilebar a.wa{background:#25d366}.ccx-why-side{grid-template-columns:1fr 1fr}}
+          @media(max-width:560px){.ccx-wrap,.ccx-clients{padding:76px 0}.ccx-tools,.ccx-compliance-side,.ccx-checks{grid-template-columns:1fr}.ccx-why-main{padding:23px}.ccx-mini-card{padding:18px}.ccx-mobilebar{display:flex}}
+          '''
+
+          html_block = f'''{marker}
+          <style>{css}</style>
+          <section class="ccx-wrap" id="why-clean-care">
+            <div class="container">
+              <div class="ccx-kicker">Why Clean Care</div>
+              <h2 class="ccx-heading">Operational discipline you can see. Quality you can rely on.</h2>
+              <p class="ccx-sub">Clean Care combines trained people, structured supervision, modern equipment and compliance-led operations to keep communities running smoothly.</p>
+              <div class="ccx-why">
+                <div class="ccx-why-main">
+                  <h3>Built around people, process and accountability.</h3>
+                  <p>Our operating model is designed around verification, training, deployment, daily supervision and continuous quality improvement.</p>
+                  <div class="ccx-checks">
+                    <div class="ccx-check"><b>Verified manpower</b><span>Identity, address, police and reference checks.</span></div>
+                    <div class="ccx-check"><b>Daily supervision</b><span>Structured oversight and operational controls.</span></div>
+                    <div class="ccx-check"><b>Quality audits</b><span>Inspection-led service review and feedback.</span></div>
+                    <div class="ccx-check"><b>Compliance focus</b><span>PF, ESIC, GST and applicable labour compliance.</span></div>
+                  </div>
+                </div>
+                <div class="ccx-why-side">
+                  <div class="ccx-mini-card"><strong>14+</strong><h4>Years</h4><p>Facility-management experience.</p></div>
+                  <div class="ccx-mini-card"><strong>31+</strong><h4>Communities</h4><p>Residential communities under care.</p></div>
+                  <div class="ccx-mini-card"><strong>100+</strong><h4>Professionals</h4><p>Trained and deployed personnel.</p></div>
+                  <div class="ccx-mini-card"><strong>6</strong><h4>Core services</h4><p>Housekeeping through specialized cleaning.</p></div>
+                </div>
+              </div>
+              <div class="ccx-band">
+                <h3>Modern machinery & equipment</h3>
+                <div class="ccx-tools">
+                  <div class="ccx-tool"><b>Ride-on floor scrubber</b><span>High-productivity floor cleaning for larger common areas.</span></div>
+                  <div class="ccx-tool"><b>Walk-behind scrubber</b><span>Controlled cleaning for corridors and compact spaces.</span></div>
+                  <div class="ccx-tool"><b>Floor sweeping machine</b><span>Efficient debris collection and routine upkeep.</span></div>
+                  <div class="ccx-tool"><b>Single-disc polisher</b><span>Floor polishing and periodic surface care.</span></div>
+                  <div class="ccx-tool"><b>Carpet & sofa extractor</b><span>Deep extraction for soft furnishings.</span></div>
+                  <div class="ccx-tool"><b>Wet & dry vacuum</b><span>Versatile wet and dry cleaning operations.</span></div>
+                  <div class="ccx-tool"><b>High-pressure jet cleaner</b><span>Power cleaning for demanding surfaces.</span></div>
+                  <div class="ccx-tool"><b>Steam cleaner</b><span>Steam-based cleaning for suitable applications.</span></div>
+                </div>
+              </div>
+            </div>
+          </section>
+
+          <section class="ccx-clients" id="client-showcase">
+            <div class="container">
+              <div class="ccx-kicker">Client showcase</div>
+              <h2 class="ccx-heading">Trusted across residential communities.</h2>
+              <p class="ccx-sub">A portfolio built around recurring housekeeping, facility management, maintenance and community support requirements.</p>
+              <div class="ccx-client-grid">
+                <div class="ccx-client-wall">
+                  {''.join(f'<span class="ccx-client">{x}</span>' for x in ['Sunrise CHS','Rainbow CHS','Hillside CHS','Lakeside CHS','Sunset I CHS','Golden Rays CHS','Hillcrest 1','Hillcrest 2','Paradise CHS','Evening Glory CHS','Sunglory CHS','Sunglow CHS','Twilight CHS','Harmony CHS','Sundew CHS','Silvercrest CHS','Adityavardhan CHS','Maple Leaf CHS','Raheja Asencio CHS','Palatial Height CHS','Regent Hill Gardens','Harsh Vardhan CHS','Vasu Kamal CHS','Parijat Tower CHS','ANSA D/E/F','Sagar Heritage CHS','Happiness CHS','Hurrah CHS','Celebration CHS','Delight CHS','Lok Everest CHS'])}
+                </div>
+                <div class="ccx-client-story"><span class="tag">RESIDENTIAL COMMUNITY OPERATIONS</span><h3>Consistent service across people, property and common areas.</h3><p>Clean Care’s service model brings together trained personnel, systematic processes, equipment and daily oversight for residential communities.</p></div>
+              </div>
+            </div>
+          </section>
+
+          <section class="ccx-wrap ccx-compliance" id="compliance">
+            <div class="container">
+              <div class="ccx-compliance-grid">
+                <div class="ccx-compliance-main"><div class="ccx-kicker">Compliance & verification</div><h3>People you can trust inside the property.</h3><p>Clean Care’s profile emphasizes employee verification, training and statutory compliance as part of controlled facility operations.</p><div class="ccx-badges"><span class="ccx-badge">Police verification</span><span class="ccx-badge">Address verification</span><span class="ccx-badge">Identity verification</span><span class="ccx-badge">Reference checks</span><span class="ccx-badge">PF / ESIC</span><span class="ccx-badge">GST</span><span class="ccx-badge">Labour law compliance</span></div></div>
+                <div class="ccx-compliance-side"><div class="ccx-compliance-card"><b>Employee verification</b><p>Structured verification before deployment helps strengthen property access controls.</p></div><div class="ccx-compliance-card"><b>Staff training</b><p>Training supports service consistency, site discipline and operational readiness.</p></div><div class="ccx-compliance-card"><b>Operational controls</b><p>Supervision and quality audits provide an ongoing feedback loop.</p></div><div class="ccx-compliance-card"><b>Statutory focus</b><p>Compliance processes cover applicable statutory and employment requirements.</p></div></div>
+              </div>
+            </div>
+          </section>
+
+          <section class="ccx-faq" id="faq"><div class="container"><div class="ccx-faq-grid"><div><div class="ccx-kicker">Frequently asked</div><h2 class="ccx-heading">Questions clients usually have before they start.</h2><p class="ccx-sub">Quick answers about services, manpower, equipment and the first step.</p><a class="btn red" href="quote.html">Request a site inspection →</a></div><div class="ccx-faq-list">
+            <details><summary>What services does Clean Care provide?</summary><p>Housekeeping, facility management, technical maintenance, clubhouse and amenities support, specialized cleaning, and daily or periodic operations.</p></details>
+            <details><summary>How does the engagement begin?</summary><p>The operating process starts with site inspection and requirement assessment, followed by a customized proposal and deployment.</p></details>
+            <details><summary>How is manpower verification handled?</summary><p>The company profile highlights police, address, identity and reference verification before deployment.</p></details>
+            <details><summary>What cleaning equipment is available?</summary><p>The profile lists scrubbers, sweepers, polishers, extractors, wet/dry vacuums, jet cleaners, steam cleaners and supporting tools.</p></details>
+            <details><summary>Can Clean Care support residential communities?</summary><p>Yes. The profile lists 31+ residential communities under care and a portfolio of residential community clients.</p></details>
+          </div></div></div></section>
+          <div class="ccx-mobilebar"><a href="tel:+919004991677">Call</a><a class="wa" href="https://wa.me/919004991677" target="_blank" rel="noopener">WhatsApp</a><a class="primary" href="quote.html">Get a Quote</a></div>
+          <!-- END CLEANCARE PREMIUM SHOWCASE -->'''
+
+          pattern = re.compile(r'(?=<section[^>]+class=["\'][^"\']*final[^"\']*["\'])', re.I)
+          if pattern.search(html):
+              html = pattern.sub(html_block + '\n', html, count=1)
+          else:
+              main_close = html.lower().rfind('</main>')
+              html = html[:main_close] + html_block + '\n' + html[main_close:] if main_close >= 0 else html + html_block
+          p.write_text(html, encoding='utf-8')
+          print('Premium showcase inserted')
+
+      - name: Commit changes
+        run: |
+          if git diff --quiet -- index.html; then
+            echo "No changes required"
+            exit 0
+          fi
+          git config user.name "github-actions[bot]"
+          git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
+          git add index.html
+          git commit -m "[skip ci] Add premium homepage showcase"
+          git push
