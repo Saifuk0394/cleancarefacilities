@@ -1,0 +1,85 @@
+name: Replace client showcase with operating areas
+
+on:
+  push:
+    branches: [main]
+
+permissions:
+  contents: write
+
+jobs:
+  replace-client-showcase:
+    if: ${{ !contains(github.event.head_commit.message, '[skip ci]') }}
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+
+      - name: Replace client names with operating areas
+        shell: python
+        run: |
+          from pathlib import Path
+          import re
+
+          p = Path('index.html')
+          html = p.read_text(encoding='utf-8')
+
+          # Replace only the homepage portfolio/client showcase. This keeps the design,
+          # layout and client-count metric while removing identifiable client names.
+          pattern = re.compile(r'<section(?=[^>]*class=["\'][^"\']*section[^"\']*["\'])[^>]*>.*?<div[^>]*class=["\'][^"\']*portfolio-top[^"\']*["\'][^>]*>.*?</section>', re.I | re.S)
+          replacement = '''<section class="section mist" id="areas-operated">
+    <div class="container">
+      <div class="portfolio-top reveal">
+        <div>
+          <span class="eyebrow">Areas operated</span>
+          <h2>Supporting residential communities across Mumbai.</h2>
+        </div>
+        <p>Clean Care deploys trained teams and operational resources according to each property's requirements, scope and service standards.</p>
+      </div>
+      <div class="portfolio" style="margin-top:31px">
+        <div class="portfolio-block reveal">
+          <h3>Operating footprint</h3>
+          <div class="chips">
+            <span class="chip">Mumbai</span>
+            <span class="chip">Residential Communities</span>
+            <span class="chip">Housing Societies</span>
+            <span class="chip">Clubhouses &amp; Amenities</span>
+          </div>
+        </div>
+        <div class="portfolio-block reveal delay1">
+          <h3>Typical operating environments</h3>
+          <div class="loc"><b>Residential Communities</b><span>Housekeeping, facility operations and technical support</span></div>
+          <div class="loc"><b>Common Areas</b><span>Daily upkeep, periodic cleaning and quality supervision</span></div>
+          <div class="loc"><b>Amenities &amp; Clubhouses</b><span>Cleaning and operational support for shared facilities</span></div>
+        </div>
+      </div>
+    </div>
+  </section>'''
+
+          matches = list(pattern.finditer(html))
+          target = next((m for m in matches if 'portfolio-top' in m.group(0)), None)
+          if target:
+              html = html[:target.start()] + replacement + html[target.end():]
+          elif 'id="areas-operated"' not in html:
+              raise SystemExit('Could not locate the homepage client showcase section')
+
+          # Remove any client-name labels that may remain in this specific showcase block.
+          html = html.replace('Client showcase', 'Areas operated')
+          p.write_text(html, encoding='utf-8')
+
+      - name: Validate
+        shell: python
+        run: |
+          from pathlib import Path
+          html = Path('index.html').read_text(encoding='utf-8')
+          assert 'id="areas-operated"' in html
+          assert 'Areas operated' in html
+          print('Client-name showcase replacement validated')
+
+      - name: Commit
+        run: |
+          git config user.name "github-actions[bot]"
+          git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
+          git add index.html
+          git diff --cached --quiet && exit 0
+          git commit -m "[skip ci] Replace client names with operating areas"
+          git push
