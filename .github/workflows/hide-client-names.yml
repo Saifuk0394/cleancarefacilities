@@ -14,7 +14,7 @@ jobs:
     steps:
       - uses: actions/checkout@v4
 
-      - name: Replace client names with operating areas
+      - name: Replace client showcase
         shell: python
         run: |
           from pathlib import Path
@@ -23,9 +23,8 @@ jobs:
           p = Path('index.html')
           html = p.read_text(encoding='utf-8')
 
-          # Replace only the homepage portfolio/client showcase. This keeps the design,
-          # layout and client-count metric while removing identifiable client names.
-          pattern = re.compile(r'<section(?=[^>]*class=["\'][^"\']*section[^"\']*["\'])[^>]*>.*?<div[^>]*class=["\'][^"\']*portfolio-top[^"\']*["\'][^>]*>.*?</section>', re.I | re.S)
+          # Replace the exact homepage client showcase section, preserving the existing
+          # premium layout while removing identifiable community/client names.
           replacement = '''<section class="section mist" id="areas-operated">
     <div class="container">
       <div class="portfolio-top reveal">
@@ -55,15 +54,37 @@ jobs:
     </div>
   </section>'''
 
-          matches = list(pattern.finditer(html))
-          target = next((m for m in matches if 'portfolio-top' in m.group(0)), None)
-          if target:
-              html = html[:target.start()] + replacement + html[target.end():]
-          elif 'id="areas-operated"' not in html:
-              raise SystemExit('Could not locate the homepage client showcase section')
+          heading = 'Trusted across residential communities.'
+          start = html.find(heading)
+          if start == -1:
+              raise SystemExit('Homepage client showcase heading not found')
 
-          # Remove any client-name labels that may remain in this specific showcase block.
-          html = html.replace('Client showcase', 'Areas operated')
+          section_start = html.rfind('<section', 0, start)
+          if section_start == -1:
+              raise SystemExit('Could not find start of client showcase section')
+
+          section_end = html.find('</section>', start)
+          if section_end == -1:
+              raise SystemExit('Could not find end of client showcase section')
+          section_end += len('</section>')
+
+          html = html[:section_start] + replacement + html[section_end:]
+
+          # Rename the navigation item while retaining the same anchor position.
+          html = re.sub(r'href="#(?:clients|portfolio)"([^>]*)>Clients</a>', r'href="#areas-operated"\1>Areas Operated</a>', html, flags=re.I)
+
+          # Remove any remaining known client/community names from the homepage source.
+          client_names = [
+              'Sunrise CHS','Rainbow CHS','Hillside CHS','Lakeside CHS','Sunset I CHS','Golden Rays CHS',
+              'Hillcrest 1','Hillcrest 2','Paradise CHS','Evening Glory CHS','Sunglory CHS','Sunglow CHS',
+              'Twilight CHS','Harmony CHS','Sundew CHS','Silvercrest CHS','Adityavardhan CHS','Maple Leaf CHS',
+              'Raheja Asencio CHS','Palatial Height CHS','Regent Hill Gardens','Harsh Vardhan CHS','Vasu Kamal CHS',
+              'Parijat Tower CHS','ANSA D/E/F','Sagar Heritage CHS','Happiness CHS','Hurrah CHS','Celebration CHS',
+              'Delight CHS','Lok Everest CHS'
+          ]
+          for name in client_names:
+              html = html.replace(name, 'Residential Community')
+
           p.write_text(html, encoding='utf-8')
 
       - name: Validate
@@ -72,8 +93,10 @@ jobs:
           from pathlib import Path
           html = Path('index.html').read_text(encoding='utf-8')
           assert 'id="areas-operated"' in html
-          assert 'Areas operated' in html
-          print('Client-name showcase replacement validated')
+          assert 'Areas Operated' in html
+          forbidden = ['Sunrise CHS','Rainbow CHS','Hillside CHS','Lakeside CHS','Sunset I CHS','Golden Rays CHS','Hillcrest 1','Hillcrest 2','Paradise CHS','Evening Glory CHS','Sunglory CHS','Sunglow CHS','Twilight CHS','Harmony CHS','Sundew CHS','Silvercrest CHS','Adityavardhan CHS','Maple Leaf CHS','Raheja Asencio CHS','Palatial Height CHS','Regent Hill Gardens','Harsh Vardhan CHS','Vasu Kamal CHS','Parijat Tower CHS','ANSA D/E/F','Sagar Heritage CHS','Happiness CHS','Hurrah CHS','Celebration CHS','Delight CHS','Lok Everest CHS']
+          assert not any(name in html for name in forbidden)
+          print('Client-name removal validated')
 
       - name: Commit
         run: |
